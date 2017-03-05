@@ -15,9 +15,9 @@ app.use(bodyParser.json());
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/company');
 var db = mongoose.connection;
 
-app.post('/api/user/signin' ,)
-app.post('/api/user/signup',)
-app.get('/api/users',)
+app.post('/api/user/signin' , UserController.handleUsers.signin);
+app.post('/api/user/signup', UserController.handleUsers.signup);
+app.get('/api/users', UserController.handleUsers.getUsers)
 
 
 

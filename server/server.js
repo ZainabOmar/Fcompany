@@ -2,9 +2,8 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var session = require('express-session');
 
-var UserController = require('./Usres/userController.js')
+var UserController = require('./Users/userController.js')
 
 //middleware
 app.use(express.static(__dirname + '../client'));

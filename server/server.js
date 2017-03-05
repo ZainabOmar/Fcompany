@@ -7,7 +7,7 @@ var session = require('express-session');
 var UserController = require('./Usres/userController.js')
 
 //middleware
-app.use(express.static(__dirname + '/client'));
+app.use(express.static(__dirname + '../client'));
 app.use(bodyParser.json());
 
 
@@ -15,9 +15,9 @@ app.use(bodyParser.json());
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/company');
 var db = mongoose.connection;
 
-app.post('' ,)
-app.post('',)
-app.get('',)
+app.post('/api/user/signin' ,)
+app.post('/api/user/signup',)
+app.get('/api/users',)
 
 
 

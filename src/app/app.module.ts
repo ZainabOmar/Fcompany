@@ -7,11 +7,13 @@ import { RouterModule }   from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { SigninComponent } from './signin/signin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainPageComponent
+    MainPageComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,

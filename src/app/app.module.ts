@@ -18,10 +18,14 @@ import { MainPageComponent } from './main-page/main-page.component';
     FormsModule,
     HttpModule,
     RouterModule.forRoot([
-  {     path: 'mainPage',   component: MainPageComponent}
+  {path: 'mainPage',   component: MainPageComponent},
+  {path: '',   component: MainPageComponent}
   ])
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
+
+
 export class AppModule { }

@@ -27,8 +27,14 @@ module.exports.handleUsers = {
 
   // add user to data base
   signup: function(req, res) {
+    console.log("in sign up",req.body.code)
+    
     var username = req.body.username;
     var password = req.body.password;
+    var email = req.body.email;
+    var code = req.body.code;
+
+
 
     // check to see if user already exists
     User.findOne({username: username})
@@ -39,7 +45,9 @@ module.exports.handleUsers = {
           // make a new user if not one
           return User.create({
             username: username,
-            password: password
+            password: password,
+            email:email,
+            code:code
           }, function (err, newUser) {
               // create token to send back for auth
               if(err){

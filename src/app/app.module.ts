@@ -28,9 +28,8 @@ import {AuthService} from './services/auth.service';
     RouterModule.forRoot([
   {path: 'mainPage',   component: MainPageComponent},
   {path: '',   component: MainPageComponent},
-  {path: 'signup',component: SignupComponent}
+  {path: 'signup',component: SignupComponent},
   {path: 'signin',component: SigninComponent}
-  {path: 'aboutus',   component: AboutusComponent}
   ]),
     FlashMessagesModule
   ],

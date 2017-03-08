@@ -13,13 +13,15 @@ import {FlashMessagesModule} from 'angular2-flash-messages';
 
 import {ValidateService} from './services/validate.service';
 import {AuthService} from './services/auth.service';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    AboutusComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,7 @@ import {AuthService} from './services/auth.service';
   {path: 'mainPage',   component: MainPageComponent},
   {path: '',   component: MainPageComponent},
   {path: 'signup',component: SignupComponent},
-  {path: 'signin',component: SigninComponent}
+  {path: 'aboutus',   component: AboutusComponent}
   ]),
     FlashMessagesModule
   ],

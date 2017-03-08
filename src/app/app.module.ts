@@ -8,12 +8,18 @@ import { RouterModule }   from '@angular/router';
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { SigninComponent } from './signin/signin.component';
+import { SignupComponent } from './signup/signup.component';
+import {FlashMessagesModule} from 'angular2-flash-messages';
+
+import {ValidateService} from './services/validate.service';
+import {AuthService} from './services/auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
-    SigninComponent
+    SigninComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -21,10 +27,12 @@ import { SigninComponent } from './signin/signin.component';
     HttpModule,
     RouterModule.forRoot([
   {path: 'mainPage',   component: MainPageComponent},
-  {path: '',   component: MainPageComponent}
-  ])
+  {path: '',   component: MainPageComponent},
+  {path: 'signup',component: SignupComponent}
+  ]),
+    FlashMessagesModule
   ],
-  providers: [],
+  providers: [ValidateService,AuthService],
   bootstrap: [AppComponent]
 })
 

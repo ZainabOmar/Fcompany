@@ -2,12 +2,15 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+// const cors = require('cors');
 
 var UserController = require('./Users/userController.js')
 
 //middleware
-app.use(express.static(__dirname + '../client'));
+app.use(express.static(__dirname + '/../dist'));
 app.use(bodyParser.json());
+
+// app.use(cors());
 
 
 // Connect to Mongoose

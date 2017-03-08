@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-// const cors = require('cors');
+ const cors = require('cors');
 
 var UserController = require('./Users/userController.js')
 
@@ -10,7 +10,7 @@ var UserController = require('./Users/userController.js')
 app.use(express.static(__dirname + '/../dist'));
 app.use(bodyParser.json());
 
-// app.use(cors());
+ app.use(cors());
 
 
 // Connect to Mongoose

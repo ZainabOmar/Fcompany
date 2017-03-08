@@ -30,6 +30,7 @@ import {AuthService} from './services/auth.service';
   {path: '',   component: MainPageComponent},
   {path: 'signup',component: SignupComponent}
   {path: 'signin',component: SigninComponent}
+  {path: 'aboutus',   component: AboutusComponent}
   ]),
     FlashMessagesModule
   ],

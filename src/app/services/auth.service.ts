@@ -14,7 +14,15 @@ export class AuthService {
     let headers = new Headers();
     headers.append('Content-Type','application/json');
     return this.http.post('api/user/signup', user,{headers: headers})
-      .map(res => res.json());
+    .map(res => res.json());
+  }
+
+  signin(user) {
+    console.log("_________________________________")
+    let headers = new Headers();
+    headers.append('Content-Type','application/json');
+    return this.http.post('api/user/signin', user, {headers: headers})
+    .map(res => res.json());
   }
 
   // authenticateUser(user){

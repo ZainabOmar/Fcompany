@@ -29,6 +29,7 @@ import {AuthService} from './services/auth.service';
   {path: 'mainPage',   component: MainPageComponent},
   {path: '',   component: MainPageComponent},
   {path: 'signup',component: SignupComponent}
+  {path: 'signin',component: SigninComponent}
   ]),
     FlashMessagesModule
   ],

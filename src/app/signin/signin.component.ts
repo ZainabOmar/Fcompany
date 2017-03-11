@@ -29,7 +29,7 @@ export class SigninComponent implements OnInit {
 			username: this.username,
 			password: this.password
 		}
-		console.log(user)
+		console.log(user, "echooooo")
 
 		// Required Fields
 		if(!this.validateService.validateSignin(user)){
@@ -38,15 +38,15 @@ export class SigninComponent implements OnInit {
 		}
 
 		//Register user
-		this.authService.registerUser(user).subscribe(data => {
+		this.authService.signin(user).subscribe(data => {
 			console.log(data.success, "echoooooooooooo")
-			if(data.success){
+			if(data.token){
 				console.log("hellooooooooooooooo, it is working")
 				this.flashMessage.show('You are now registered ', {cssClass: 'alert-success', timeout: 3000});
-				this.router.navigate(['/']);
+				this.router.navigate(['/company']);
 			}
 			else {
-				console.log("hellooooooooooooooo, it is not working")
+				console.log("hellooooooooooooooo, it is not working", data)
 				this.flashMessage.show('Something went wrong', {cssClass: 'alert-danger', timeout: 3000});
 				this.router.navigate(['/signup']);
 			}

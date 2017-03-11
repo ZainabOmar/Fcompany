@@ -1,55 +1,22 @@
-<p>
-  singup works!
-</p>
-     <form (submit)="onRegisterSubmit()"  >
-      
-        <h1>Sign Up</h1>
-        
-        <fieldset>
-          <legend><span class="number">1</span>Your basic info</legend>
-          <label for="name">Name:</label>
-          <input type="text" [(ngModel)]="username"  id="name" name="user_name" >
-          
-          <label for="mail">Email:</label>
-          <input type="email" [(ngModel)]="email" id="mail" name="user_email" >
-          
-          <label for="password">Password:</label>
-          <input type="password" [(ngModel)]="password" id="password" name="user_password" >
-          
-        </fieldset>
-        
-        <fieldset>
-          <legend><span class="number">2</span>Your profile</legend>
-          <label for="bio">Biography:</label>
-          <textarea id="bio" name="user_bio"></textarea>
-        </fieldset>
-        <fieldset>
-        <label for="job">Job Role</label>
-        <select id="job" name="user_job">
-          <optgroup label="Web">
-            <option value="frontend_developer">Front-End Developer</option>
-            <option value="php_developor">PHP Developer</option>
-            <option value="python_developer">Python Developer</option>
-            <option value="rails_developer"> Rails Developer</option>
-            <option value="web_designer">Web Designer</option>
-            <option value="WordPress_developer">WordPress Developer</option>
-          </optgroup>
-          <optgroup label="Mobile">
-            <option value="Android_developer">Androild Developer</option>
-            <option value="iOS_developer">iOS Developer</option>
-            <option value="mobile_designer">Mobile Designer</option>
-          </optgroup>
-          <optgroup label="Business">
-            <option value="business_owner">Business Owner</option>
-            <option value="freelancer">Freelancer</option>
-          </optgroup>
-          <optgroup label="Other">
-            <option value="secretary">Secretary</option>
-            <option value="maintenance">Maintenance</option>
-          </optgroup>
-        </select>
-        
-        </fieldset>
-        <button type="submit" value="Submit" >Sign Up</button>
-        
-      </form>
+
+<form (submit)="onRegisterSubmit()"  >
+
+  <h1>Sign Up</h1>
+
+  <fieldset>
+    <label for="name">Name:</label>
+    <input type="text" [(ngModel)]="username"  id="name" name="user_name" >
+
+    <label for="mail">Email:</label>
+    <input type="email" [(ngModel)]="email" id="mail" name="user_email" >
+
+    <label for="password">Password:</label>
+    <input type="password" [(ngModel)]="password" id="password" name="user_password" >
+    
+    <label for="code">Code:</label>
+    <input type="code" [(ngModel)]="code" id="code" name="user_code" >
+
+  </fieldset>
+  <button type="submit" value="Submit" >Sign Up</button>
+
+</form>

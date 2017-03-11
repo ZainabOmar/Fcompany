@@ -14,6 +14,7 @@ import {FlashMessagesModule} from 'angular2-flash-messages';
 import {ValidateService} from './services/validate.service';
 import {AuthService} from './services/auth.service';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { CompanyComponent } from './company/company.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AboutusComponent } from './aboutus/aboutus.component';
     MainPageComponent,
     SigninComponent,
     SignupComponent,
-    AboutusComponent
+    AboutusComponent,
+    CompanyComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import { AboutusComponent } from './aboutus/aboutus.component';
   {path: '',   component: MainPageComponent},
   {path: 'signup',component: SignupComponent},
   {path: 'signin',component: SigninComponent},
-  {path: 'aboutus',   component: AboutusComponent}
+  {path: 'aboutus',   component: AboutusComponent},
+  {path: 'company',   component: CompanyComponent}
   ]),
     FlashMessagesModule
   ],

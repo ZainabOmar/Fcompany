@@ -1,7 +1,7 @@
 var jwt = require('jwt-simple');
 var User = require('./userModule.js');
 var Q = require('q');
-
+var nodemailer = require('nodemailer')
 // // Promisify a few mongoose methods with the `q` promise library
 // var findUser = Q.nbind(User.findOne, User);
 // var createUser = Q.nbind(User.create, User);
@@ -59,7 +59,30 @@ module.exports.handleUsers = {
                 res.json(err);
               } else {
                 var token = jwt.encode(user, 'secret');
-                res.json({token: token}); 
+
+                var transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                user: 'berzerkk2017@gmail.com', 
+                pass: 'berzerkk' 
+                    }
+                });
+
+                var mailOptions = {
+                  from: 'berzerkk2017@gmail.com',
+                  to: 'aayahassan94@gmail.com',
+                  subject: 'Email Example',
+                  text: "Hello World!"
+                };
+
+                transporter.sendMail(mailOptions, function(error, info){
+                  if(error){
+                      console.log(error);
+                  }else{
+                      console.log('Message sent: ' + info.response);
+                  };
+                });
+                res.json({newUser}); 
               }     
           });
         }

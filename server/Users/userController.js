@@ -1,6 +1,11 @@
 var jwt = require('jwt-simple');
-
 var User = require('./userModule.js');
+var Q = require('q');
+
+// // Promisify a few mongoose methods with the `q` promise library
+// var findUser = Q.nbind(User.findOne, User);
+// var createUser = Q.nbind(User.create, User);
+
 
 module.exports.handleUsers = {
   signin : function(req, res) {

@@ -1,4 +1,17 @@
-<br><br><br>
-<p>
-  company works!
-</p>
+<div class="container">
+  <h2>Pick your friend and start chatting now</h2>
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse1">Start Chatting</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse" *ngIf = "users">
+      <div *ngFor="let user of users">
+      {{username}}
+    </div>
+      </div>
+    </div>
+  </div>
+</div>

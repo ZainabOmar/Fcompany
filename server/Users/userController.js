@@ -70,7 +70,7 @@ module.exports.handleUsers = {
 
                 var mailOptions = {
                   from: 'berzerkk2017@gmail.com',
-                  to: 'aayahassan94@gmail.com',
+                  to: req.body.email,
                   subject: 'Email Example',
                   text: "Hello World!"
                 };

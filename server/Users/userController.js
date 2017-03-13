@@ -2,6 +2,7 @@ var jwt = require('jwt-simple');
 var User = require('./userModule.js');
 var Q = require('q');
 var nodemailer = require('nodemailer')
+var Company = require('../Company/companyModule.js')
 // // Promisify a few mongoose methods with the `q` promise library
 // var findUser = Q.nbind(User.findOne, User);
 // var createUser = Q.nbind(User.create, User);

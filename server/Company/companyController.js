@@ -1,0 +1,1 @@
+var Company = require('./companyModule.js');

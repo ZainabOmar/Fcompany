@@ -1,22 +1,68 @@
+<br>
+<br>
+<br>
 
-<form (submit)="onRegisterSubmit()"  >
+<h1>Sign Up</h1>
+<button (click)="compflag()">company account</button>
+<button (click)="empflag()">employee account</button>
+<div *ngIf="comflag">
+  <form (submit)="onRegisterAdmin()"  >
+    <fieldset>
+      <label for="name">Company Name</label>
+      <input type="text" [(ngModel)]="compname"  id="name" name="user_name" >
 
-  <h1>Sign Up</h1>
+      <label for="name">Admin Name</label>
+      <input type="text" [(ngModel)]="username"  id="name" name="user_name" >
 
-  <fieldset>
-    <label for="name">Name:</label>
-    <input type="text" [(ngModel)]="username"  id="name" name="user_name" >
+      <label for="name">Admon Job Role</label>
+     <!-- <select [(ngModel)]="jobrole"> 
+        <option *ngFor="#n of jobroles" [attr.value]="n">{{n}}</option>
+      </select> -->
+      <select (change)="onChange($event.target.value)">
+        <option *ngFor="let i of jobroles">{{i}}</option>
+      </select>
+      <!-- <input type="text" [(ngModel)]="jobrole"  id="name" name="user_name" > -->
 
-    <label for="mail">Email:</label>
-    <input type="email" [(ngModel)]="email" id="mail" name="user_email" >
+      <label for="name">Company Address</label>
+      <input type="text" [(ngModel)]="Address"  id="name" name="user_name" >
 
-    <label for="password">Password:</label>
-    <input type="password" [(ngModel)]="password" id="password" name="user_password" >
-    
-    <label for="code">Code:</label>
-    <input type="code" [(ngModel)]="code" id="code" name="user_code" >
+      <label for="name">Company telephone</label>
+      <input type="text" [(ngModel)]="tele"  id="name" name="user_name" >
+      
+      <label for="mail">Email</label>
+      <input type="email" [(ngModel)]="email" id="mail" name="user_email" >
 
-  </fieldset>
-  <button type="submit" value="Submit" >Sign Up</button>
+      <label for="password">Password</label>
+      <input type="password" [(ngModel)]="password" id="password" name="user_password" >
+    </fieldset>
+    <button type="submit" value="Submit" >Sign Up</button>
 
-</form>
+  </form>
+</div>
+
+<div *ngIf="emflag">
+
+  <form (submit)="onRegisterUser()"  >
+    <fieldset>
+      <label for="name">Name:</label>
+      <input type="text" [(ngModel)]="username"  id="name" name="user_name" >
+
+      <label for="name">Job Role</label>
+      <select (change)="onChange($event.target.value)">
+        <option *ngFor="let i of jobroles">{{i}}</option>
+      </select>
+
+      <label for="mail">Email:</label>
+      <input type="email" [(ngModel)]="email" id="mail" name="user_email" >
+
+      <label for="password">Password:</label>
+      <input type="password" [(ngModel)]="password" id="password" name="user_password" >
+      
+      <label for="code">Code:</label>
+      <input type="code" [(ngModel)]="code" id="code" name="user_code" >
+
+    </fieldset>
+    <button type="submit" value="Submit" >Sign Up</button>
+
+  </form>
+</div>

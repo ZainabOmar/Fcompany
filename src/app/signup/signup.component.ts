@@ -126,7 +126,7 @@ export class SignupComponent implements OnInit {
     // }
 
     //Register user
-    this.authService.registerAdmin(user).subscribe(data => {
+    this.authService.registerUser(user).subscribe(data => {
 
       console.log(data.success, data,"btatatatatata")
       if(data.token){

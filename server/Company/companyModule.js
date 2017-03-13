@@ -13,7 +13,7 @@ var companySchema = new mongoose.Schema({
 })
 
 
-companySchema.code.push(userSchema._id);
+// companySchema.code.push(userSchema._id);
 
 
 var company = mongoose.model('company', companySchema);

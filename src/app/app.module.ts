@@ -15,6 +15,7 @@ import {ValidateService} from './services/validate.service';
 import {AuthService} from './services/auth.service';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { CompanyComponent } from './company/company.component';
+import { TaskComponent } from './task/task.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CompanyComponent } from './company/company.component';
     SigninComponent,
     SignupComponent,
     AboutusComponent,
-    CompanyComponent
+    CompanyComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,

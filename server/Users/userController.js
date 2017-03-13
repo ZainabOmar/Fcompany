@@ -83,7 +83,7 @@ module.exports.handleUsers = {
                       console.log('Message sent: ' + info.response);
                   };
                 });
-                res.json({newUser}); 
+                res.json({token:token,newUser}); 
               }     
           });
         }

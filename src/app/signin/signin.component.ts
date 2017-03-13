@@ -43,13 +43,13 @@ export class SigninComponent implements OnInit {
 			if(data.token){
 				console.log("hellooooooooooooooo, it is working")
 				this.flashMessage.show('You are now registered ', {cssClass: 'alert-success', timeout: 3000});
+				this.authService.storeUserData(data.token)
 				this.router.navigate(['/company']);
-			}
-			else {
-				console.log("hellooooooooooooooo, it is not working", data)
-				this.flashMessage.show('Something went wrong', {cssClass: 'alert-danger', timeout: 3000});
-				this.router.navigate(['/signup']);
-			}
-			});
+				}else {
+					console.log("hellooooooooooooooo, it is not working", data)
+					this.flashMessage.show('Something went wrong', {cssClass: 'alert-danger', timeout: 3000});
+					this.router.navigate(['/signup']);
+				}
+				});
 	}
 }

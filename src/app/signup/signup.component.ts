@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
-})
+  })
 
 
 export class SignupComponent implements OnInit {
@@ -39,7 +39,7 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
     this.jobrole = this.jobroles[0]
   }
- onChange(newValue) {
+  onChange(newValue) {
     console.log(newValue);
     this.jobrole =  newValue;
 
@@ -47,8 +47,8 @@ export class SignupComponent implements OnInit {
   }
 
 
-compflag() {
-  console.log("in comp flag")
+  compflag() {
+    console.log("in comp flag")
     this.comflag = !this.comflag;
     console.log(this.comflag)
   }
@@ -57,7 +57,7 @@ compflag() {
   }
 
   onRegisterUser(){
-console.log(this.jobrole)
+    console.log(this.jobrole)
     const user = {
       username: this.username,
       email: this.email,
@@ -81,22 +81,23 @@ console.log(this.jobrole)
 
     //Register user
     this.authService.registerUser(user).subscribe(data => {
-      
-        console.log(data.success, data,"btatatatatata")
+
+      console.log(data.success, data,"btatatatatata")
       if(data.token){
         this.flashMessage.show('You are now registered ', {cssClass: 'alert-success', timeout: 3000});
+        this.authService.storeUserData(data.token)
         this.router.navigate(['/company']);
-      } else {
-        console.log(data, "not working")
-        this.flashMessage.show('Something went wrong', {cssClass: 'alert-danger', timeout: 3000});
-        this.router.navigate(['/signup']);
-      }
-    });
+        } else {
+          console.log(data, "not working")
+          this.flashMessage.show('Something went wrong', {cssClass: 'alert-danger', timeout: 3000});
+          this.router.navigate(['/signup']);
+        }
+        });
 
   }
   
-    onRegisterAdmin(){
-console.log(this.jobrole)
+  onRegisterAdmin(){
+    console.log(this.jobrole)
     const user = {
       username: this.username,
       email: this.email,
@@ -126,17 +127,18 @@ console.log(this.jobrole)
 
     //Register user
     this.authService.registerAdmin(user).subscribe(data => {
-      
-        console.log(data.success, data,"btatatatatata")
+
+      console.log(data.success, data,"btatatatatata")
       if(data.token){
         this.flashMessage.show('You are now registered ', {cssClass: 'alert-success', timeout: 3000});
+        this.authService.storeUserData(data.token)
         this.router.navigate(['/company']);
-      } else {
-        console.log(data, "not working")
-        this.flashMessage.show('Something went wrong', {cssClass: 'alert-danger', timeout: 3000});
-        this.router.navigate(['/signup']);
-      }
-    });
+        } else {
+          console.log(data, "not working")
+          this.flashMessage.show('Something went wrong', {cssClass: 'alert-danger', timeout: 3000});
+          this.router.navigate(['/signup']);
+        }
+        });
 
   }
 

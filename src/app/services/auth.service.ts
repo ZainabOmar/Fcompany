@@ -17,12 +17,7 @@ export class AuthService {
     return this.http.post('api/user/signup', user,{headers: headers})
     .map(res => res.json());
   }
-    registerAdmin(user){
-    let headers = new Headers();
-    headers.append('Content-Type','application/json');
-    return this.http.post('api/user/signupadmin', user,{headers: headers})
-    .map(res => res.json());
-  }
+
 
   signin(user) {
     let headers = new Headers();

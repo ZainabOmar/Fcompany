@@ -1,1 +1,0 @@
-var Admin = require('./adminModule.js');

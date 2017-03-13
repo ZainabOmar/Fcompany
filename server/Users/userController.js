@@ -2,11 +2,8 @@ var jwt = require('jwt-simple');
 var User = require('./userModule.js');
 var Q = require('q');
 var nodemailer = require('nodemailer')
-var Company = require('../Company/companyModule.js')
-// // Promisify a few mongoose methods with the `q` promise library
-// var findUser = Q.nbind(User.findOne, User);
-// var createUser = Q.nbind(User.create, User);
 
+var Company = require('../Company/companyModule.js')
 
 module.exports.handleUsers = {
   signin : function(req, res) {
@@ -34,12 +31,12 @@ module.exports.handleUsers = {
   // add user to data base
   signup: function(req, res) {
     console.log("in sign up",req.body.code)
-    
+    // if(req.body)
     var username = req.body.username;
     var password = req.body.password;
     var email = req.body.email;
     var code = req.body.code;
-
+    var job =req.body.job
 
 
     // check to see if user already exists
@@ -53,7 +50,8 @@ module.exports.handleUsers = {
             username: username,
             password: password,
             email:email,
-            code:code
+            code:code,
+            job:job
           }, function (err, newUser) {
               // create token to send back for auth
               if(err){
@@ -83,7 +81,7 @@ module.exports.handleUsers = {
                       console.log('Message sent: ' + info.response);
                   };
                 });
-                res.json({token:token,newUser}); 
+                res.json({token : token ,newUser}); 
               }     
           });
         }

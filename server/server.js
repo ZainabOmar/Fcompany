@@ -4,8 +4,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
  const cors = require('cors');
 
-var UserController = require('./Users/userController.js')
-
+var UsersController = require('./Users/userController.js')
 //middleware
 app.use(express.static(__dirname + '/../dist'));
 app.use(bodyParser.json());
@@ -17,10 +16,12 @@ app.use(bodyParser.json());
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/company');
 var db = mongoose.connection;
 
-app.post('/api/user/signin' , UserController.handleUsers.signin);
-app.post('/api/user/signup', UserController.handleUsers.signup);
-app.get('/api/users', UserController.handleUsers.getUsers)
 
+
+
+app.post('/api/user/signin' , UsersController.handleUsers.signin);
+app.post('/api/user/signup', UsersController.handleUsers.signup);
+app.get('/api/users', UsersController.handleUsers.getUsers)
 
 
 app.listen(process.env.PORT || 3000);

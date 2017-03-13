@@ -22,7 +22,11 @@ var userSchema = new mongoose.Schema({
 	},
 	job:{
 	  type:String
-	}
+	},
+  UserType:{
+    type:Boolean,
+    required:true
+  }
 });
 
 

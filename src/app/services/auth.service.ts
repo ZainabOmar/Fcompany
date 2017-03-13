@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthService {
+
   authToken: any;
   user: any;
 
@@ -24,7 +25,6 @@ export class AuthService {
   }
 
   signin(user) {
-    console.log("_________________________________")
     let headers = new Headers();
     headers.append('Content-Type','application/json');
     return this.http.post('api/user/signin', user, {headers: headers})
@@ -38,34 +38,35 @@ export class AuthService {
   //     .map(res => res.json());
   // }
 
-  // getProfile(){
-  //   let headers = new Headers();
-  //   this.loadToken();
-  //   headers.append('Authorization', this.authToken);
-  //   headers.append('Content-Type','application/json');
-  //   return this.http.get('http://localhost:3000/users/profile',{headers: headers})
-  //     .map(res => res.json());
-  // }
+   getUserSameCompany(){
+    let headers = new Headers();
+    this.loadToken();
+    headers.append('Authorization', this.authToken);
+    headers.append('Content-Type','application/json');
+    return this.http.get('api/users',{headers: headers})
+    .map(res => res.json());
+  }
 
-  // storeUserData(token, user){
-  //   localStorage.setItem('id_token', token);
-  //   localStorage.setItem('user', JSON.stringify(user));
-  //   this.authToken = token;
-  //   this.user = user;
-  // }
+  storeUserData(token){
+    localStorage.setItem('id_token', token);
+    // localStorage.setItem('user', JSON.stringify(user));
+    this.authToken = token;
+    // this.user = user;
+  }
 
-  // loadToken(){
-  //   const token = localStorage.getItem('id_token');
-  //   this.authToken = token;
-  // }
+  loadToken(){
+    const token = localStorage.getItem('id_token');
+    this.authToken = token;
+  }
 
   // loggedIn(){
   //   return tokenNotExpired();
   // }
 
-  // logout(){
-  //   this.authToken = null;
-  //   this.user = null;
-  //   localStorage.clear();
-  // }
+  logout(){
+    console.log("signing out")
+    this.authToken = null;
+    this.user = null;
+    localStorage.clear();
+  }
 }

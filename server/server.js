@@ -2,9 +2,11 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
- const cors = require('cors');
+const cors = require('cors');
 
 var UsersController = require('./Users/userController.js')
+var CompanyController = require('./Company/companyController.js')
+
 //middleware
 app.use(express.static(__dirname + '/../dist'));
 app.use(bodyParser.json());
@@ -22,6 +24,10 @@ var db = mongoose.connection;
 app.post('/api/user/signin' , UsersController.handleUsers.signin);
 app.post('/api/user/signup', UsersController.handleUsers.signup);
 app.get('/api/users', UsersController.handleUsers.getUsers)
+
+
+app.post('/api/company', CompanyController.handelCompany.addCompany);
+app.get('/api/companys', CompanyController.handelCompany.showCompany)
 
 
 app.listen(process.env.PORT || 3000);

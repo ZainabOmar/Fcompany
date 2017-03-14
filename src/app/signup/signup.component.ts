@@ -69,7 +69,9 @@ export class SignupComponent implements OnInit {
       email: this.email,
       jobrole: this.jobrole,
       password: this.password,
-      code: this.code
+      code: this.code,
+      UserType:"employee"
+
     }
     
     console.log("echoooooooooooo",user)
@@ -91,7 +93,7 @@ export class SignupComponent implements OnInit {
       console.log(data.success, data,"btatatatatata")
       if(data.token){
         this.flashMessage.show('You are now registered ', {cssClass: 'alert-success', timeout: 3000});
-        this.authService.storeUserData(data.token)
+        this.authService.storeUserData(data.token,data._id,data.username)
         this.router.navigate(['/company']);
         } else {
           console.log(data, "not working")
@@ -108,8 +110,8 @@ export class SignupComponent implements OnInit {
       username: this.username,
       email: this.email,
       jobrole: this.jobrole,
-      password: this.password
-
+      password: this.password,
+      UserType:"Admin"
     }
     
     console.log("echoooooooooooo",user)
@@ -131,7 +133,7 @@ export class SignupComponent implements OnInit {
       console.log(data.success, data,"btatatatatata")
       if(data.token){
         this.flashMessage.show('You are now registered ', {cssClass: 'alert-success', timeout: 3000});
-        this.authService.storeUserData(data.token)
+        this.authService.storeUserData("null",data.AdminId,data.username)
         this.router.navigate(['/creatcompany']);
         } else {
           console.log(data, "not working")

@@ -8,6 +8,8 @@ export class AuthService {
 
   authToken: any;
   user: any;
+  AdminId:String;
+  Adminname:String;
 
   constructor(private http:Http) { }
 
@@ -18,6 +20,12 @@ export class AuthService {
     .map(res => res.json());
   }
 
+  registerCompany(company){
+    let headers = new Headers();
+    headers.append('Content-Type','application/json');
+    return this.http.post('/api/company', company,{headers: headers})
+    .map(res => res.json());
+  }
 
   signin(user) {
     let headers = new Headers();
@@ -42,9 +50,11 @@ export class AuthService {
     .map(res => res.json());
   }
 
-  storeUserData(token){
+  storeUserData(token,id,name){
     localStorage.setItem('id_token', token);
-    // localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('user-id', JSON.stringify(id));
+    localStorage.setItem('user-name', JSON.stringify(name));
+
     this.authToken = token;
     // this.user = user;
   }
@@ -52,6 +62,14 @@ export class AuthService {
   loadToken(){
     const token = localStorage.getItem('id_token');
     this.authToken = token;
+  }
+  loadAdmindata(){
+    const x=localStorage.getItem('user-id');
+    const y=localStorage.getItem('user-name');
+    this.AdminId=x;
+    this.Adminname=y;
+    
+    return {AdminId:this.AdminId,Adminname:this.Adminname}
   }
 
   // loggedIn(){

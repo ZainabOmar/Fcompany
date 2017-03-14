@@ -2,11 +2,11 @@ var mongoose = require('mongoose');
 
 
 var companySchema = new mongoose.Schema({
-   code:[{
+   users:[{
 	  type:mongoose.Schema.Types.ObjectId,
 	  ref:'user'
 	}],
-	username:{
+	code:{
 	  type:String,
 	  required:true
 	},
@@ -15,10 +15,10 @@ var companySchema = new mongoose.Schema({
 		required:true
 	},
 	phoneNumber:{
-		type:Number,
+		type:String,
 		required:true
 	},
-  CompanyName:{
+    CompanyName:{
     type:String,
   }
 })
@@ -30,3 +30,16 @@ var companySchema = new mongoose.Schema({
 var company = mongoose.model('company', companySchema);
 
 module.exports = company;
+
+
+// Get Books from mongo data base
+module.exports.getcompany = (callback) => {
+	company.find(callback);
+}
+
+
+
+// Add company to mongo data base
+module.exports.addcompany = (Company, callback) => {
+	company.create(Company, callback);
+}

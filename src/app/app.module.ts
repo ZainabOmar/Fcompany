@@ -16,31 +16,32 @@ import {AuthService} from './services/auth.service';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { CompanyComponent } from './company/company.component';
 import { TaskComponent } from './task/task.component';
+import { CreatcompanyComponent } from './creatcompany/creatcompany.component';
 
 @NgModule({
   declarations: [
-  AppComponent,
-  MainPageComponent,
-  SigninComponent,
-  SignupComponent,
-  AboutusComponent,
-  CompanyComponent,
-  TaskComponent
+    AppComponent,
+    MainPageComponent,
+    SigninComponent,
+    SignupComponent,
+    AboutusComponent,
+    CompanyComponent,
+    CreatcompanyComponent
   ],
   imports: [
-  BrowserModule,
-  FormsModule,
-  HttpModule,
-  RouterModule.forRoot([
-    {path: 'mainPage',   component: MainPageComponent},
-    {path: '',   component: MainPageComponent},
-    {path: 'signup',component: SignupComponent},
-    {path: 'signin',component: SigninComponent},
-    {path: 'aboutus',   component: AboutusComponent},
-    {path: 'company',   component: CompanyComponent},
-    {path: 'task',   component: TaskComponent}
-    ]),
-  FlashMessagesModule
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    RouterModule.forRoot([
+  {path: 'mainPage',   component: MainPageComponent},
+  {path: '',   component: MainPageComponent},
+  {path: 'signup',component: SignupComponent},
+  {path: 'creatcompany',   component: CreatcompanyComponent},
+  {path: 'signin',component: SigninComponent},
+  {path: 'aboutus',   component: AboutusComponent},
+  {path: 'company',   component: CompanyComponent}
+  ]),
+    FlashMessagesModule
   ],
   providers: [ValidateService,AuthService],
   bootstrap: [AppComponent]

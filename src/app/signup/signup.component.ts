@@ -27,6 +27,8 @@ export class SignupComponent implements OnInit {
   comflag= false;
   emflag= false;
   jobroles: string[] = ["CEO", "Developer", "Accountant", "HR"];
+  but1flag = true;
+  but2flag = true;
 
 
   constructor(
@@ -50,10 +52,14 @@ export class SignupComponent implements OnInit {
   compflag() {
     console.log("in comp flag")
     this.comflag = !this.comflag;
+    this.but2flag = !this.but2flag;
+
     console.log(this.comflag)
   }
   empflag() {
     this.emflag = !this.emflag;
+    this.but1flag = !this.but1flag;
+    
   }
 
   onRegisterUser(){
@@ -86,10 +92,10 @@ export class SignupComponent implements OnInit {
       if(data.token){
         this.flashMessage.show('You are now registered ', {cssClass: 'alert-success', timeout: 3000});
         this.authService.storeUserData(data.token)
-        this.router.navigate(['/company']);
+        this.router.navigate(['/creatcompany']);
         } else {
           console.log(data, "not working")
-          this.flashMessage.show('Something went wrong', {cssClass: 'alert-danger', timeout: 3000});
+          this.flashMessage.show("User already exist!", {cssClass: 'alert-danger', timeout: 3000});
           this.router.navigate(['/signup']);
         }
         });
@@ -101,14 +107,8 @@ export class SignupComponent implements OnInit {
     const user = {
       username: this.username,
       email: this.email,
-      tele: this.tele,
       jobrole: this.jobrole,
-      Address: this.Address,
-      password: this.password,
-      code: this.code,
-      compname: this.compname
-
-
+      password: this.password
 
     }
     
@@ -135,7 +135,7 @@ export class SignupComponent implements OnInit {
         this.router.navigate(['/company']);
         } else {
           console.log(data, "not working")
-          this.flashMessage.show('Something went wrong', {cssClass: 'alert-danger', timeout: 3000});
+          this.flashMessage.show("User already exist!", {cssClass: 'alert-danger', timeout: 3000});
           this.router.navigate(['/signup']);
         }
         });

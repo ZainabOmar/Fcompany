@@ -15,6 +15,7 @@ import {ValidateService} from './services/validate.service';
 import {AuthService} from './services/auth.service';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { CompanyComponent } from './company/company.component';
+import { CreatcompanyComponent } from './creatcompany/creatcompany.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CompanyComponent } from './company/company.component';
     SigninComponent,
     SignupComponent,
     AboutusComponent,
-    CompanyComponent
+    CompanyComponent,
+    CreatcompanyComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +35,7 @@ import { CompanyComponent } from './company/company.component';
   {path: 'mainPage',   component: MainPageComponent},
   {path: '',   component: MainPageComponent},
   {path: 'signup',component: SignupComponent},
+  {path: 'creatcompany',   component: CreatcompanyComponent},
   {path: 'signin',component: SigninComponent},
   {path: 'aboutus',   component: AboutusComponent},
   {path: 'company',   component: CompanyComponent}

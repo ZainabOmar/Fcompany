@@ -15,6 +15,7 @@ export class CreatcompanyComponent implements OnInit {
  CompanyName: String;
  address: String;
  phoneNumber: String;
+ code:String;
  AdminId:any;
  Adminname:any;
 
@@ -36,6 +37,7 @@ export class CreatcompanyComponent implements OnInit {
     CompanyName: this.CompanyName,
     address: this.address,
     phoneNumber: this.phoneNumber,
+    code:this.code,
     AdminId:localStorage.getItem('user-id'),
     Adminname:localStorage.getItem('user-name'),
 

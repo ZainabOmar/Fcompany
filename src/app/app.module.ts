@@ -26,7 +26,8 @@ import { CreatcompanyComponent } from './creatcompany/creatcompany.component';
     SignupComponent,
     AboutusComponent,
     CompanyComponent,
-    CreatcompanyComponent
+    CreatcompanyComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,

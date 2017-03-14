@@ -136,14 +136,16 @@ module.exports.handleUsers = {
                 res.json(err);
               } else {
                 var token = jwt.encode(user, 'secret');
+                console.log(c)
                 res.json({token : token ,UserId : newUser._id , username : username}); 
-              }   
-            });
-              c.code.push(newUser._id)
+              c.users.push(newUser._id)
               c.save(function(err,c){
-                if(err) throw err;
+                if(err) {throw err};
                 res.json(newUser)
               })
+              }   
+            });
+                console.log("aaaaa")
             } else {
               res.status(404).json("egleb wjhak");
             }

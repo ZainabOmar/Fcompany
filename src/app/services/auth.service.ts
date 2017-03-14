@@ -18,6 +18,12 @@ export class AuthService {
     .map(res => res.json());
   }
 
+  registerCompany(company){
+    let headers = new Headers();
+    headers.append('Content-Type','application/json');
+    return this.http.post('api/user/createCompany', company,{headers: headers})
+    .map(res => res.json());
+  }
 
   signin(user) {
     let headers = new Headers();

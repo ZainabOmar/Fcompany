@@ -39,15 +39,15 @@ export class SigninComponent implements OnInit {
 
 		//Register user
 		this.authService.signin(user).subscribe(data => {
-			console.log(data.success, "echoooooooooooo")
+			console.log(data.token, "echoooooooooooo")
 			if(data.token){
 				console.log("hellooooooooooooooo, it is working")
-				this.flashMessage.show('Welcom ', {cssClass: 'alert-success', timeout: 3000});
+				// this.flashMessage.show('Welcome ', {cssClass: 'alert-success', timeout: 3000});
 				this.authService.storeUserData(data.token,null,null);
 				this.router.navigate(['/company']);
 				}else {
 					console.log("hellooooooooooooooo, it is not working", data)
-					this.flashMessage.show('Something went wrong', {cssClass: 'alert-danger', timeout: 3000});
+					// this.flashMessage.show('Something went wrong', {cssClass: 'alert-danger', timeout: 3000});
 					this.router.navigate(['/signup']);
 				}
 				});

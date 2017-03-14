@@ -92,7 +92,7 @@ export class SignupComponent implements OnInit {
       if(data.token){
         this.flashMessage.show('You are now registered ', {cssClass: 'alert-success', timeout: 3000});
         this.authService.storeUserData(data.token)
-        this.router.navigate(['/creatcompany']);
+        this.router.navigate(['/company']);
         } else {
           console.log(data, "not working")
           this.flashMessage.show("User already exist!", {cssClass: 'alert-danger', timeout: 3000});
@@ -132,7 +132,7 @@ export class SignupComponent implements OnInit {
       if(data.token){
         this.flashMessage.show('You are now registered ', {cssClass: 'alert-success', timeout: 3000});
         this.authService.storeUserData(data.token)
-        this.router.navigate(['/company']);
+        this.router.navigate(['/creatcompany']);
         } else {
           console.log(data, "not working")
           this.flashMessage.show("User already exist!", {cssClass: 'alert-danger', timeout: 3000});

@@ -20,4 +20,8 @@ export class CompanyComponent implements OnInit {
 		this.authService.logout()
 		this.router.navigate(['/']);
 	}
+
+	getUsers() {
+		this.authService.getUserSameCompany()
+	}
 }

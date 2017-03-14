@@ -19,31 +19,32 @@ import { TaskComponent } from './task/task.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MainPageComponent,
-    SigninComponent,
-    SignupComponent,
-    AboutusComponent,
-    CompanyComponent,
-    TaskComponent
+  AppComponent,
+  MainPageComponent,
+  SigninComponent,
+  SignupComponent,
+  AboutusComponent,
+  CompanyComponent,
+  TaskComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    RouterModule.forRoot([
-  {path: 'mainPage',   component: MainPageComponent},
-  {path: '',   component: MainPageComponent},
-  {path: 'signup',component: SignupComponent},
-  {path: 'signin',component: SigninComponent},
-  {path: 'aboutus',   component: AboutusComponent},
-  {path: 'company',   component: CompanyComponent}
-  ]),
-    FlashMessagesModule
+  BrowserModule,
+  FormsModule,
+  HttpModule,
+  RouterModule.forRoot([
+    {path: 'mainPage',   component: MainPageComponent},
+    {path: '',   component: MainPageComponent},
+    {path: 'signup',component: SignupComponent},
+    {path: 'signin',component: SigninComponent},
+    {path: 'aboutus',   component: AboutusComponent},
+    {path: 'company',   component: CompanyComponent},
+    {path: 'task',   component: TaskComponent}
+    ]),
+  FlashMessagesModule
   ],
   providers: [ValidateService,AuthService],
   bootstrap: [AppComponent]
-})
+  })
 
 
 

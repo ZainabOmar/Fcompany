@@ -42,8 +42,8 @@ export class SigninComponent implements OnInit {
 			console.log(data.success, "echoooooooooooo")
 			if(data.token){
 				console.log("hellooooooooooooooo, it is working")
-				this.flashMessage.show('You are now registered ', {cssClass: 'alert-success', timeout: 3000});
-				this.authService.storeUserData(data.token)
+				this.flashMessage.show('Welcom ', {cssClass: 'alert-success', timeout: 3000});
+				this.authService.storeUserData(data.token,null,null);
 				this.router.navigate(['/company']);
 				}else {
 					console.log("hellooooooooooooooo, it is not working", data)

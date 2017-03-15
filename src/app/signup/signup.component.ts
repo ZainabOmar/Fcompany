@@ -130,7 +130,7 @@ export class SignupComponent implements OnInit {
     //Register user
     this.authService.registerUser(user).subscribe(data => {
 
-      console.log(data.success, data,"btatatatatata")
+      console.log(data,"btatatatatata")
       if(data.token){
         this.flashMessage.show('You are now registered ', {cssClass: 'alert-success', timeout: 3000});
         this.authService.storeUserData("null",data.AdminId,data.username)

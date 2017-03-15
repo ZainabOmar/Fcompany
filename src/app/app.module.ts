@@ -17,6 +17,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { CompanyComponent } from './company/company.component';
 import { TaskComponent } from './task/task.component';
 import { CreatcompanyComponent } from './creatcompany/creatcompany.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CreatcompanyComponent } from './creatcompany/creatcompany.component';
     AboutusComponent,
     CompanyComponent,
     CreatcompanyComponent,
-    TaskComponent
+    TaskComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,

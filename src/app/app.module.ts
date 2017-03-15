@@ -41,7 +41,8 @@ import { CreatcompanyComponent } from './creatcompany/creatcompany.component';
   {path: 'signin',component: SigninComponent},
   {path: 'aboutus',   component: AboutusComponent},
   {path: 'company',   component: CompanyComponent},
-  {path: 'task',   component: TaskComponent}
+  {path: 'task',   component: TaskComponent},
+  {path: 'schedule',   component: ScheduleComponent}
   ]),
     FlashMessagesModule
   ],

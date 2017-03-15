@@ -84,7 +84,7 @@ module.exports.handleUsers = {
                   from: 'berzerkk2017@gmail.com',
                   to: req.body.email,
                   subject: 'Email Example',
-                  text: code//"Hello World!"
+                  text: code
                 };
 
                 transporter.sendMail(mailOptions, function(error, info){
@@ -103,8 +103,6 @@ module.exports.handleUsers = {
 
 
   } else if( req.body.UserType === "employee"){
-
-    var newCompany = new Company(req.body)
     console.log("in sign up",req.body.code)
     
     var username = req.body.username;

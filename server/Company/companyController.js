@@ -15,7 +15,8 @@ module.exports.handelCompany = {
   // add company to data base
 	addCompany : function(req, res)  {
 		var company = req.body;
-		User.findOne({_id: req.body._id}).exec(function(err, user){
+		console.log(req.body)
+		User.findOne({_id: req.body.AdminId}).exec(function(err, user){
 			if(err){
 				throw err;
 			}		

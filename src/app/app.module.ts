@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule }   from '@angular/router';
-
+import {LocationStrategy,HashLocationStrategy} from '@angular/common'
 
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
@@ -17,7 +17,6 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { CompanyComponent } from './company/company.component';
 import { TaskComponent } from './task/task.component';
 import { CreatcompanyComponent } from './creatcompany/creatcompany.component';
-import { ScheduleComponent } from './schedule/schedule.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +27,7 @@ import { ScheduleComponent } from './schedule/schedule.component';
     AboutusComponent,
     CompanyComponent,
     CreatcompanyComponent,
-    TaskComponent,
-    ScheduleComponent
+    TaskComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +45,7 @@ import { ScheduleComponent } from './schedule/schedule.component';
   ]),
     FlashMessagesModule
   ],
-  providers: [ValidateService,AuthService],
+  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy},ValidateService,AuthService],
   bootstrap: [AppComponent]
   })
 

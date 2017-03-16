@@ -30,7 +30,7 @@ module.exports.handleUsers = {
         .then(function (isMatch) {
           if (isMatch) {
             var token = jwt.encode(user, 'secret');
-            res.json({token : token, user : user});
+            res.json({token : token, userid : user._id,username:username });
           } else {
             res.json("password not matched")
           }

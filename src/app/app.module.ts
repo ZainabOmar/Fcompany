@@ -17,9 +17,12 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { CompanyComponent } from './company/company.component';
 import { TaskComponent } from './task/task.component';
 import { CreatcompanyComponent } from './creatcompany/creatcompany.component';
+import { ScheduleComponent } from './schedule/schedule.component';
+
 
 @NgModule({
   declarations: [
+  ScheduleComponent,
     AppComponent,
     MainPageComponent,
     SigninComponent,

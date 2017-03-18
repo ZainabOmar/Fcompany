@@ -34,15 +34,6 @@ export class AuthService {
     .map(res => res.json());
   }
 
-  getCompany(params){
-    let headers = new Headers();
-    this.loadToken();
-    headers.append('Authorization', this.authToken);
-    headers.append('Content-Type','application/json');
-    return this.http.get('api/company/'+ params)
-    .map(res => res.json());
-  }
-
   // authenticateUser(user){
     //   let headers = new Headers();
     //   headers.append('Content-Type','application/json');
@@ -50,14 +41,6 @@ export class AuthService {
     //     .map(res => res.json());
     // }
 
-    getUserSameCompany(){
-      let headers = new Headers();
-      this.loadToken();
-      headers.append('Authorization', this.authToken);
-      headers.append('Content-Type','application/json');
-      return this.http.get('api/users',{headers: headers})
-      .map(res => res.json());
-    }
 
     storeUserData(token,id,name){
       localStorage.setItem('id_token', token);

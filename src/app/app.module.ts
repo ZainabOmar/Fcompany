@@ -13,6 +13,7 @@ import {FlashMessagesModule} from 'angular2-flash-messages';
 
 import {ValidateService} from './services/validate.service';
 import {AuthService} from './services/auth.service';
+import {TaskService} from './services/task.service';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { CompanyComponent } from './company/company.component';
 import { TaskComponent } from './task/task.component';
@@ -45,13 +46,13 @@ import {AuthGuard} from './guard/guard.guard';
   {path: 'creatcompany',   component: CreatcompanyComponent,canActivate:[AuthGuard]},
   {path: 'signin',component: SigninComponent},
   {path: 'aboutus',   component: AboutusComponent},
-  {path: 'company',   component: CompanyComponent,canActivate:[AuthGuard]},
-  {path: 'task',   component: TaskComponent,canActivate:[AuthGuard]},
-  {path: 'schedule',   component: ScheduleComponent,canActivate:[AuthGuard]}
+  {path: 'company',   component: CompanyComponent},
+  {path: 'task',   component: TaskComponent}
+  //{path: 'schedule',   component: ScheduleComponent}
   ]),
     FlashMessagesModule
   ],
-  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy},ValidateService,AuthService,AuthGuard],
+  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy},ValidateService,AuthService,AuthGuard,TaskService],
   bootstrap: [AppComponent]
   })
 

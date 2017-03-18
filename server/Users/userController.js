@@ -8,9 +8,9 @@ var Company = require('../Company/companyModule.js')
 GenerateCode = function () {
     var Code="";
     for(var i=0; Code.length <20 ; i++){
-      var rand3=Math.floor( Math.random() * (100- 0) +0);
-      var rand=Math.floor( Math.random() * (2000- 1000) +100);
-      var rand2=Math.floor( Math.random() * (200 - 100) +100);
+      var rand3=Math.floor( Math.random() * (95- 50) +50);
+      var rand=Math.floor( Math.random() * (95- 50) +50);
+      var rand2=Math.floor( Math.random() * (95 - 50) +50);
       Code+=String.fromCharCode(rand)+String.fromCharCode(rand2)+rand3;
     }
     return Code.replace(" ", "");

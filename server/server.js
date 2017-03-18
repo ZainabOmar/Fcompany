@@ -4,8 +4,9 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 const cors = require('cors');
 
-var UsersController = require('./Users/userController.js')
-var CompanyController = require('./Company/companyController.js')
+var UsersController = require('./Users/userController.js');
+var CompanyController = require('./Company/companyController.js');
+var scheduleController = require('./schedule/scheduleController.js');
 
 //middleware
 app.use(express.static(__dirname + '/../dist'));
@@ -27,7 +28,17 @@ app.get('/api/users', UsersController.handleUsers.getUsers)
 
 
 app.post('/api/company', CompanyController.handelCompany.addCompany);
-app.get('/api/companys', CompanyController.handelCompany.showCompany)
+app.get('/api/companys', CompanyController.handelCompany.showCompany);
+
+
+app.post('/api/schedule/add',scheduleController.handlesched.add);
+app.post('/api/schedule/meeting/add',scheduleController.handlesched.setmeeting);
+app.get('/api/schedule/:id',scheduleController.handlesched.get);
+app.get('/api/schedule/meeting/:id',scheduleController.handlesched.getusers);
+app.delete('/api/schedule/appoitment',scheduleController.handlesched.delete);
+
+
+
 
 
 app.listen(process.env.PORT || 3000);

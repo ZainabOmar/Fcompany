@@ -18,6 +18,8 @@ import { CompanyComponent } from './company/company.component';
 import { TaskComponent } from './task/task.component';
 import { CreatcompanyComponent } from './creatcompany/creatcompany.component';
 import { ScheduleComponent } from './schedule/schedule.component';
+import {AuthGuard} from './guard/guard.guard';
+
 
 
 @NgModule({
@@ -40,16 +42,16 @@ import { ScheduleComponent } from './schedule/schedule.component';
   {path: 'mainPage',   component: MainPageComponent},
   {path: '',   component: MainPageComponent},
   {path: 'signup',component: SignupComponent},
-  {path: 'creatcompany',   component: CreatcompanyComponent},
+  {path: 'creatcompany',   component: CreatcompanyComponent,canActivate:[AuthGuard]},
   {path: 'signin',component: SigninComponent},
   {path: 'aboutus',   component: AboutusComponent},
-  {path: 'company',   component: CompanyComponent},
-  {path: 'task',   component: TaskComponent},
-  {path: 'schedule',   component: ScheduleComponent}
+  {path: 'company',   component: CompanyComponent,canActivate:[AuthGuard]},
+  {path: 'task',   component: TaskComponent,canActivate:[AuthGuard]},
+  {path: 'schedule',   component: ScheduleComponent,canActivate:[AuthGuard]}
   ]),
     FlashMessagesModule
   ],
-  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy},ValidateService,AuthService],
+  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy},ValidateService,AuthService,AuthGuard],
   bootstrap: [AppComponent]
   })
 

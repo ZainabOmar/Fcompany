@@ -1,40 +1,62 @@
 var Company = require('./companyModule.js');
 var User = require('../Users/userModule.js')
 
-module.exports.handelCompany = {
-  // get company from data base
-	showCompany: function(req, res)  {
-		Company.getcompany(function(err, Companys)  {
-			if(err){
-				throw err;
-			}
-			res.json(Companys);
-		});
-	},
+module.exports.handleCompany = {
+	getCompany: function(req, res)  {
+		console.log(req.params.userId,"btata")
+		User.findOne({_id:req.params.userId})
+		.exec(function(err, user) {
+			if(!user){
+				console.log(err)
+				res.status(500).send("user not found");
+			}else{
+        var temp = user.code
+        console.log(temp)
+        Company.findOne({code:temp})
+        .exec(function(err, comp) {
+          if(!comp){
+            // console.log(err)
+            res.status(500).send("company not found");
+          }else{
+            res.json(comp);
+          }
+        }) 
+      }
+    })
+  },
+
+  showAllCompanies: function(req, res)  {
+    Company.getcompany(function(err, Companys)  {
+     if(err){
+      throw err;
+    }
+    res.json(Companys);
+  });
+  },
 
   // add company to data base
-	addCompany : function(req, res)  {
-		var company = req.body;
-		console.log(req.body)
-		User.findOne({_id: req.body.AdminId}).exec(function(err, user){
-			if(err){
-				throw err;
-			}		
-			delete company._id;	
-			Company.addcompany(company,function (err, comp) {
-				if(err){
-					throw err;
-				}
-				comp.users.push(user._id);
-				comp.save(function(err, result){
-					if(err){
-						throw err;
-					}
-					res.json(comp);
-				})
-			});
-			
-		})
-	}
+  addCompany : function(req, res)  {
+  	var company = req.body;
+  	console.log(req.body)
+  	User.findOne({_id: req.body.AdminId}).exec(function(err, user){
+  		if(err){
+  			res.status(500).send(err);
+  		}		
+  		delete company._id;	
+  		Company.addcompany(company,function (err, comp) {
+  			if(err){
+  				res.status(500).send(err);
+  			}
+  			comp.users.push(user._id);
+  			comp.save(function(err, result){
+  				if(err){
+  					res.status(500).send(err);
+  				}
+  				res.json(comp);
+  			})
+  		});
+
+  	})
+  }
 
 }

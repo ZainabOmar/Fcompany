@@ -1,6 +1,6 @@
 webpackJsonp([1,4],{
 
-/***/ 132:
+/***/ 134:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -49,7 +49,105 @@ var ValidateService = (function () {
 
 /***/ }),
 
-/***/ 335:
+/***/ 308:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(216);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var CompanyService = (function () {
+    function CompanyService(http) {
+        this.http = http;
+    }
+    CompanyService.prototype.loadToken = function () {
+        var token = localStorage.getItem('id_token');
+        this.authToken = token;
+    };
+    CompanyService.prototype.getCompany = function (params) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        this.loadToken();
+        headers.append('Authorization', this.authToken);
+        headers.append('Content-Type', 'application/json');
+        return this.http.get('api/company/' + params)
+            .map(function (res) { return res.json(); });
+    };
+    CompanyService.prototype.getUserSameCompany = function () {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        this.loadToken();
+        headers.append('Authorization', this.authToken);
+        headers.append('Content-Type', 'application/json');
+        return this.http.get('api/users', { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    CompanyService = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"]) === 'function' && _a) || Object])
+    ], CompanyService);
+    return CompanyService;
+    var _a;
+}());
+//# sourceMappingURL=company.service.js.map
+
+/***/ }),
+
+/***/ 309:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(216);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TaskService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var TaskService = (function () {
+    function TaskService(http) {
+        this.http = http;
+    }
+    TaskService.prototype.AddTask = function (Task) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('api/task', Task, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    TaskService = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"]) === 'function' && _a) || Object])
+    ], TaskService);
+    return TaskService;
+    var _a;
+}());
+//# sourceMappingURL=task.service.js.map
+
+/***/ }),
+
+/***/ 338:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -58,20 +156,20 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 335;
+webpackEmptyContext.id = 338;
 
 
 /***/ }),
 
-/***/ 336:
+/***/ 339:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(423);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(455);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(464);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(426);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(458);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(467);
 
 
 
@@ -84,7 +182,7 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 
 /***/ }),
 
-/***/ 453:
+/***/ 456:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -108,8 +206,8 @@ var AboutusComponent = (function () {
     AboutusComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-aboutus',
-            template: __webpack_require__(533),
-            styles: [__webpack_require__(523)]
+            template: __webpack_require__(536),
+            styles: [__webpack_require__(526)]
         }), 
         __metadata('design:paramtypes', [])
     ], AboutusComponent);
@@ -119,7 +217,7 @@ var AboutusComponent = (function () {
 
 /***/ }),
 
-/***/ 454:
+/***/ 457:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -142,8 +240,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-root',
-            template: __webpack_require__(534),
-            styles: [__webpack_require__(524)]
+            template: __webpack_require__(537),
+            styles: [__webpack_require__(527)]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
@@ -153,30 +251,32 @@ var AppComponent = (function () {
 
 /***/ }),
 
-/***/ 455:
+/***/ 458:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(129);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(131);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(414);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(454);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__main_page_main_page_component__ = __webpack_require__(459);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__signin_signin_component__ = __webpack_require__(461);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__signup_signup_component__ = __webpack_require__(462);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_angular2_flash_messages__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(417);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(457);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__main_page_main_page_component__ = __webpack_require__(462);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__signin_signin_component__ = __webpack_require__(464);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__signup_signup_component__ = __webpack_require__(465);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_angular2_flash_messages__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_angular2_flash_messages__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_validate_service__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_validate_service__ = __webpack_require__(134);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__services_auth_service__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__aboutus_aboutus_component__ = __webpack_require__(453);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__company_company_component__ = __webpack_require__(456);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__task_task_component__ = __webpack_require__(463);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__creatcompany_creatcompany_component__ = __webpack_require__(457);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__schedule_schedule_component__ = __webpack_require__(460);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__guard_guard_guard__ = __webpack_require__(458);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__services_task_service__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__aboutus_aboutus_component__ = __webpack_require__(456);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__company_company_component__ = __webpack_require__(459);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__task_task_component__ = __webpack_require__(466);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__creatcompany_creatcompany_component__ = __webpack_require__(460);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__schedule_schedule_component__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__guard_guard_guard__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_company_service__ = __webpack_require__(308);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -206,21 +306,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_17__schedule_schedule_component__["a" /* ScheduleComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__schedule_schedule_component__["a" /* ScheduleComponent */],
                 __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
                 __WEBPACK_IMPORTED_MODULE_7__main_page_main_page_component__["a" /* MainPageComponent */],
                 __WEBPACK_IMPORTED_MODULE_8__signin_signin_component__["a" /* SigninComponent */],
                 __WEBPACK_IMPORTED_MODULE_9__signup_signup_component__["a" /* SignupComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__aboutus_aboutus_component__["a" /* AboutusComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__company_company_component__["a" /* CompanyComponent */],
-                __WEBPACK_IMPORTED_MODULE_16__creatcompany_creatcompany_component__["a" /* CreatcompanyComponent */],
-                __WEBPACK_IMPORTED_MODULE_15__task_task_component__["a" /* TaskComponent */]
+                __WEBPACK_IMPORTED_MODULE_14__aboutus_aboutus_component__["a" /* AboutusComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__company_company_component__["a" /* CompanyComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__creatcompany_creatcompany_component__["a" /* CreatcompanyComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__task_task_component__["a" /* TaskComponent */],
+                __WEBPACK_IMPORTED_MODULE_20__services_company_service__["a" /* CompanyService */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -230,16 +333,15 @@ var AppModule = (function () {
                     { path: 'mainPage', component: __WEBPACK_IMPORTED_MODULE_7__main_page_main_page_component__["a" /* MainPageComponent */] },
                     { path: '', component: __WEBPACK_IMPORTED_MODULE_7__main_page_main_page_component__["a" /* MainPageComponent */] },
                     { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_9__signup_signup_component__["a" /* SignupComponent */] },
-                    { path: 'creatcompany', component: __WEBPACK_IMPORTED_MODULE_16__creatcompany_creatcompany_component__["a" /* CreatcompanyComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_18__guard_guard_guard__["a" /* AuthGuard */]] },
+                    { path: 'creatcompany', component: __WEBPACK_IMPORTED_MODULE_17__creatcompany_creatcompany_component__["a" /* CreatcompanyComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_19__guard_guard_guard__["a" /* AuthGuard */]] },
                     { path: 'signin', component: __WEBPACK_IMPORTED_MODULE_8__signin_signin_component__["a" /* SigninComponent */] },
-                    { path: 'aboutus', component: __WEBPACK_IMPORTED_MODULE_13__aboutus_aboutus_component__["a" /* AboutusComponent */] },
-                    { path: 'company', component: __WEBPACK_IMPORTED_MODULE_14__company_company_component__["a" /* CompanyComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_18__guard_guard_guard__["a" /* AuthGuard */]] },
-                    { path: 'task', component: __WEBPACK_IMPORTED_MODULE_15__task_task_component__["a" /* TaskComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_18__guard_guard_guard__["a" /* AuthGuard */]] },
-                    { path: 'schedule', component: __WEBPACK_IMPORTED_MODULE_17__schedule_schedule_component__["a" /* ScheduleComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_18__guard_guard_guard__["a" /* AuthGuard */]] }
+                    { path: 'aboutus', component: __WEBPACK_IMPORTED_MODULE_14__aboutus_aboutus_component__["a" /* AboutusComponent */] },
+                    { path: 'company', component: __WEBPACK_IMPORTED_MODULE_15__company_company_component__["a" /* CompanyComponent */] },
+                    { path: 'task', component: __WEBPACK_IMPORTED_MODULE_16__task_task_component__["a" /* TaskComponent */] }
                 ]),
                 __WEBPACK_IMPORTED_MODULE_10_angular2_flash_messages__["FlashMessagesModule"]
             ],
-            providers: [{ provide: __WEBPACK_IMPORTED_MODULE_5__angular_common__["LocationStrategy"], useClass: __WEBPACK_IMPORTED_MODULE_5__angular_common__["HashLocationStrategy"] }, __WEBPACK_IMPORTED_MODULE_11__services_validate_service__["a" /* ValidateService */], __WEBPACK_IMPORTED_MODULE_12__services_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_18__guard_guard_guard__["a" /* AuthGuard */]],
+            providers: [{ provide: __WEBPACK_IMPORTED_MODULE_5__angular_common__["LocationStrategy"], useClass: __WEBPACK_IMPORTED_MODULE_5__angular_common__["HashLocationStrategy"] }, __WEBPACK_IMPORTED_MODULE_11__services_validate_service__["a" /* ValidateService */], __WEBPACK_IMPORTED_MODULE_12__services_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_19__guard_guard_guard__["a" /* AuthGuard */], __WEBPACK_IMPORTED_MODULE_13__services_task_service__["a" /* TaskService */], __WEBPACK_IMPORTED_MODULE_20__services_company_service__["a" /* CompanyService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]]
         }), 
         __metadata('design:paramtypes', [])
@@ -250,13 +352,14 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 456:
+/***/ 459:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_company_service__ = __webpack_require__(308);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__(50);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -270,17 +373,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var CompanyComponent = (function () {
-    function CompanyComponent(authService, router) {
+    function CompanyComponent(authService, router, companyService) {
         this.authService = authService;
         this.router = router;
+        this.companyService = companyService;
     }
     CompanyComponent.prototype.ngOnInit = function () {
         var _this = this;
         var user = localStorage.getItem('user-id');
         console.log(user);
         this.obj = {};
-        this.authService.getCompany(user).subscribe(function (data) {
+        this.companyService.getCompany(user).subscribe(function (data) {
             _this.obj = data;
             console.log(_this.obj);
         });
@@ -292,28 +397,28 @@ var CompanyComponent = (function () {
     CompanyComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-company',
-            template: __webpack_require__(535),
-            styles: [__webpack_require__(525)]
+            template: __webpack_require__(538),
+            styles: [__webpack_require__(528)]
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _b) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_company_service__["a" /* CompanyService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_company_service__["a" /* CompanyService */]) === 'function' && _c) || Object])
     ], CompanyComponent);
     return CompanyComponent;
-    var _a, _b;
+    var _a, _b, _c;
 }());
 //# sourceMappingURL=company.component.js.map
 
 /***/ }),
 
-/***/ 457:
+/***/ 460:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_validate_service__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_validate_service__ = __webpack_require__(134);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(50);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreatcompanyComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -378,8 +483,8 @@ var CreatcompanyComponent = (function () {
     CreatcompanyComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-creatcompany',
-            template: __webpack_require__(536),
-            styles: [__webpack_require__(526)]
+            template: __webpack_require__(539),
+            styles: [__webpack_require__(529)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_validate_service__["a" /* ValidateService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_validate_service__["a" /* ValidateService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === 'function' && _d) || Object])
     ], CreatcompanyComponent);
@@ -390,12 +495,12 @@ var CreatcompanyComponent = (function () {
 
 /***/ }),
 
-/***/ 458:
+/***/ 461:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(63);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthGuard; });
 // import { Injectable } from '@angular/core';
@@ -438,7 +543,7 @@ var AuthGuard = (function () {
 
 /***/ }),
 
-/***/ 459:
+/***/ 462:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -462,8 +567,8 @@ var MainPageComponent = (function () {
     MainPageComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-main-page',
-            template: __webpack_require__(537),
-            styles: [__webpack_require__(527)]
+            template: __webpack_require__(540),
+            styles: [__webpack_require__(530)]
         }), 
         __metadata('design:paramtypes', [])
     ], MainPageComponent);
@@ -473,7 +578,7 @@ var MainPageComponent = (function () {
 
 /***/ }),
 
-/***/ 460:
+/***/ 463:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -497,8 +602,8 @@ var ScheduleComponent = (function () {
     ScheduleComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-schedule',
-            template: __webpack_require__(538),
-            styles: [__webpack_require__(528)]
+            template: __webpack_require__(541),
+            styles: [__webpack_require__(531)]
         }), 
         __metadata('design:paramtypes', [])
     ], ScheduleComponent);
@@ -508,16 +613,16 @@ var ScheduleComponent = (function () {
 
 /***/ }),
 
-/***/ 461:
+/***/ 464:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_validate_service__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_validate_service__ = __webpack_require__(134);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(50);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SigninComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -572,8 +677,8 @@ var SigninComponent = (function () {
     SigninComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-signin',
-            template: __webpack_require__(539),
-            styles: [__webpack_require__(529)]
+            template: __webpack_require__(542),
+            styles: [__webpack_require__(532)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_validate_service__["a" /* ValidateService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_validate_service__["a" /* ValidateService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === 'function' && _d) || Object])
     ], SigninComponent);
@@ -584,16 +689,16 @@ var SigninComponent = (function () {
 
 /***/ }),
 
-/***/ 462:
+/***/ 465:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_validate_service__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_validate_service__ = __webpack_require__(134);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(50);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -715,8 +820,8 @@ var SignupComponent = (function () {
     SignupComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-signup',
-            template: __webpack_require__(540),
-            styles: [__webpack_require__(530)]
+            template: __webpack_require__(543),
+            styles: [__webpack_require__(533)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_validate_service__["a" /* ValidateService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_validate_service__["a" /* ValidateService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === 'function' && _d) || Object])
     ], SignupComponent);
@@ -727,11 +832,15 @@ var SignupComponent = (function () {
 
 /***/ }),
 
-/***/ 463:
+/***/ 466:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_task_service__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__(50);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TaskComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -743,26 +852,66 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
 var TaskComponent = (function () {
-    function TaskComponent() {
+    function TaskComponent(flashMessage, taskservice, router) {
+        this.flashMessage = flashMessage;
+        this.taskservice = taskservice;
+        this.router = router;
+        this.Assigns = ["zainb", "shit", "aya", "maher"];
     }
     TaskComponent.prototype.ngOnInit = function () {
+        this.todos = [];
+        this.Assign = this.Assigns[0];
+    };
+    TaskComponent.prototype.onChange = function (newValue) {
+        this.Assign = newValue;
+    };
+    TaskComponent.prototype.deleteTodo = function (index) {
+        this.todos.splice(index, 1);
+    };
+    // for hide the temblate
+    TaskComponent.prototype.div_hide = function () {
+        document.getElementById('abc').style.display = "none";
+    };
+    //Function To Display Popup
+    TaskComponent.prototype.div_show = function () {
+        document.getElementById('abc').style.display = "block";
+    };
+    TaskComponent.prototype.addTodo = function () {
+        var _this = this;
+        var todoObj = {
+            newTodo: this.newTodo,
+            completed: false,
+            Discription: this.Discription,
+            Date: this.Date,
+            Assign: this.Assign
+        };
+        this.todos.push(todoObj);
+        this.taskservice.AddTask(todoObj).subscribe(function (data) {
+            if (data) {
+                _this.flashMessage.show('task add well', { cssClass: 'alert-success', timeout: 3000 });
+            }
+        });
     };
     TaskComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-task',
-            template: __webpack_require__(541),
-            styles: [__webpack_require__(531)]
+            template: __webpack_require__(544),
+            styles: [__webpack_require__(534)]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_task_service__["a" /* TaskService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_task_service__["a" /* TaskService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === 'function' && _c) || Object])
     ], TaskComponent);
     return TaskComponent;
+    var _a, _b, _c;
 }());
 //# sourceMappingURL=task.component.js.map
 
 /***/ }),
 
-/***/ 464:
+/***/ 467:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -778,60 +927,6 @@ var environment = {
 
 /***/ }),
 
-/***/ 523:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(18)();
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ 524:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(18)();
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ 525:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(18)();
-// imports
-
-
-// module
-exports.push([module.i, " /* Remove the navbar's default rounded borders and increase the bottom margin */ \r\n .navbar {\r\n  margin-bottom: 50px;\r\n  border-radius: 0;\r\n}\r\n\r\n/* Remove the jumbotron's default bottom margin */ \r\n.jumbotron {\r\n  margin-bottom: 0;\r\n}\r\n\r\n/* Add a gray background color and some padding to the footer */\r\nfooter {\r\n  background-color: #f2f2f2;\r\n  padding: 25px;\r\n}\r\n\r\n.panel-heading {\r\n  color: #00008B;\r\n  font-size: 17px;\r\n}\r\n\r\n.body {\r\n  background-image: url(" + __webpack_require__(561) + ");\r\n}\r\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
 /***/ 526:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -840,7 +935,7 @@ exports = module.exports = __webpack_require__(18)();
 
 
 // module
-exports.push([module.i, "body {\n  font-family: 'Nunito', sans-serif;\n  color: #384047;\n}\nform {\n  max-width: 300px;\n  margin: 10px auto;\n  padding: 10px 20px;\n  background: #f4f7f8;\n  border-radius: 8px;\n}\nh1 {\n  margin: 0 0 30px 0;\n  text-align: center;\n}\n\ninput[type=\"text\"],\ninput[type=\"password\"],\ninput[type=\"email\"],\n\n\nselect {\n  background: rgba(255,255,255,0.1);\n  border: none;\n  font-size: 16px;\n  height: auto;\n  margin: 0;\n  outline: 0;\n  padding: 15px;\n  width: 100%;\n  background-color: #e8eeef;\n  color: #8a97a0;\n  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;\n  margin-bottom: 30px;\n}\n\n\nbutton {\n  padding: 19px 39px 18px 39px;\n  color: #FFF;\n  background-color: #4eb9bf;\n  font-size: 18px;\n  text-align: center;\n  font-style: normal;\n  border-radius: 5px;\n  width: 100%;\n  border: 1px solid #4eb9bf;\n  border-width: 1px 1px 3px;\n  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;\n  margin-bottom: 10px;\n}\n\nfieldset {\n  margin-bottom: 30px;\n  border: none;\n}\n\nlabel {\n  display: block;\n  margin-bottom: 8px;\n}\nlabel.light {\n  font-weight: 300;\n  display: inline;\n}\n\n@media screen and (min-width: 480px) {\n  form {\n    max-width: 480px;\n  }\n}", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -876,7 +971,7 @@ exports = module.exports = __webpack_require__(18)();
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, " /* Remove the navbar's default rounded borders and increase the bottom margin */ \r\n .navbar {\r\n  margin-bottom: 50px;\r\n  border-radius: 0;\r\n}\r\n\r\n/* Remove the jumbotron's default bottom margin */ \r\n.jumbotron {\r\n  margin-bottom: 0;\r\n}\r\n\r\n/* Add a gray background color and some padding to the footer */\r\nfooter {\r\n  background-color: #f2f2f2;\r\n  padding: 25px;\r\n}\r\n\r\n.panel-heading {\r\n  color: #00008B;\r\n  font-size: 17px;\r\n}\r\n\r\n.body {\r\n  background-image: url(" + __webpack_require__(563) + ");\r\n}\r\n", ""]);
 
 // exports
 
@@ -894,7 +989,7 @@ exports = module.exports = __webpack_require__(18)();
 
 
 // module
-exports.push([module.i, "body {\r\n  font-family: 'Nunito', sans-serif;\r\n  color: #384047;\r\n}\r\nform {\r\n  max-width: 300px;\r\n  margin: 10px auto;\r\n  padding: 10px 20px;\r\n  background: #f4f7f8;\r\n  border-radius: 8px;\r\n}\r\nh1 {\r\n  margin: 0 0 30px 0;\r\n  text-align: center;\r\n}\r\n\r\ninput[type=\"text\"],\r\ninput[type=\"password\"],\r\ninput[type=\"email\"],\r\n\r\n\r\nselect {\r\n  background: rgba(255,255,255,0.1);\r\n  border: none;\r\n  font-size: 16px;\r\n  height: auto;\r\n  margin: 0;\r\n  outline: 0;\r\n  padding: 15px;\r\n  width: 100%;\r\n  background-color: #e8eeef;\r\n  color: #8a97a0;\r\n  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;\r\n  margin-bottom: 30px;\r\n}\r\n\r\n\r\nbutton {\r\n  padding: 19px 39px 18px 39px;\r\n  color: #FFF;\r\n  background-color: #4eb9bf;\r\n  font-size: 18px;\r\n  text-align: center;\r\n  font-style: normal;\r\n  border-radius: 5px;\r\n  width: 100%;\r\n  border: 1px solid #4eb9bf;\r\n  border-width: 1px 1px 3px;\r\n  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;\r\n  margin-bottom: 10px;\r\n}\r\n\r\nfieldset {\r\n  margin-bottom: 30px;\r\n  border: none;\r\n}\r\n\r\nlabel {\r\n  display: block;\r\n  margin-bottom: 8px;\r\n}\r\nlabel.light {\r\n  font-weight: 300;\r\n  display: inline;\r\n}\r\n\r\n@media screen and (min-width: 480px) {\r\n  form {\r\n    max-width: 480px;\r\n  }\r\n}", ""]);
+exports.push([module.i, "body {\n  font-family: 'Nunito', sans-serif;\n  color: #384047;\n}\nform {\n  max-width: 300px;\n  margin: 10px auto;\n  padding: 10px 20px;\n  background: #f4f7f8;\n  border-radius: 8px;\n}\nh1 {\n  margin: 0 0 30px 0;\n  text-align: center;\n}\n\ninput[type=\"text\"],\ninput[type=\"password\"],\ninput[type=\"email\"],\n\n\nselect {\n  background: rgba(255,255,255,0.1);\n  border: none;\n  font-size: 16px;\n  height: auto;\n  margin: 0;\n  outline: 0;\n  padding: 15px;\n  width: 100%;\n  background-color: #e8eeef;\n  color: #8a97a0;\n  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;\n  margin-bottom: 30px;\n}\n\n\nbutton {\n  padding: 19px 39px 18px 39px;\n  color: #FFF;\n  background-color: #4eb9bf;\n  font-size: 18px;\n  text-align: center;\n  font-style: normal;\n  border-radius: 5px;\n  width: 100%;\n  border: 1px solid #4eb9bf;\n  border-width: 1px 1px 3px;\n  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;\n  margin-bottom: 10px;\n}\n\nfieldset {\n  margin-bottom: 30px;\n  border: none;\n}\n\nlabel {\n  display: block;\n  margin-bottom: 8px;\n}\nlabel.light {\n  font-weight: 300;\n  display: inline;\n}\n\n@media screen and (min-width: 480px) {\n  form {\n    max-width: 480px;\n  }\n}", ""]);
 
 // exports
 
@@ -912,7 +1007,7 @@ exports = module.exports = __webpack_require__(18)();
 
 
 // module
-exports.push([module.i, "body {\n  font-family: 'Nunito', sans-serif;\n  color: #384047;\n}\nform {\n  max-width: 300px;\n  margin: 10px auto;\n  padding: 10px 20px;\n  background: #f4f7f8;\n  border-radius: 8px;\n}\nh1 {\n  margin: 0 0 30px 0;\n  text-align: center;\n}\n\ninput[type=\"text\"],\ninput[type=\"password\"],\ninput[type=\"email\"],\ninput[type=\"code\"],\n\n\nselect{\n  background: rgba(255,255,255,0.1);\n  border: none;\n  font-size: 18px;\n  height: auto;\n  margin: 0;\n  outline: 0;\n  padding: 15px;\n  width: 100%;\n  background-color: #e8eeef;\n  color: #8a97a0;\n  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;\n  margin-bottom: 30px;\n}\n\n\nbutton {\n  padding: 19px 39px 18px 39px;\n  color: #FFF;\n  background-color: #4eb9bf;\n  font-size: 18px;\n  text-align: center;\n  font-style: normal;\n  border-radius: 5px;\n  width: 100%;\n  border: 1px solid #4eb9bf;\n  border-width: 1px 1px 3px;\n  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;\n  margin-bottom: 10px;\n}\n\nfieldset {\n  margin-bottom: 30px;\n  border: none;\n}\n\nlabel {\n  display: block;\n  margin-bottom: 8px;\n}\nlabel.light {\n  font-weight: 300;\n  display: inline;\n}\n\n@media screen and (min-width: 480px) {\n  form {\n    max-width: 480px;\n  }\n}", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -940,80 +1035,134 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 533:
-/***/ (function(module, exports) {
+/***/ 532:
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<p>\nHI<br>\nHI<br>\nHI<br>\nHI<br>\nHI<br>\nHI<br>\n</p>"
+exports = module.exports = __webpack_require__(18)();
+// imports
+
+
+// module
+exports.push([module.i, "body {\r\n  font-family: 'Nunito', sans-serif;\r\n  color: #384047;\r\n}\r\nform {\r\n  max-width: 300px;\r\n  margin: 10px auto;\r\n  padding: 10px 20px;\r\n  background: #f4f7f8;\r\n  border-radius: 8px;\r\n}\r\nh1 {\r\n  margin: 0 0 30px 0;\r\n  text-align: center;\r\n}\r\n\r\ninput[type=\"text\"],\r\ninput[type=\"password\"],\r\ninput[type=\"email\"],\r\n\r\n\r\nselect {\r\n  background: rgba(255,255,255,0.1);\r\n  border: none;\r\n  font-size: 16px;\r\n  height: auto;\r\n  margin: 0;\r\n  outline: 0;\r\n  padding: 15px;\r\n  width: 100%;\r\n  background-color: #e8eeef;\r\n  color: #8a97a0;\r\n  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;\r\n  margin-bottom: 30px;\r\n}\r\n\r\n\r\nbutton {\r\n  padding: 19px 39px 18px 39px;\r\n  color: #FFF;\r\n  background-color: #4eb9bf;\r\n  font-size: 18px;\r\n  text-align: center;\r\n  font-style: normal;\r\n  border-radius: 5px;\r\n  width: 100%;\r\n  border: 1px solid #4eb9bf;\r\n  border-width: 1px 1px 3px;\r\n  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;\r\n  margin-bottom: 10px;\r\n}\r\n\r\nfieldset {\r\n  margin-bottom: 30px;\r\n  border: none;\r\n}\r\n\r\nlabel {\r\n  display: block;\r\n  margin-bottom: 8px;\r\n}\r\nlabel.light {\r\n  font-weight: 300;\r\n  display: inline;\r\n}\r\n\r\n@media screen and (min-width: 480px) {\r\n  form {\r\n    max-width: 480px;\r\n  }\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ 533:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(18)();
+// imports
+
+
+// module
+exports.push([module.i, "body {\n  font-family: 'Nunito', sans-serif;\n  color: #384047;\n}\nform {\n  max-width: 300px;\n  margin: 10px auto;\n  padding: 10px 20px;\n  background: #f4f7f8;\n  border-radius: 8px;\n}\nh1 {\n  margin: 0 0 30px 0;\n  text-align: center;\n}\n\ninput[type=\"text\"],\ninput[type=\"password\"],\ninput[type=\"email\"],\ninput[type=\"code\"],\n\n\nselect{\n  background: rgba(255,255,255,0.1);\n  border: none;\n  font-size: 18px;\n  height: auto;\n  margin: 0;\n  outline: 0;\n  padding: 15px;\n  width: 100%;\n  background-color: #e8eeef;\n  color: #8a97a0;\n  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;\n  margin-bottom: 30px;\n}\n\n\nbutton {\n  padding: 19px 39px 18px 39px;\n  color: #FFF;\n  background-color: #4eb9bf;\n  font-size: 18px;\n  text-align: center;\n  font-style: normal;\n  border-radius: 5px;\n  width: 100%;\n  border: 1px solid #4eb9bf;\n  border-width: 1px 1px 3px;\n  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;\n  margin-bottom: 10px;\n}\n\nfieldset {\n  margin-bottom: 30px;\n  border: none;\n}\n\nlabel {\n  display: block;\n  margin-bottom: 8px;\n}\nlabel.light {\n  font-weight: 300;\n  display: inline;\n}\n\n@media screen and (min-width: 480px) {\n  form {\n    max-width: 480px;\n  }\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
 
 /***/ }),
 
 /***/ 534:
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<flash-messages></flash-messages>\n<router-outlet></router-outlet>\n"
+exports = module.exports = __webpack_require__(18)();
+// imports
 
-/***/ }),
 
-/***/ 535:
-/***/ (function(module, exports) {
+// module
+exports.push([module.i, ".box1 {\n    border: solid 1px #006699;\n    padding: 20px;\n    background: #f3f3f3;\n    border-radius: 5px;\n  }\n\n  .todos input.textfield {\n    width: 480px;\n    height: 36px;\n    margin-right: 20px;\n    font-size: 1.4em;\n    vertical-align: top;\n  }\n\n  .todos input.checkbox {\n    width: 20px;\n    height: 20px;\n  }\n\n  .todos .checked {\n    text-decoration: line-through;\n  }\n\n  .todos button {\n    height: 36px;\n    font-size: 1.1em;\n    vertical-align: top;\n    border: solid 1px #999;\n    border-radius: 2px;\n  }\n\n  .todos .delete-icon {\n    diplay: inline-block;\n    cursor: pointer;\n  }\n  \n\n  /*  style for table that show the tasks info*/\n\n  body {\n  background: #fafafa url(http://jackrugile.com/images/misc/noise-diagonal.png);\n  color: #444;\n  font: 100%/30px 'Helvetica Neue', helvetica, arial, sans-serif;\n  text-shadow: 0 1px 0 #fff;\n}\n\nstrong {\n  font-weight: bold; \n}\n\nem {\n  font-style: italic; \n}\n\ntable {\n  background: #f5f5f5;\n  border-collapse: separate;\n  box-shadow: inset 0 1px 0 #fff;\n  font-size: 12px;\n  line-height: 24px;\n  margin: 30px auto;\n  text-align: left;\n  width: 800px;\n} \n\nth {\n  background: url(http://jackrugile.com/images/misc/noise-diagonal.png), -webkit-linear-gradient(#777, #444);\n  background: url(http://jackrugile.com/images/misc/noise-diagonal.png), linear-gradient(#777, #444);\n  border-left: 1px solid #555;\n  border-right: 1px solid #777;\n  border-top: 1px solid #555;\n  border-bottom: 1px solid #333;\n  box-shadow: inset 0 1px 0 #999;\n  color: #fff;\n  font-weight: bold;\n  padding: 10px 15px;\n  position: relative;\n  text-shadow: 0 1px 0 #000;  \n}\n\nth:after {\n  background: -webkit-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));\n  background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));\n  content: '';\n  display: block;\n  height: 25%;\n  left: 0;\n  margin: 1px 0 0 0;\n  position: absolute;\n  top: 25%;\n  width: 100%;\n}\n\nth:first-child {\n  border-left: 1px solid #777;  \n  box-shadow: inset 1px 1px 0 #999;\n}\n\nth:last-child {\n  box-shadow: inset -1px 1px 0 #999;\n}\n\ntd {\n  border-right: 1px solid #fff;\n  border-left: 1px solid #e8e8e8;\n  border-top: 1px solid #fff;\n  border-bottom: 1px solid #e8e8e8;\n  padding: 10px 15px;\n  position: relative;\n  -webkit-transition: all 300ms;\n  transition: all 300ms;\n}\n\ntd:first-child {\n  box-shadow: inset 1px 0 0 #fff;\n} \n\ntd:last-child {\n  border-right: 1px solid #e8e8e8;\n  box-shadow: inset -1px 0 0 #fff;\n} \n\ntr {\n  background: url(http://jackrugile.com/images/misc/noise-diagonal.png);  \n}\n\ntr:nth-child(odd) td {\n  background: #f1f1f1 url(http://jackrugile.com/images/misc/noise-diagonal.png);  \n}\n\ntr:last-of-type td {\n  box-shadow: inset 0 -1px 0 #fff; \n}\n\ntr:last-of-type td:first-child {\n  box-shadow: inset 1px -1px 0 #fff;\n} \n\ntr:last-of-type td:last-child {\n  box-shadow: inset -1px -1px 0 #fff;\n} \n\ntbody:hover td {\n  color: transparent;\n  text-shadow: 0 0 3px #aaa;\n}\n\ntbody:hover tr:hover td {\n  color: #444;\n  text-shadow: 0 1px 0 #fff;\n}", ""]);
 
-module.exports = "<div class = \"body\">\n  <div class=\"jumbotron\">\n    <div class=\"container text-center\">\n      <h1>{{obj.CompanyName}}</h1>      \n      <p><strong>Mission, Vission and Values</strong></p>\n    </div>\n  </div>\n  <nav class=\"navbar navbar-inverse\">\n    <div class=\"container-fluid\">\n      <div class=\"navbar-header\">\n        <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>                        \n        </button>\n        <a class=\"navbar-brand\">Fcompany <span class=\"glyphicon glyphicon-heart\"></span></a>\n      </div>\n      <div class=\"collapse navbar-collapse\" id=\"myNavbar\">\n        <ul class=\"nav navbar-nav\">\n          <li class=\"active\"><a href=\"#\">Home <span class=\"glyphicon glyphicon-home\"></span></a></li>\n          <li><a href=\"/company\">Users <span class=\"glyphicon glyphicon-user\"></span></a></li>\n        </ul>\n        <ul class=\"nav navbar-nav navbar-right\">\n          <li><a (click)=\"logout()\">Log Out <span class=\"glyphicon glyphicon-lock\"></span></a></li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n\n  <div class=\"container\">    \n    <div class=\"row\">\n      <div class=\"col-sm-4\">\n        <div class=\"panel panel-info\">\n          <div class=\"panel-heading\">Start A Task</div>\n          <div class=\"panel-body\"><a routerLink = \"/task\"><img src=\"../../assets/img/tasks-icon-26.png\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\"></a></div>\n          <div class=\"panel-footer\">Post A Task And Show It To Your Colleagues</div>\n        </div>\n      </div>\n      <div class=\"col-sm-4\"> \n        <div class=\"panel panel-info\">\n          <div class=\"panel-heading\">Discussion Board</div>\n          <div class=\"panel-body\"><a routerLink = \"/\"><img src=\"../../assets/img/Discussion.png\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\"></a></div>\n          <div class=\"panel-footer\">Discuss Your Problems Comfortably</div>\n        </div>\n      </div>\n      <div class=\"col-sm-4\"> \n        <div class=\"panel panel-info\">\n          <div class=\"panel-heading\">Your Schedule</div>\n          <div class=\"panel-body\"><a routerLink = \"/schedule\"><img src=\"../../assets/img/schedule.png\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\"></a></div>\n          <div class=\"panel-footer\">Schedule Your Meetings With Other Colleagues</div>\n        </div>\n      </div>\n    </div>\n  </div><br>\n\n  <div class=\"container\">    \n    <div class=\"row\">\n      <div class=\"col-sm-4\"> \n        <div class=\"panel panel-info\">\n          <div class=\"panel-heading\">Chat with Collegues</div>\n          <div class=\"panel-body\"><a routerLink = \"/\"><img src=\"../../assets/img/Chat.png\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\"></a></div>\n          <div class=\"panel-footer\">Start Chatting Your Collegues</div>\n        </div>\n      </div>\n      <div class=\"col-sm-4\"> \n        <div class=\"panel panel-info\">\n          <div class=\"panel-heading\">Get Some Food</div>\n          <div class=\"panel-body\"><a routerLink = \"/\"><img src=\"../../assets/img/food.png\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\"></a></div>\n          <div class=\"panel-footer\">Hungry?! You Can Get Food Here</div>\n        </div>\n      </div>\n      <div class=\"col-sm-4\"> \n        <div class=\"panel panel-info\">\n          <div class=\"panel-heading\">Playing Board</div>\n          <div class=\"panel-body\"><a routerLink = \"/\"><img src=\"../../assets/img/game.png\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\"></a></div>\n          <div class=\"panel-footer\">Time To play Around</div>\n        </div>\n      </div>\n    </div>\n  </div><br><br>\n\n  <footer class=\"container-fluid text-center\">\n    <p>{{obj.CompanyName}} Loves You <span class=\"glyphicon glyphicon-heart\"></span></p>\n    <p>{{obj.address}}<span class=\"glyphicon glyphicon-globe\"></span></p>\n    <p>{{obj.phoneNumber}}<span class=\"glyphicon glyphicon-phone\"></span></p>\n  </footer>\n</div>"
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
 
 /***/ }),
 
 /***/ 536:
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  creatcompany works!\n</p>\n  <form (submit)=\"Createcopmany()\"  >\n    <fieldset>\n      <label for=\"name\">Company Name</label>\n      <input type=\"text\" [(ngModel)]=\"CompanyName\"  id=\"name\" name=\"user_name\" >\n\n\n      <label for=\"name\">Company Address</label>\n      <input type=\"text\" [(ngModel)]=\"address\"  id=\"name\" name=\"user_name\" >\n\n      <label for=\"name\">Company telephone</label>\n      <input type=\"text\" [(ngModel)]=\"phoneNumber\"  id=\"name\" name=\"user_name\" >\n\n      <label for=\"name\">Plese Enter the code sent to you by your mail</label>\n      <input type=\"text\" [(ngModel)]=\"code\"  id=\"name\" name=\"user_name\" >\n      \n   \n    </fieldset>\n    <button type=\"submit\" value=\"Submit\" >Create Company</button>\n\n  </form>"
+module.exports = "<p>\nHI<br>\nHI<br>\nHI<br>\nHI<br>\nHI<br>\nHI<br>\n</p>"
 
 /***/ }),
 
 /***/ 537:
 /***/ (function(module, exports) {
 
-module.exports = "    <!-- Header -->\n    <nav class=\"navbar navbar-default navbar-fixed-top topnav\" role=\"navigation\">\n      <div class=\"container topnav\">\n        <div class=\"navbar-header\">\n          <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\n            <span class=\"sr-only\">Toggle navigation</span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n          </button>\n          <a class=\"navbar-brand topnav\" href=\"/\">Company</a>\n        </div>\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n          <ul class=\"nav navbar-nav navbar-right\">\n            <li>\n              <a routerLink=\"/aboutus\">About</a>\n            </li>\n            <li>\n              <a routerLink=\"/signin\">Sign in </a>\n            </li>\n            <li>\n              <a routerLink=\"/signup\">Sign up</a>\n            </li>\n          </ul>\n        </div>\n      </div>\n    </nav>\n    <a name=\"about\"></a>\n    <div class=\"intro-header\">\n      <div class=\"container\">\n\n        <div class=\"row\">\n          <div class=\"col-lg-12\">\n            <div class=\"intro-message\">\n              <h1>Company App</h1>\n              <h3>manage your company easy and simple</h3>\n              <hr class=\"intro-divider\">\n              <ul class=\"list-inline intro-social-buttons\">\n                <li>\n                  <a href=\"\" class=\"btn btn-default btn-lg\"><i class=\"fa fa-twitter fa-fw\"></i> <span class=\"network-name\">Twitter</span></a>\n                </li>\n                <li>\n                  <a href=\"\" class=\"btn btn-default btn-lg\"><i class=\"fa fa-github fa-fw\"></i> <span class=\"network-name\">Github</span></a>\n                </li>\n                <li>\n                  <a href=\"\" class=\"btn btn-default btn-lg\"><i class=\"fa fa-linkedin fa-fw\"></i> <span class=\"network-name\">Linkedin</span></a>\n                </li>\n              </ul>\n            </div>\n          </div>\n        </div>\n\n      </div>\n      <!-- /.container -->\n    </div>\n    <!-- /.intro-header -->\n\n    <!-- Page Content -->\n    <a  name=\"services\"></a>\n    <div class=\"content-section-a\">\n\n      <div class=\"container\">\n        <div class=\"row\">\n          <div class=\"col-lg-5 col-sm-6\">\n            <hr class=\"section-heading-spacer\">\n            <div class=\"clearfix\"></div>\n            <h2 class=\"section-heading\">manage your company task ease:<br></h2>\n            <p class=\"lead\">you can manage your company task as you want and make the work so ease and more effective between the team member</p>\n          </div>\n          <div class=\"col-lg-5 col-lg-offset-2 col-sm-6\">\n            <img class=\"img-responsive\" src=\"../assets/img/ipad.png\" alt=\"\">\n          </div>\n        </div>\n\n      </div>\n      <!-- /.container -->\n\n    </div>\n    <!-- /.content-section-a -->\n\n    <div class=\"content-section-b\">\n\n      <div class=\"container\">\n\n        <div class=\"row\">\n          <div class=\"col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6\">\n            <hr class=\"section-heading-spacer\">\n            <div class=\"clearfix\"></div>\n            <h2 class=\"section-heading\">3D Device Mockups<br>by PSDCovers</h2>\n            <p class=\"lead\">Turn your 2D designs into high quality, 3D product shots in seconds using free Photoshop actions by <a target=\"_blank\" href=\"http://www.psdcovers.com/\">PSDCovers</a>! Visit their website to download some of their awesome, free photoshop actions!</p>\n          </div>\n          <div class=\"col-lg-5 col-sm-pull-6  col-sm-6\">\n            <img class=\"img-responsive\" src=\"../assets/img/dog.jpg\" alt=\"\">\n          </div>\n        </div>\n\n      </div>\n      <!-- /.container -->\n\n    </div>\n    <!-- /.content-section-b -->\n\n    <div class=\"content-section-a\">\n\n      <div class=\"container\">\n\n        <div class=\"row\">\n          <div class=\"col-lg-5 col-sm-6\">\n            <hr class=\"section-heading-spacer\">\n            <div class=\"clearfix\"></div>\n            <h2 class=\"section-heading\">Google Web Fonts and<br>Font Awesome Icons</h2>\n            <p class=\"lead\">This template features the 'Lato' font, part of the <a target=\"_blank\" href=\"http://www.google.com/fonts\">Google Web Font library</a>, as well as <a target=\"_blank\" href=\"http://fontawesome.io\">icons from Font Awesome</a>.</p>\n          </div>\n          <div class=\"col-lg-5 col-lg-offset-2 col-sm-6\">\n            <img class=\"img-responsive\" src=\"../assets/img/phones.png\" alt=\"\">\n          </div>\n        </div>\n\n      </div>\n      <!-- /.container -->\n\n    </div>\n    <!-- /.content-section-a -->\n\n    <a  name=\"contact\"></a>\n    <div class=\"banner\">\n\n      <div class=\"container\">\n\n        <div class=\"row\">\n          <div class=\"col-lg-6\">\n            <h2>register now:</h2>\n          </div>\n          <div class=\"col-lg-6\">\n            <ul class=\"list-inline banner-social-buttons\">\n              <li>\n                <a href=\"\" class=\"btn btn-default btn-lg\"><span class=\"network-name\">Sign in</span></a>\n              </li>\n              <li>\n                <a href=\"\" class=\"btn btn-default btn-lg\"><span class=\"network-name\">register</span></a>\n              </li>\n            </ul>\n          </div>\n        </div>\n\n      </div>\n      <!-- /.container -->\n\n    </div>\n    <!-- /.banner -->\n\n    <!-- Footer -->\n    <footer>\n      <div class=\"container\">\n        <p class=\"copyright text-muted small\">Copyright &copy; Your Company 2017... RBK</p>\n      </div>\n    </footer>\n"
+module.exports = "<flash-messages></flash-messages>\n<router-outlet></router-outlet>\n"
 
 /***/ }),
 
 /***/ 538:
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  schedule works!\n</p>\n"
+module.exports = "<div class = \"body\">\n  <div class=\"jumbotron\">\n    <div class=\"container text-center\">\n      <h1>{{obj.CompanyName}}</h1>      \n      <p><strong>Mission, Vission and Values</strong></p>\n    </div>\n  </div>\n  <nav class=\"navbar navbar-inverse\">\n    <div class=\"container-fluid\">\n      <div class=\"navbar-header\">\n        <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>                        \n        </button>\n        <a class=\"navbar-brand\">Fcompany <span class=\"glyphicon glyphicon-heart\"></span></a>\n      </div>\n      <div class=\"collapse navbar-collapse\" id=\"myNavbar\">\n        <ul class=\"nav navbar-nav\">\n          <li class=\"active\"><a href=\"#\">Home <span class=\"glyphicon glyphicon-home\"></span></a></li>\n          <li><a href=\"/company\">Users <span class=\"glyphicon glyphicon-user\"></span></a></li>\n        </ul>\n        <ul class=\"nav navbar-nav navbar-right\">\n          <li><a (click)=\"logout()\">Log Out <span class=\"glyphicon glyphicon-lock\"></span></a></li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n\n  <div class=\"container\">    \n    <div class=\"row\">\n      <div class=\"col-sm-4\">\n        <div class=\"panel panel-info\">\n          <div class=\"panel-heading\">Start A Task</div>\n          <div class=\"panel-body\"><a routerLink = \"/task\"><img src=\"../../assets/img/tasks-icon-26.png\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\"></a></div>\n          <div class=\"panel-footer\">Post A Task And Show It To Your Colleagues</div>\n        </div>\n      </div>\n      <div class=\"col-sm-4\"> \n        <div class=\"panel panel-info\">\n          <div class=\"panel-heading\">Discussion Board</div>\n          <div class=\"panel-body\"><a routerLink = \"/\"><img src=\"../../assets/img/Discussion.png\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\"></a></div>\n          <div class=\"panel-footer\">Discuss Your Problems Comfortably</div>\n        </div>\n      </div>\n      <div class=\"col-sm-4\"> \n        <div class=\"panel panel-info\">\n          <div class=\"panel-heading\">Your Schedule</div>\n          <div class=\"panel-body\"><a routerLink = \"/schedule\"><img src=\"../../assets/img/schedule.png\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\"></a></div>\n          <div class=\"panel-footer\">Schedule Your Meetings With Other Colleagues</div>\n        </div>\n      </div>\n    </div>\n  </div><br>\n\n  <div class=\"container\">    \n    <div class=\"row\">\n      <div class=\"col-sm-4\"> \n        <div class=\"panel panel-info\">\n          <div class=\"panel-heading\">Chat with Collegues</div>\n          <div class=\"panel-body\"><a routerLink = \"/\"><img src=\"../../assets/img/Chat.png\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\"></a></div>\n          <div class=\"panel-footer\">Start Chatting Your Collegues</div>\n        </div>\n      </div>\n      <div class=\"col-sm-4\"> \n        <div class=\"panel panel-info\">\n          <div class=\"panel-heading\">Get Some Food</div>\n          <div class=\"panel-body\"><a routerLink = \"/\"><img src=\"../../assets/img/food.png\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\"></a></div>\n          <div class=\"panel-footer\">Hungry?! You Can Get Food Here</div>\n        </div>\n      </div>\n      <div class=\"col-sm-4\"> \n        <div class=\"panel panel-info\">\n          <div class=\"panel-heading\">Playing Board</div>\n          <div class=\"panel-body\"><a routerLink = \"/\"><img src=\"../../assets/img/game.png\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\"></a></div>\n          <div class=\"panel-footer\">Time To play Around</div>\n        </div>\n      </div>\n    </div>\n  </div><br><br>\n\n  <footer class=\"container-fluid text-center\">\n    <p>{{obj.CompanyName}} Loves You <span class=\"glyphicon glyphicon-heart\"></span></p>\n    <p>{{obj.address}}<span class=\"glyphicon glyphicon-globe\"></span></p>\n    <p>{{obj.phoneNumber}}<span class=\"glyphicon glyphicon-phone\"></span></p>\n  </footer>\n</div>"
 
 /***/ }),
 
 /***/ 539:
 /***/ (function(module, exports) {
 
-module.exports = "<br><br>\n<form (submit)=\"onSubmit()\">\n\t<h1>Sign In</h1>\n\t<fieldset>\n\t\t<label for=\"name\">Name:</label>\n\t\t<input type=\"text\" [(ngModel)]=\"username\"  id=\"name\" name=\"user_name\" >\n\t\t<label for=\"password\">Password:</label>\n\t\t<input type=\"password\" [(ngModel)]=\"password\" id=\"password\" name=\"user_password\" >\n\t</fieldset>\n\t<button type=\"submit\" value=\"Submit\" >Submit</button>\n</form>"
+module.exports = "<p>\n  creatcompany works!\n</p>\n  <form (submit)=\"Createcopmany()\"  >\n    <fieldset>\n      <label for=\"name\">Company Name</label>\n      <input type=\"text\" [(ngModel)]=\"CompanyName\"  id=\"name\" name=\"user_name\" >\n\n\n      <label for=\"name\">Company Address</label>\n      <input type=\"text\" [(ngModel)]=\"address\"  id=\"name\" name=\"user_name\" >\n\n      <label for=\"name\">Company telephone</label>\n      <input type=\"text\" [(ngModel)]=\"phoneNumber\"  id=\"name\" name=\"user_name\" >\n\n      <label for=\"name\">Plese Enter the code sent to you by your mail</label>\n      <input type=\"text\" [(ngModel)]=\"code\"  id=\"name\" name=\"user_name\" >\n      \n   \n    </fieldset>\n    <button type=\"submit\" value=\"Submit\" >Create Company</button>\n\n  </form>"
 
 /***/ }),
 
 /***/ 540:
 /***/ (function(module, exports) {
 
-module.exports = "<br>\n<br>\n<br>\n\n<h1>Sign Up</h1>\n<button *ngIf=\"but1flag\" (click)=\"compflag()\">company account</button>\n<button *ngIf=\"but2flag\" (click)=\"empflag()\">employee account</button>\n<div *ngIf=\"comflag\">\n  <form (submit)=\"onRegisterAdmin()\"  >\n    <fieldset>\n     \n\n      <label for=\"name\">Admin Name</label>\n      <input type=\"text\" [(ngModel)]=\"username\"  id=\"name\" name=\"user_name\" >\n\n      <label for=\"name\">Admon Job Role</label>\n     <!-- <select [(ngModel)]=\"jobrole\"> \n        <option *ngFor=\"#n of jobroles\" [attr.value]=\"n\">{{n}}</option>\n      </select> -->\n      <select (change)=\"onChange($event.target.value)\">\n        <option *ngFor=\"let i of jobroles\">{{i}}</option>\n      </select>\n      <!-- <input type=\"text\" [(ngModel)]=\"jobrole\"  id=\"name\" name=\"user_name\" > -->\n\n      <label for=\"mail\">Email</label>\n      <input type=\"email\" [(ngModel)]=\"email\" id=\"mail\" name=\"user_email\" >\n\n      <label for=\"password\">Password</label>\n      <input type=\"password\" [(ngModel)]=\"password\" id=\"password\" name=\"user_password\" >\n    </fieldset>\n    <button type=\"submit\" value=\"Submit\" >Next</button>\n\n  </form>\n</div>\n\n<div *ngIf=\"emflag\">\n\n  <form (submit)=\"onRegisterUser()\"  >\n    <fieldset>\n      <label for=\"name\">Name:</label>\n      <input type=\"text\" [(ngModel)]=\"username\"  id=\"name\" name=\"user_name\" >\n\n      <label for=\"name\">Job Role</label>\n      <select (change)=\"onChange($event.target.value)\">\n        <option *ngFor=\"let i of jobroles\">{{i}}</option>\n      </select>\n\n      <label for=\"mail\">Email:</label>\n      <input type=\"email\" [(ngModel)]=\"email\" id=\"mail\" name=\"user_email\" >\n\n      <label for=\"password\">Password:</label>\n      <input type=\"password\" [(ngModel)]=\"password\" id=\"password\" name=\"user_password\" >\n      \n      <label for=\"code\">Code:</label>\n      <input type=\"code\" [(ngModel)]=\"code\" id=\"code\" name=\"user_code\" >\n\n    </fieldset>\n    <button type=\"submit\" value=\"Submit\" >Sign Up</button>\n\n  </form>\n</div>"
+module.exports = "    <!-- Header -->\n    <nav class=\"navbar navbar-default navbar-fixed-top topnav\" role=\"navigation\">\n      <div class=\"container topnav\">\n        <div class=\"navbar-header\">\n          <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\n            <span class=\"sr-only\">Toggle navigation</span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n          </button>\n          <a class=\"navbar-brand topnav\" href=\"/\">Company</a>\n        </div>\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n          <ul class=\"nav navbar-nav navbar-right\">\n            <li>\n              <a routerLink=\"/aboutus\">About</a>\n            </li>\n            <li>\n              <a routerLink=\"/signin\">Sign in </a>\n            </li>\n            <li>\n              <a routerLink=\"/signup\">Sign up</a>\n            </li>\n          </ul>\n        </div>\n      </div>\n    </nav>\n    <a name=\"about\"></a>\n    <div class=\"intro-header\">\n      <div class=\"container\">\n\n        <div class=\"row\">\n          <div class=\"col-lg-12\">\n            <div class=\"intro-message\">\n              <h1>Company App</h1>\n              <h3>manage your company easy and simple</h3>\n              <hr class=\"intro-divider\">\n              <ul class=\"list-inline intro-social-buttons\">\n                <li>\n                  <a href=\"\" class=\"btn btn-default btn-lg\"><i class=\"fa fa-twitter fa-fw\"></i> <span class=\"network-name\">Twitter</span></a>\n                </li>\n                <li>\n                  <a href=\"\" class=\"btn btn-default btn-lg\"><i class=\"fa fa-github fa-fw\"></i> <span class=\"network-name\">Github</span></a>\n                </li>\n                <li>\n                  <a href=\"\" class=\"btn btn-default btn-lg\"><i class=\"fa fa-linkedin fa-fw\"></i> <span class=\"network-name\">Linkedin</span></a>\n                </li>\n              </ul>\n            </div>\n          </div>\n        </div>\n\n      </div>\n      <!-- /.container -->\n    </div>\n    <!-- /.intro-header -->\n\n    <!-- Page Content -->\n    <a  name=\"services\"></a>\n    <div class=\"content-section-a\">\n\n      <div class=\"container\">\n        <div class=\"row\">\n          <div class=\"col-lg-5 col-sm-6\">\n            <hr class=\"section-heading-spacer\">\n            <div class=\"clearfix\"></div>\n            <h2 class=\"section-heading\">manage your company task ease:<br></h2>\n            <p class=\"lead\">you can manage your company task as you want and make the work so ease and more effective between the team member</p>\n          </div>\n          <div class=\"col-lg-5 col-lg-offset-2 col-sm-6\">\n            <img class=\"img-responsive\" src=\"../assets/img/ipad.png\" alt=\"\">\n          </div>\n        </div>\n\n      </div>\n      <!-- /.container -->\n\n    </div>\n    <!-- /.content-section-a -->\n\n    <div class=\"content-section-b\">\n\n      <div class=\"container\">\n\n        <div class=\"row\">\n          <div class=\"col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6\">\n            <hr class=\"section-heading-spacer\">\n            <div class=\"clearfix\"></div>\n            <h2 class=\"section-heading\">3D Device Mockups<br>by PSDCovers</h2>\n            <p class=\"lead\">Turn your 2D designs into high quality, 3D product shots in seconds using free Photoshop actions by <a target=\"_blank\" href=\"http://www.psdcovers.com/\">PSDCovers</a>! Visit their website to download some of their awesome, free photoshop actions!</p>\n          </div>\n          <div class=\"col-lg-5 col-sm-pull-6  col-sm-6\">\n            <img class=\"img-responsive\" src=\"../assets/img/dog.jpg\" alt=\"\">\n          </div>\n        </div>\n\n      </div>\n      <!-- /.container -->\n\n    </div>\n    <!-- /.content-section-b -->\n\n    <div class=\"content-section-a\">\n\n      <div class=\"container\">\n\n        <div class=\"row\">\n          <div class=\"col-lg-5 col-sm-6\">\n            <hr class=\"section-heading-spacer\">\n            <div class=\"clearfix\"></div>\n            <h2 class=\"section-heading\">Google Web Fonts and<br>Font Awesome Icons</h2>\n            <p class=\"lead\">This template features the 'Lato' font, part of the <a target=\"_blank\" href=\"http://www.google.com/fonts\">Google Web Font library</a>, as well as <a target=\"_blank\" href=\"http://fontawesome.io\">icons from Font Awesome</a>.</p>\n          </div>\n          <div class=\"col-lg-5 col-lg-offset-2 col-sm-6\">\n            <img class=\"img-responsive\" src=\"../assets/img/phones.png\" alt=\"\">\n          </div>\n        </div>\n\n      </div>\n      <!-- /.container -->\n\n    </div>\n    <!-- /.content-section-a -->\n\n    <a  name=\"contact\"></a>\n    <div class=\"banner\">\n\n      <div class=\"container\">\n\n        <div class=\"row\">\n          <div class=\"col-lg-6\">\n            <h2>register now:</h2>\n          </div>\n          <div class=\"col-lg-6\">\n            <ul class=\"list-inline banner-social-buttons\">\n              <li>\n                <a href=\"\" class=\"btn btn-default btn-lg\"><span class=\"network-name\">Sign in</span></a>\n              </li>\n              <li>\n                <a href=\"\" class=\"btn btn-default btn-lg\"><span class=\"network-name\">register</span></a>\n              </li>\n            </ul>\n          </div>\n        </div>\n\n      </div>\n      <!-- /.container -->\n\n    </div>\n    <!-- /.banner -->\n\n    <!-- Footer -->\n    <footer>\n      <div class=\"container\">\n        <p class=\"copyright text-muted small\">Copyright &copy; Your Company 2017... RBK</p>\n      </div>\n    </footer>\n"
 
 /***/ }),
 
 /***/ 541:
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  task works!\n</p>\n"
+module.exports = "<p>\n  schedule works!\n</p>\n"
 
 /***/ }),
 
-/***/ 561:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ 542:
+/***/ (function(module, exports) {
 
-module.exports = __webpack_require__.p + "background.e1115afea56dcaf0c273.png";
+module.exports = "<br><br>\n<form (submit)=\"onSubmit()\">\n\t<h1>Sign In</h1>\n\t<fieldset>\n\t\t<label for=\"name\">Name:</label>\n\t\t<input type=\"text\" [(ngModel)]=\"username\"  id=\"name\" name=\"user_name\" >\n\t\t<label for=\"password\">Password:</label>\n\t\t<input type=\"password\" [(ngModel)]=\"password\" id=\"password\" name=\"user_password\" >\n\t</fieldset>\n\t<button type=\"submit\" value=\"Submit\" >Submit</button>\n</form>"
+
+/***/ }),
+
+/***/ 543:
+/***/ (function(module, exports) {
+
+module.exports = "<br>\n<br>\n<br>\n\n<h1>Sign Up</h1>\n<button *ngIf=\"but1flag\" (click)=\"compflag()\">company account</button>\n<button *ngIf=\"but2flag\" (click)=\"empflag()\">employee account</button>\n<div *ngIf=\"comflag\">\n  <form (submit)=\"onRegisterAdmin()\"  >\n    <fieldset>\n     \n\n      <label for=\"name\">Admin Name</label>\n      <input type=\"text\" [(ngModel)]=\"username\"  id=\"name\" name=\"user_name\" >\n\n      <label for=\"name\">Admon Job Role</label>\n     <!-- <select [(ngModel)]=\"jobrole\"> \n        <option *ngFor=\"#n of jobroles\" [attr.value]=\"n\">{{n}}</option>\n      </select> -->\n      <select (change)=\"onChange($event.target.value)\">\n        <option *ngFor=\"let i of jobroles\">{{i}}</option>\n      </select>\n      <!-- <input type=\"text\" [(ngModel)]=\"jobrole\"  id=\"name\" name=\"user_name\" > -->\n\n      <label for=\"mail\">Email</label>\n      <input type=\"email\" [(ngModel)]=\"email\" id=\"mail\" name=\"user_email\" >\n\n      <label for=\"password\">Password</label>\n      <input type=\"password\" [(ngModel)]=\"password\" id=\"password\" name=\"user_password\" >\n    </fieldset>\n    <button type=\"submit\" value=\"Submit\" >Next</button>\n\n  </form>\n</div>\n\n<div *ngIf=\"emflag\">\n\n  <form (submit)=\"onRegisterUser()\"  >\n    <fieldset>\n      <label for=\"name\">Name:</label>\n      <input type=\"text\" [(ngModel)]=\"username\"  id=\"name\" name=\"user_name\" >\n\n      <label for=\"name\">Job Role</label>\n      <select (change)=\"onChange($event.target.value)\">\n        <option *ngFor=\"let i of jobroles\">{{i}}</option>\n      </select>\n\n      <label for=\"mail\">Email:</label>\n      <input type=\"email\" [(ngModel)]=\"email\" id=\"mail\" name=\"user_email\" >\n\n      <label for=\"password\">Password:</label>\n      <input type=\"password\" [(ngModel)]=\"password\" id=\"password\" name=\"user_password\" >\n      \n      <label for=\"code\">Code:</label>\n      <input type=\"code\" [(ngModel)]=\"code\" id=\"code\" name=\"user_code\" >\n\n    </fieldset>\n    <button type=\"submit\" value=\"Submit\" >Sign Up</button>\n\n  </form>\n</div>"
+
+/***/ }),
+
+/***/ 544:
+/***/ (function(module, exports) {
+
+module.exports = " <div class=\"panel-heading\" style=\"background-color: #252626\"> \n    <h3 class=\"panel-title\" style=\"color: white;text-align: center;padding: 15px;font-size: 35px\">Tasks\n     <i style=\"padding: 15px;color:#3a47a3\" class=\"glyphicon glyphicon-tasks\"></i>\n     </h3>\n  </div>\n\n<div class=\"todos\" style=\"padding: 15px\">\n\n  <!-- *** -->\n  <table>\n  <thead>\n    <tr>\n      <th>Task name</th>\n      <th>Date</th>\n      <th>Assign to</th>\n      <th>Description</th>\n      <th>Delete</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let todo of todos\">\n      <td><strong >{{ todo.newTodo }}</strong></td>\n      <td>{{ todo.Date }}</td>\n      <td>{{ todo.Assign }}</td>\n      <td>{{ todo.Discription }}</td>\n      <td (click)=\"deleteTodo(i)\" class=\"delete-icon\" style=\"color: red\">[X]</td>\n    </tr>\n  </tbody>\n</table>\n\n    </div>\n    <!--  ********************************   -->\n\n<input class=\"btn btn-danger\" type=\"submit\" value=\"add New task\" (click)=\"div_show()\" >\n\n<div id=\"abc\">\n\n  <form class=\"well form-horizontal\" (submit)=\"addTodo()\">\n    <fieldset>\n\n     <div class=\"form-group\">\n        <label class=\"col-md-4 control-label\">Task</label>  \n        <div class=\"col-md-4 inputGroupContainer\">\n          <div class=\"input-group\">\n            <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-tasks\"></i></span>\n            <input type=\"text\" [(ngModel)]=\"newTodo\" name=\"newTodo\">\n          </div>\n        </div>\n      </div>\n\n      <div class=\"form-group\">\n        <label class=\"col-md-4 control-label\">Discription</label>  \n        <div class=\"col-md-4 inputGroupContainer\">\n          <div class=\"input-group\">\n            <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-tasks\"></i></span>\n            <textarea rows=\"3\" cols=\"50\" [(ngModel)]=\"Discription\" name=\"Discription\"></textarea>\n          </div>\n        </div>\n      </div>\n\n     \n\n       <div class=\"form-group\">\n        <label class=\"col-md-4 control-label\">Date </label>  \n        <div class=\"col-md-4 inputGroupContainer\">\n          <div class=\"input-group\">\n            <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-time\"></i></span>\n            <input  type=\"date\" name=\"\" [(ngModel)]=\"Date\" name=\"Date\">\n          </div>\n        </div>\n      </div>\n\n        <div class=\"form-group\">\n        <label class=\"col-md-4 control-label\">Assign to</label>  \n        <div class=\"col-md-4 inputGroupContainer\">\n          <div class=\"input-group\">\n            <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-user\"></i></span>\n           <select class=\"form-control\" (change)=\"onChange($event.target.value)\">\n            <option  *ngFor=\"let i of Assigns\">{{i}}</option>\n          </select>\n          </div>\n        </div>\n      </div>\n\n      <div class=\"form-group\">\n        <label class=\"col-md-4 control-label\"></label>\n        <div class=\"col-md-4\">\n        <button  class=\"btn btn-lg btn-primary btn-block\" (click)=\"div_hide()\"> SUBMIT <span class=\"glyphicon glyphicon-send\"></span></button></div>\n      </div>\n\n      <div class=\"form-group\">\n        <label class=\"col-md-4 control-label\"></label>\n        <div class=\"col-md-4\">\n          <button class=\"btn btn-lg btn-danger btn-block\" (click)=\"div_hide()\">close</button>\n        </div>\n      </div>\n      \n    </fieldset>\n\n  </form>\n  \n</div> <!-- **********************end div popup***************** -->\n\n<style type=\"text/css\">\n#abc {\nwidth:100%;\nheight:100%;\nopacity:.95;\ntop:0;\nleft:0;\ndisplay:none;\nposition:fixed;\nbackground-color:#313131;\noverflow:auto\n}\n</style>\n\n"
 
 /***/ }),
 
 /***/ 563:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(336);
+module.exports = __webpack_require__.p + "background.e1115afea56dcaf0c273.png";
+
+/***/ }),
+
+/***/ 565:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(339);
 
 
 /***/ }),
@@ -1023,10 +1172,10 @@ module.exports = __webpack_require__(336);
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(546);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(216);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_jwt__ = __webpack_require__(469);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_jwt__ = __webpack_require__(472);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_jwt__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1064,28 +1213,12 @@ var AuthService = (function () {
         return this.http.post('api/user/signin', user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
-    AuthService.prototype.getCompany = function (params) {
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
-        this.loadToken();
-        headers.append('Authorization', this.authToken);
-        headers.append('Content-Type', 'application/json');
-        return this.http.get('api/company/' + params)
-            .map(function (res) { return res.json(); });
-    };
     // authenticateUser(user){
     //   let headers = new Headers();
     //   headers.append('Content-Type','application/json');
     //   return this.http.post('http://localhost:3000/users/authenticate', user,{headers: headers})
     //     .map(res => res.json());
     // }
-    AuthService.prototype.getUserSameCompany = function () {
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
-        this.loadToken();
-        headers.append('Authorization', this.authToken);
-        headers.append('Content-Type', 'application/json');
-        return this.http.get('api/users', { headers: headers })
-            .map(function (res) { return res.json(); });
-    };
     AuthService.prototype.storeUserData = function (token, id, name) {
         localStorage.setItem('id_token', token);
         localStorage.setItem('user-id', id);
@@ -1123,5 +1256,5 @@ var AuthService = (function () {
 
 /***/ })
 
-},[563]);
+},[565]);
 //# sourceMappingURL=main.bundle.js.map

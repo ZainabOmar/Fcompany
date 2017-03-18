@@ -17,9 +17,14 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { CompanyComponent } from './company/company.component';
 import { TaskComponent } from './task/task.component';
 import { CreatcompanyComponent } from './creatcompany/creatcompany.component';
+import { ScheduleComponent } from './schedule/schedule.component';
+import {AuthGuard} from './guard/guard.guard';
+
+
 
 @NgModule({
   declarations: [
+  ScheduleComponent,
     AppComponent,
     MainPageComponent,
     SigninComponent,
@@ -37,7 +42,7 @@ import { CreatcompanyComponent } from './creatcompany/creatcompany.component';
   {path: 'mainPage',   component: MainPageComponent},
   {path: '',   component: MainPageComponent},
   {path: 'signup',component: SignupComponent},
-  {path: 'creatcompany',   component: CreatcompanyComponent},
+  {path: 'creatcompany',   component: CreatcompanyComponent,canActivate:[AuthGuard]},
   {path: 'signin',component: SigninComponent},
   {path: 'aboutus',   component: AboutusComponent},
   {path: 'company',   component: CompanyComponent},
@@ -46,7 +51,7 @@ import { CreatcompanyComponent } from './creatcompany/creatcompany.component';
   ]),
     FlashMessagesModule
   ],
-  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy},ValidateService,AuthService],
+  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy},ValidateService,AuthService,AuthGuard],
   bootstrap: [AppComponent]
   })
 

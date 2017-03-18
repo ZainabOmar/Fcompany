@@ -6,20 +6,25 @@ var scheduleSchema = new mongoose.Schema({
     type:mongoose.Schema.Types.ObjectId,
     ref:'user'
   }],
-  code:{
+  username:{
     type:String,
     required:true
   },
-  address:{
+  userid:{
     type:String,
     required:true
   },
-  phoneNumber:{
+  date:{
     type:String,
     required:true
   },
-    CompanyName:{
+    time:{
     type:String,
+    required:true
+  },
+  title:{
+    type:String,
+    required:true
   }
 });
 

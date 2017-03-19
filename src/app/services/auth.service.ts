@@ -63,7 +63,13 @@ export class AuthService {
     }
 
     loggedIn(){
-      return tokenNotExpired();
+      // return tokenNotExpired();
+      if(localStorage.getItem('id_token').length){
+        return true
+      }
+      else{
+        return false
+      }
     }
 
     logout(){

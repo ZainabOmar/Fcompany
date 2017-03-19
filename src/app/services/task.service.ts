@@ -10,8 +10,15 @@ export class TaskService {
   AddTask(Task){
     let headers = new Headers();
     headers.append('Content-Type','application/json');
-    return this.http.post('api/task', Task,{headers: headers})
+    return this.http.post('/api/addTask', Task,{headers: headers})
     .map(res => res.json());
   }
+
+	getTask(params){
+		let headers = new Headers();
+		headers.append('Content-Type','application/json');
+		return this.http.get('/api/getTask/'+ params)
+		.map(res => res.json());
+	}
 
 }

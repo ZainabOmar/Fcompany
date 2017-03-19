@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ScheduleService } from '../services/schedule.service';
+import {FlashMessagesService} from 'angular2-flash-messages';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-schedule',
@@ -6,10 +11,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./schedule.component.css']
 })
 export class ScheduleComponent implements OnInit {
+    info = false;
+    Title: String;
+    Discription: String;
+    Date: Date;
 
-  constructor() { }
+
+  constructor(
+     private flashMessage:FlashMessagesService,
+     private scheduleservice : ScheduleService,
+     private router: Router
+    ) {}
 
   ngOnInit() {
+   
   }
+  
+   div_hide(){
+document.getElementById('aya').style.display = "none";
+    if(this.Title && this.Date)
+    this.info = !this.info
+}
+
+//Function To Display Popup
+div_show() {
+
+document.getElementById('aya').style.display = "block";
+}
 
 }

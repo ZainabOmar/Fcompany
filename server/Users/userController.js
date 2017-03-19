@@ -6,15 +6,15 @@ var nodemailer = require('nodemailer')
 var Company = require('../Company/companyModule.js')
 
 GenerateCode = function () {
-    var Code="";
-    for(var i=0; Code.length <20 ; i++){
-      var rand3=Math.floor( Math.random() * (95- 50) +50);
-      var rand=Math.floor( Math.random() * (95- 50) +50);
-      var rand2=Math.floor( Math.random() * (95 - 50) +50);
-      Code+=String.fromCharCode(rand)+String.fromCharCode(rand2)+rand3;
-    }
-    return Code.replace(" ", "");
+  var Code="";
+  for(var i=0; Code.length <20 ; i++){
+    var rand3=Math.floor( Math.random() * (95- 50) +50);
+    var rand=Math.floor( Math.random() * (95- 50) +50);
+    var rand2=Math.floor( Math.random() * (95 - 50) +50);
+    Code+=String.fromCharCode(rand)+String.fromCharCode(rand2)+rand3;
   }
+  return Code.replace(" ", "");
+}
 
 module.exports.handleUsers = {
   signin : function(req, res) {
@@ -135,15 +135,15 @@ module.exports.handleUsers = {
               } else {
                 var token = jwt.encode(user, 'secret');
                 console.log(c)
-                res.json({token : token ,UserId : newUser._id , username : username}); 
-              c.users.push(newUser._id)
-              c.save(function(err,c){
-                if(err) {throw err};
-                res.json(newUser)
-              })
+                // res.json({token : token ,UserId : newUser._id , username : username}); 
+                c.users.push(newUser._id)
+                c.save(function(err,c){
+                  if(err) {throw err};
+                  res.json({token : token ,_id : newUser._id , username : username})
+                })
               }   
             });
-                console.log("aaaaa")
+              console.log("aaaaa")
             } else {
               res.status(404).json("egleb wjhak");
             }

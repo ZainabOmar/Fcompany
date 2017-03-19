@@ -133,7 +133,7 @@ export class SignupComponent implements OnInit {
       console.log(data,"btatatatatata")
       if(data.token){
         this.flashMessage.show('You are now registered ', {cssClass: 'alert-success', timeout: 3000});
-        this.authService.storeUserData("null",data.AdminId,data.username)
+        this.authService.storeUserData(data.token,data.AdminId,data.username)
         this.router.navigate(['/creatcompany']);
         } else {
           console.log(data, "not working")

@@ -62,7 +62,7 @@ export class CreatcompanyComponent implements OnInit {
       console.log(data.success, data,"btatatatatata")
       if(data){
         this.flashMessage.show('You are now registered ', {cssClass: 'alert-success', timeout: 4000});
-        this.authService.storeUserData(data.token,data._id,data.username);
+        // this.authService.storeUserData(data.token,data._id,data.username);
     this.router.navigate(['/company']);
      } else {
     console.log(data, "not working")

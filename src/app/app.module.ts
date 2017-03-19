@@ -21,6 +21,7 @@ import { CreatcompanyComponent } from './creatcompany/creatcompany.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import {AuthGuard} from './guard/guard.guard';
 import {CompanyService} from './services/company.service';
+import {ScheduleService} from './services/schedule.service';
 
 
 
@@ -54,7 +55,8 @@ import {CompanyService} from './services/company.service';
   ]),
     FlashMessagesModule
   ],
-  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy},ValidateService,AuthService,AuthGuard,TaskService,CompanyService],
+  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy},
+  ValidateService,AuthService,AuthGuard,TaskService,CompanyService,ScheduleService],
   bootstrap: [AppComponent]
   })
 

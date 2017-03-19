@@ -27,7 +27,7 @@ app.get('/api/users', UsersController.handleUsers.getUsers)
 
 
 app.post('/api/company', CompanyController.handleCompany.addCompany);
-// app.get('/api/company', CompanyController.handleCompany.showAllCompanies);
+ //app.get('/api/companys', CompanyController.handleCompany.showAllCompanies);
 app.get('/api/company/:userId', CompanyController.handleCompany.getCompany);
 
 app.post('/api/schedule/add',scheduleController.handlesched.add);

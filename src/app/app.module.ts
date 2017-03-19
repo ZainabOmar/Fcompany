@@ -34,8 +34,8 @@ import {CompanyService} from './services/company.service';
     AboutusComponent,
     CompanyComponent,
     CreatcompanyComponent,
-    TaskComponent,
-    CompanyService
+    TaskComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -49,8 +49,8 @@ import {CompanyService} from './services/company.service';
   {path: 'signin',component: SigninComponent},
   {path: 'aboutus',   component: AboutusComponent},
   {path: 'company',   component: CompanyComponent},
-  {path: 'task',   component: TaskComponent}
-  //{path: 'schedule',   component: ScheduleComponent}
+  {path: 'task',   component: TaskComponent},
+  {path: 'schedule',   component: ScheduleComponent}
   ]),
     FlashMessagesModule
   ],

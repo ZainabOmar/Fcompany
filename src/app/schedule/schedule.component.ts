@@ -15,6 +15,7 @@ export class ScheduleComponent implements OnInit {
     Title: String;
     Discription: String;
     Date: Date;
+    obj:any;
 
 
   constructor(
@@ -24,7 +25,11 @@ export class ScheduleComponent implements OnInit {
     ) {}
 
   ngOnInit() {
-   
+   const userId = localStorage.getItem('user-id')
+    this.obj = {};
+    this.scheduleservice.getSchedule(userId).subscribe(data => {
+      this.obj = data;
+    })
   }
   
    div_hide(){

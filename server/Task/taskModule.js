@@ -2,9 +2,9 @@ var mongoose = require('mongoose');
 
 
 var taskSchema = new mongoose.Schema({
-	users:[{
+	company:[{
 		type:mongoose.Schema.Types.ObjectId,
-		ref:'user'
+		ref:'company'
 	}],
 	taskName:{
 		type:String,

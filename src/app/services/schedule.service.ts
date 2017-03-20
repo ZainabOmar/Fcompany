@@ -4,15 +4,20 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ScheduleService {
-	
+ constructor(
+      private http: Http
+  	) { }
  getSchedule(params){
 		let headers = new Headers();
 		headers.append('Content-Type','application/json');
 		return this.http.get('api/schedule/'+ params)
 		.map(res => res.json());
 	}
-  constructor(
-      private http: Http
-  	) { }
-
+  
+ AddSchedule(schedule){
+    let headers = new Headers();
+    headers.append('Content-Type','application/json');
+    return this.http.post('/api/add', schedule,{headers: headers})
+    .map(res => res.json());
+  }
 }

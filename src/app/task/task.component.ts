@@ -71,8 +71,6 @@ this.taskservice.AddTask(todoObj).subscribe(data =>{
   if(data){
         this.flashMessage.show('task add well', {cssClass: 'alert-success', timeout: 3000});
          }})
+
     }
-
-
-
 }

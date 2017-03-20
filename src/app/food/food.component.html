@@ -1,25 +1,27 @@
   <div id="wrapper">
   <h1>Suggestion and  Vote for Food <span class="glyphicon glyphicon-apple"></span></h1>
   
-  <form >
+  <form (submit)="addFood()">
 
   <div class="col-2">
     <label>
       Add Suggestion
-      <input placeholder="food name" id="phone" [(ngModel)]="" name="phone" tabindex="3">
+      <input placeholder="food name" id="phone" [(ngModel)]="dishName" name="phone" tabindex="3">
     </label>
   </div>
   <div class="col-4">
     <label>
       type
-      <input placeholder="the faverot type" id="email" [(ngModel)]="" name="email" tabindex="4">
+      <input placeholder="the faverot type" id="email" [(ngModel)]="type" name="email" tabindex="4">
     </label>
   </div>
   
   <div class="col-4">
     <label>
-      descreption
-      <input placeholder="fav foood" id="skills" name="skills" [(ngModel)]="" tabindex="6">
+      foodtime
+       <select  (change)="onChange($event.target.value)">
+            <option *ngFor="let i of foodTimes"> {{i}} </option>
+          </select>
     </label>
   </div>
 
@@ -28,5 +30,14 @@
     <button class="submitbtn">Submit Form</button>
   </div>
   </form>
+
+
+  <tbody>
+    <tr *ngFor="let food of foods">
+      <h2><strong >{{ food.dishName }}</strong></h2>
+      <h2>{{ food.foodTime }}</h2>
+      <h2>{{ food.type }}</h2>
+    </tr>
+  </tbody>
 
   </div>

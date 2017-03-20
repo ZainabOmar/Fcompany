@@ -28,9 +28,12 @@ module.exports.handlefood = {
 
     var food= {
       dishName : req.body.dishName,
-      description : req.body.description}
+      type : req.body.type,
+      foodtime : req.body.foodTime
 
-      User.findOne({_id: req.body.id})
+    }
+
+      User.findOne({_id: req.body.userId})
       .then(function(user) {
         if (!user) {
          res.status(500).send("user not found")

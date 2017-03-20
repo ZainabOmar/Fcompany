@@ -24,8 +24,15 @@ module.exports.handleTask = {
 
   // add task to data base
   addTask: function(req, res)  {
-    var task = req.body;
+    // var task = req.body;
     console.log(req.body)
+     task = {
+        taskName: req.body.newTodo,
+        completed: false,
+        description : req.body.Discription,
+        updated : req.body.Date,
+        assignTo : req.body.Assign,
+      }
 
     User.findOne({_id: req.body.userId})
     .then(function(user) {

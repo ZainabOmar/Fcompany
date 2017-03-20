@@ -9,14 +9,14 @@ import {Router} from '@angular/router';
   styleUrls: ['./task.component.css']
 })
 export class TaskComponent implements OnInit {
-
+userId:any;
 	  newTodo: string;
     todos: any;
     Assign : String;
     task: String;
     Discription: String;
     Date: Date;
-    Assigns: string [] = ["zainb", "shit", "aya", "maher"];
+    Assigns: string [] = ["zainb", "shit", "aya", "maher" , "maker"];
 
   constructor(
      private flashMessage:FlashMessagesService,
@@ -55,7 +55,8 @@ document.getElementById('abc').style.display = "block";
         completed: false,
         Discription : this.Discription,
         Date : this.Date,
-        Assign : this.Assign
+        Assign : this.Assign,
+        userId:localStorage.getItem("user-id")
       }
       this.todos.push(todoObj);
     

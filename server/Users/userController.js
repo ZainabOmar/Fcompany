@@ -111,6 +111,8 @@ module.exports.handleUsers = {
     var code = req.body.code;
 
 
+ 
+
 
     // check to see if user already exists
     User.findOne({username: username})
@@ -120,7 +122,7 @@ module.exports.handleUsers = {
       } else {
           // make a new user if not one
           Company.findOne({code:code})
-          .exec(function(err,c){
+          .exec(function(err,c) {
             if(err) throw err;
             if(c){
               return User.create({

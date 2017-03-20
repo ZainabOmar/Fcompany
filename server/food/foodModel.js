@@ -10,7 +10,11 @@ var foodSchema = new mongoose.Schema({
      type:String,
     required:true
   },
-  description:{
+  type:{
+     type:String,
+    required:true
+  },
+  foodtime:{
      type:String,
     required:true
   },

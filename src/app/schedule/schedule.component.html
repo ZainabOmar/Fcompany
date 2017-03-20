@@ -19,7 +19,7 @@
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-tasks"></i></span>
-            <textarea rows="3" cols="20" [(ngModel)]="discription" name="discription"></textarea>
+            <textarea rows="3" cols="20" [(ngModel)]="description" name="description"></textarea>
           </div>
         </div>
       </div>
@@ -29,7 +29,7 @@
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-            <input  type="date" name="" [(ngModel)]="date" name="Date">
+            <input  type="date" [(ngModel)]="date" name="Date">
           </div>
         </div>
       </div>
@@ -39,17 +39,17 @@
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-            <input  type="time" name="" [(ngModel)]="starttime" name="starttime">
+            <input  type="time" [(ngModel)]="starttime" name="starttime">
           </div>
         </div>
       </div>
       
       <div class="form-group">
-        <label class="col-md-4 control-label">end Time</label>  
+        <label class="col-md-4 control-label">End Time</label>  
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-            <input  type="time" name="" [(ngModel)]="endtime" name="starttime">
+            <input  type="time" [(ngModel)]="endtime" name="endtime">
           </div>
         </div>
       </div>
@@ -66,7 +66,7 @@
 
   <div *ngIf="info" style="margin-left : 150px">
     {{title}}<br>
-    {{discription}}<br> 
+    {{description}}<br> 
     {{date}}<br>
     {{starttime}}<br>
     {{endtime}}

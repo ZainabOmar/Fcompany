@@ -16,7 +16,7 @@ export class ScheduleComponent implements OnInit {
     description: String;
     date : Date ;
     starttime : String;
-    endtime : String
+    endtime : String;
     todos: any;
    
   constructor(
@@ -52,6 +52,7 @@ export class ScheduleComponent implements OnInit {
       endtime : this.endtime,
       id:localStorage.getItem("user-id")
     }
+    console.log(todoObj)
     this.todos.push(todoObj);
     this.scheduleservice.AddSchedule(todoObj).subscribe(data =>{
       if(data){

@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./task.component.css']
 })
 export class TaskComponent implements OnInit {
-userId:any;
+    userId:any;
 	  newTodo: string;
     todos: any;
     Assign : String;
@@ -27,6 +27,11 @@ userId:any;
   ngOnInit() {
     this.todos = [];
     this.Assign = this.Assigns[0];
+
+    this.taskservice.getTask(localStorage.getItem("user-id")).subscribe(data => {
+      this.todos.push(data);
+      console.log(this.todos)
+    })
   }
 
   onChange(newValue) {
@@ -67,4 +72,7 @@ this.taskservice.AddTask(todoObj).subscribe(data =>{
         this.flashMessage.show('task add well', {cssClass: 'alert-success', timeout: 3000});
          }})
     }
+
+
+
 }

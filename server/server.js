@@ -8,6 +8,8 @@ var UsersController = require('./Users/userController.js');
 var CompanyController = require('./Company/companyController.js');
 var scheduleController = require('./schedule/scheduleController.js');
 var TaskController = require('./Task/taskController.js');
+var FoodController = require('./food/foodController.js');
+
 
 //middleware
 app.use(express.static(__dirname + '/../dist'));
@@ -38,6 +40,13 @@ app.delete('/api/schedule/appoitment',scheduleController.handlesched.delete);
 
 app.post('/api/addTask', TaskController.handleTask.addTask);
 app.get('/api/getTask/:userId', TaskController.handleTask.getTaskSameCompany);
+
+
+app.post('/api/food/add', FoodController.handlefood.add);
+app.post('/api/food/vote', FoodController.handlefood.vote);
+app.get('/api/food/:userId', FoodController.handlefood.getfood);
+
+
 
 app.listen(process.env.PORT || 3000);
 console.log('Running on port 3000...');

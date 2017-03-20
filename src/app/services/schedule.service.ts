@@ -17,7 +17,7 @@ export class ScheduleService {
  AddSchedule(schedule){
     let headers = new Headers();
     headers.append('Content-Type','application/json');
-    return this.http.post('/api/add', schedule,{headers: headers})
+    return this.http.post('/api/schedule/add', schedule,{headers: headers})
     .map(res => res.json());
   }
 }

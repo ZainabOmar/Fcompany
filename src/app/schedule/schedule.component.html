@@ -2,7 +2,7 @@
 <button type="submit" class="btn btn-lg btn-primary btn-block" (click)="div_show()"> ADD <span class="glyphicon glyphicon-send"> </span></button><br>
 
 <div id="aya" style="display: none;">
-  <form class="well form-horizontal">
+  <form class="well form-horizontal" (submit)="add()">
     <fieldset>
       <div class="form-group">
         <label class="col-md-4 control-label">Title</label>  
@@ -34,13 +34,13 @@
         </div>
       </div>
     </fieldset>
-    </form>
     
      <div class="form-group">
         <label class="col-md-4 control-label"></label>
         <div class="col-md-4">
         <button type="submit" class="btn btn-lg btn-primary btn-block" (click)="div_hide()"> SUBMIT</button></div>
       </div>  
+    </form>
   </div>
 
   <div *ngIf="info" style="margin-left : 150px">

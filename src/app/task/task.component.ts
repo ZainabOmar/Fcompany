@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 export class TaskComponent implements OnInit {
     userId:any;
 	  newTodo: string;
-    todos: any;
+    todos: Object[] = [];
     Assign : String;
     task: String;
     Discription: String;
@@ -25,11 +25,11 @@ export class TaskComponent implements OnInit {
     ) {}
 
   ngOnInit() {
-    this.todos = [];
+    // this.todos = [];
     this.Assign = this.Assigns[0];
 
     this.taskservice.getTask(localStorage.getItem("user-id")).subscribe(data => {
-      this.todos.push(data);
+      this.todos=data;
       console.log(this.todos)
     })
   }

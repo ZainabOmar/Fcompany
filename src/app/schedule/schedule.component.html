@@ -2,14 +2,14 @@
 <button type="submit" class="btn btn-lg btn-primary btn-block" (click)="div_show()"> ADD <span class="glyphicon glyphicon-send"> </span></button><br>
 
 <div id="aya" style="display: none;">
-  <form class="well form-horizontal">
+  <form class="well form-horizontal" (submit)="add()">
     <fieldset>
       <div class="form-group">
         <label class="col-md-4 control-label">Title</label>  
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-tasks"></i></span>
-            <input type="text" [(ngModel)]="Title" name="title">
+            <input type="text" [(ngModel)]="title" name="title">
           </div>
         </div>
       </div><br>
@@ -19,7 +19,7 @@
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-tasks"></i></span>
-            <textarea rows="3" cols="20" [(ngModel)]="Discription" name="discription"></textarea>
+            <textarea rows="3" cols="20" [(ngModel)]="description" name="description"></textarea>
           </div>
         </div>
       </div>
@@ -29,22 +29,45 @@
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-            <input  type="date" name="" [(ngModel)]="Date" name="Date">
+            <input  type="date" [(ngModel)]="date" name="Date">
           </div>
         </div>
       </div>
+       
+       <div class="form-group">
+        <label class="col-md-4 control-label">Start Time</label>  
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+            <input  type="time" [(ngModel)]="starttime" name="starttime">
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label class="col-md-4 control-label">End Time</label>  
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+            <input  type="time" [(ngModel)]="endtime" name="endtime">
+          </div>
+        </div>
+      </div>
+
     </fieldset>
-    </form>
     
      <div class="form-group">
         <label class="col-md-4 control-label"></label>
         <div class="col-md-4">
         <button type="submit" class="btn btn-lg btn-primary btn-block" (click)="div_hide()"> SUBMIT</button></div>
       </div>  
+    </form>
   </div>
 
   <div *ngIf="info" style="margin-left : 150px">
-    {{Title}}
-    {{Discription}} 
-    {{Date}}
+    {{title}}<br>
+    {{description}}<br> 
+    {{date}}<br>
+    {{starttime}}<br>
+    {{endtime}}
     </div>

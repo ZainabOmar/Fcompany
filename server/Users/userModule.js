@@ -31,7 +31,7 @@ var userSchema = new mongoose.Schema({
      date:String,starttime:String,
   endtime:String,title:String,
   description:String
-  } ] 
+  }] 
 });
 
 userSchema.methods.comparePasswords = function (candidatePassword) {

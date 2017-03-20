@@ -18,8 +18,8 @@ module.exports.handlesched = {
     console.log("in add" , req.body)
     var appoitment= {
       date : req.body.date,
-      starttime : req.body.time1,
-      endtime:req.body.time2,
+      starttime : req.body.starttime,
+      endtime:req.body.endtime,
       title : req.body.title,
       description : req.body.description
     };
@@ -72,8 +72,8 @@ module.exports.handlesched = {
 
  var appoitment= {
       date : req.body.date,
-      starttime : req.body.time1,
-      endtime:req.body.time2,
+      starttime : req.body.starttime,
+      endtime:req.body.endtime,
       title : req.body.title,
       description : req.body.description
     };

@@ -19,10 +19,10 @@
   </thead>
   <tbody>
     <tr *ngFor="let todo of todos">
-      <td><strong >{{ todo.newTodo }}</strong></td>
-      <td>{{ todo.Date }}</td>
-      <td>{{ todo.Assign }}</td>
-      <td>{{ todo.Discription }}</td>
+      <td><strong >{{ todo.taskName }}</strong></td>
+      <td>{{ todo.updated }}</td>
+      <td>{{ todo.assignTo }}</td>
+      <td>{{ todo.description }}</td>
       <td (click)="deleteTodo(i)" class="delete-icon" style="color: red">[X]</td>
     </tr>
   </tbody>

@@ -5,12 +5,12 @@ var Company = require('../Company/companyModule.js');
 module.exports.handleTask = {
   getTaskSameCompany: function(req, res)  {
     var param = req.params
-    Company.findOne({_id: param.compId})
-    .then(function(comp) {
-      if (!comp) {
-       res.status(500).send("company not found")
+    User.findOne({_id: param.userId})
+    .then(function(user) {
+      if (!user) {
+       res.status(500).send("user not found")
      }else {
-       Task.find(function(err, Tasks)  {
+       Task.find({codeComp: user.code}, function(err, Tasks)  {
         if(err){
          throw err;
        }else{
@@ -46,15 +46,17 @@ module.exports.handleTask = {
           res.status(500).send("company not found");
         }else{
           Task.create(task, function(err, newTask){
+            console.log(newTask)
             if(err){
-             res.status(500).send("something went wrong");
+             res.status(500).send("something went wrong1");
            }else{
-            newTask.company.push(comp);
+            console.log("___________________", temp)
+            newTask.codeComp.push(comp.code);
             newTask.save(function(err, result) {
               if (err) {
-               res.status(500).send("something went wrong");
+               res.status(500).send("something went wrong2");
              }else {
-               res.json(result)
+               res.json(result) 
              }
            })
           }

@@ -9,7 +9,7 @@
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-tasks"></i></span>
-            <input type="text" [(ngModel)]="Title" name="title">
+            <input type="text" [(ngModel)]="title" name="title">
           </div>
         </div>
       </div><br>
@@ -19,7 +19,7 @@
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-tasks"></i></span>
-            <textarea rows="3" cols="20" [(ngModel)]="Discription" name="discription"></textarea>
+            <textarea rows="3" cols="20" [(ngModel)]="discription" name="discription"></textarea>
           </div>
         </div>
       </div>
@@ -29,10 +29,31 @@
         <div class="col-md-4 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-            <input  type="date" name="" [(ngModel)]="Date" name="Date">
+            <input  type="date" name="" [(ngModel)]="date" name="Date">
           </div>
         </div>
       </div>
+       
+       <div class="form-group">
+        <label class="col-md-4 control-label">Start Time</label>  
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+            <input  type="time" name="" [(ngModel)]="starttime" name="starttime">
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label class="col-md-4 control-label">end Time</label>  
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+            <input  type="time" name="" [(ngModel)]="endtime" name="starttime">
+          </div>
+        </div>
+      </div>
+
     </fieldset>
     
      <div class="form-group">
@@ -44,7 +65,9 @@
   </div>
 
   <div *ngIf="info" style="margin-left : 150px">
-    {{Title}}
-    {{Discription}} 
-    {{Date}}
+    {{title}}<br>
+    {{discription}}<br> 
+    {{date}}<br>
+    {{starttime}}<br>
+    {{endtime}}
     </div>

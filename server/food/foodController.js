@@ -45,7 +45,7 @@ module.exports.handlefood = {
             res.status(500).send("company not found");
           }else{
             Food.create(food, function(err, newfood){
-              console.log(newfood)
+              // console.log(newfood)
               if(err){
                res.status(500).send("something went wrong1");
              }else{
@@ -72,7 +72,7 @@ module.exports.handlefood = {
 
       Food.findOneAndUpdate(query,doc, { "new": true})
        .exec(function(err,data){
-        console.log(err,data)
+        // console.log(err,data)
         if(err){
           res.json(err)
         }else {

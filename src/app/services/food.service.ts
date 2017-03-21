@@ -22,4 +22,12 @@ export class FoodService {
 		.map(res => res.json());
 	}
 
+
+  addvote(vote){
+     let headers = new Headers();
+    headers.append('Content-Type','application/json');
+    return this.http.post('/api/food/vote', vote,{headers: headers})
+    .map(res => res.json());
+  }
+
 }

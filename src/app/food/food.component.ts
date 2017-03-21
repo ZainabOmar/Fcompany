@@ -55,4 +55,17 @@ export class FoodComponent implements OnInit {
 
     }
 
+Votee(){
+  const voteObj = {
+    dishName : this.dishName,
+    userId:localStorage.getItem("user-id")
+  }
+
+   this.foodservice.addvote(voteObj).subscribe(data =>{
+        if(data){
+          this.flashMessage.show('you vote m***F***', {cssClass: 'alert-success', timeout: 3000});
+        }})
+}
+
+
 }

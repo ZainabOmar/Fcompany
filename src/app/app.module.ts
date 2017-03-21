@@ -16,6 +16,7 @@ import { TaskComponent } from './task/task.component';
 import { CreatcompanyComponent } from './creatcompany/creatcompany.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { FoodComponent } from './food/food.component';
+import { ChatComponent } from './chat/chat.component';
 
 import {AuthGuard} from './guard/guard.guard';
 import {CompanyService} from './services/company.service';
@@ -24,6 +25,7 @@ import {ValidateService} from './services/validate.service';
 import {AuthService} from './services/auth.service';
 import {TaskService} from './services/task.service';
 import {FoodService} from './services/food.service';
+import {ChatService} from './chat/chat.service';
 
 
 
@@ -38,7 +40,8 @@ import {FoodService} from './services/food.service';
     CompanyComponent,
     CreatcompanyComponent,
     TaskComponent,
-    FoodComponent
+    FoodComponent,
+    ChatComponent
     
   ],
   imports: [
@@ -55,12 +58,13 @@ import {FoodService} from './services/food.service';
   {path: 'company',   component: CompanyComponent,canActivate:[AuthGuard]},
   {path: 'task',   component: TaskComponent,canActivate:[AuthGuard]},
   {path: 'schedule',   component: ScheduleComponent},
-  {path: 'food',   component: FoodComponent}
+  {path: 'food',   component: FoodComponent},
+  {path: 'chat',   component: ChatComponent}
   ]),
     FlashMessagesModule
   ],
   providers: [{provide:LocationStrategy,useClass:HashLocationStrategy},
-  ValidateService,AuthService,AuthGuard,TaskService,CompanyService,ScheduleService,FoodService],
+  ValidateService,AuthService,AuthGuard,TaskService,CompanyService,ScheduleService,FoodService,ChatService],
   bootstrap: [AppComponent]
   })
 

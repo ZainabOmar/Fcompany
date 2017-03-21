@@ -69,6 +69,10 @@ document.getElementById('abc').style.display = "block";
 
 this.taskservice.AddTask(todoObj).subscribe(data =>{
   if(data){
+     this.taskservice.getTask(localStorage.getItem("user-id")).subscribe(data => {
+      this.todos=data;
+    })
+
         this.flashMessage.show('task add well', {cssClass: 'alert-success', timeout: 3000});
          }})
 

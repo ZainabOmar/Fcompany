@@ -1,6 +1,7 @@
+<div class="img">
+  <div class = "well">
   <div id="wrapper">
-  <h1>Suggestion and  Vote for Food <span class="glyphicon glyphicon-apple"></span></h1>
-  
+  <h1 style="color: white">Suggestion and  Vote for Food <span style="color: #2fad0c" class="glyphicon glyphicon-apple"></span></h1>
   <form (submit)="addFood()">
 
   <div class="col-2">
@@ -32,24 +33,10 @@
   </form>
 
 
-<!--   <tbody>
-    <tr *ngFor="let food of foods">
-      <h4><strong >{{ food.dishName }}</strong></h4>
-      <h4>{{ food.foodtime }}</h4>
-      <h4>{{ food.type }}</h4>
-      <h4>{{ food.votes }}</h4>
-    </tr>
-  </tbody> -->
-
-  </div>
-
-
-  <!-- *****************8 -->
-
       <div id="pricing-table" class="clear" >
         <div class="plan" style="margin: 10px"   *ngFor="let food of foods">
           <h3>Vote<span>{{ food.votes }}</span></h3>
-          <a class="signup" (submit)="Votee()" >Vote</a>         
+          <a class="signup" (click)="Votee(food.dishName)" ><span  class="glyphicon glyphicon-heart"></span></a>         
           <ul>
             <li><b><strong >{{ food.dishName }}</strong></b></li>
             <li>{{ food.foodtime }}</li>
@@ -57,3 +44,6 @@
           </ul> 
         </div>
       </div>
+      </div>
+</div>
+</div>

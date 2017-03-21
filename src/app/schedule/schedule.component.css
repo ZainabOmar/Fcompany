@@ -48,12 +48,17 @@
     padding-top: 640px;
 }
 
-.btn-primary {
-    /* color: #fff; */
+.btn {
+    margin-left: 550px;   
     background-color: #8a6d3b;
     border-color: #8a6d3b;
 }
-
+#add{
+  margin-left: 590px;
+  background-color: #8a6d3b;
+  border-color: #8a6d3b;
+  
+}
 table {
   background: #f5f5f5;
   border-collapse: separate;

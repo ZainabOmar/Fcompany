@@ -87,7 +87,7 @@ module.exports.handlesched = {
         if(err){
           res.json(err)
         }else {
-          
+          res.json('done adding meeting')
         }
        })
 

@@ -40,11 +40,15 @@ app.delete('/api/schedule/appoitment',scheduleController.handlesched.delete);
 
 app.post('/api/addTask', TaskController.handleTask.addTask);
 app.get('/api/getTask/:userId', TaskController.handleTask.getTaskSameCompany);
+app.delete('/api/Task/delete',TaskController.handleTask.delete);
+
 
 
 app.post('/api/food/add', FoodController.handlefood.add);
 app.post('/api/food/vote', FoodController.handlefood.vote);
 app.get('/api/food/:userId', FoodController.handlefood.getfood);
+app.delete('/api/food/delete',FoodController.handlefood.delete);
+
 
 
 

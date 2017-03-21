@@ -7,9 +7,11 @@ describe('task', function () {
     request(app)
     .post('/api/addTask/')
     .send({
-      dishName: 'chinese',
-      type: 'chinese',
-      foodtime: 'dinner'
+      taskName: 'some task',
+      completed: true,
+      description : 'anything',
+      updated : '1-1-2018',
+      assignTo : 'someone'
     })
     .set('Accept', 'application/json')
     .expect('Content-Type', /json/)

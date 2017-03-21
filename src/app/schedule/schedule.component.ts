@@ -9,35 +9,29 @@ import { Router } from '@angular/router';
   selector: 'app-schedule',
   templateUrl: './schedule.component.html',
   styleUrls: ['./schedule.component.css']
-  })
+})
 export class ScheduleComponent implements OnInit {
-  info = false;
-  title: String;
-  description: String;
-  date : Date ;
-  starttime : String;
-  endtime : String;
-  todos: any;
-
-
+    info = false;
+    showSch = false;
+    title: String;
+    description: String;
+    date : Date ;
+    starttime : String;
+    endtime : String;
+    todos: Object[] = [];
+     
   constructor(
     private flashMessage:FlashMessagesService,
     private scheduleservice : ScheduleService,
     private router: Router
-    ) {}
-
-  showData() {
-    console.log("show data")
-    this.scheduleservice.getSchedule(localStorage.getItem("user-id")).subscribe(data => {
-      this.todos.push(data);
-      })
-  }
+  ) {}
 
   ngOnInit() {
-    this.todos = [];
-    // this.scheduleservice.getSchedule(localStorage.getItem("user-id")).subscribe(data => {
-    //   this.todos.push(data);
-    //   })
+    // this.todos = [];
+    this.scheduleservice.getSchedule(localStorage.getItem("user-id")).subscribe(data => {
+      this.todos = data;
+      console.log(this.todos)
+    })
   }
   
   div_hide(){
@@ -47,24 +41,25 @@ export class ScheduleComponent implements OnInit {
   }
 
  //Function To Display Popup
- div_show() {
-  document.getElementById('aya').style.display = "block";
-}
-
-add() {
-  const todoObj = {
-    title : this.title,
-    description : this.description,
-    date  : this.date ,
-    starttime : this.starttime,
-    endtime : this.endtime,
-    id:localStorage.getItem("user-id")
+  div_show() {
+    document.getElementById('aya').style.display = "block";
+    this.showSch = false;
   }
-  console.log(todoObj)
-  this.todos.push(todoObj);
-  this.scheduleservice.AddSchedule(todoObj).subscribe(data =>{
-    if(data){
-      this.flashMessage.show('task add well', {cssClass: 'alert-success', timeout: 3000});
+
+  add() {
+    const todoObj = {
+      title : this.title,
+      description : this.description,
+      date  : this.date ,
+      starttime : this.starttime,
+      endtime : this.endtime,
+      id:localStorage.getItem("user-id")
+    }
+    console.log(todoObj)
+    this.todos.push(todoObj);
+    this.scheduleservice.AddSchedule(todoObj).subscribe(data =>{
+      if(data){
+        this.flashMessage.show('task add well', {cssClass: 'alert-success', timeout: 3000});
       }})
-}
+    }
 }

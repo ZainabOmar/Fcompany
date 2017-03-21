@@ -24,7 +24,6 @@ module.exports.handleTask = {
 
   // add task to data base
   addTask: function(req, res)  {
-    // var task = req.body;
     console.log(req.body)
      task = {
         taskName: req.body.newTodo,
@@ -33,6 +32,8 @@ module.exports.handleTask = {
         updated : req.body.Date,
         assignTo : req.body.Assign,
       }
+
+
 
     User.findOne({_id: req.body.userId})
     .then(function(user) {
@@ -50,7 +51,6 @@ module.exports.handleTask = {
             if(err){
              res.status(500).send("something went wrong1");
            }else{
-            console.log("___________________", temp)
             newTask.codeComp.push(comp.code);
             newTask.save(function(err, result) {
               if (err) {
@@ -65,23 +65,26 @@ module.exports.handleTask = {
       })
     }
   })
+  },
+  delete : function(req,res){
+        User.findOne({_id: req.body.userId})
+        .then(function(user) {
+          if (!user) {
+           res.status(500).send("user not found")
+         }else {
+       var query = {'taskName': req.body.newTodo,'codeComp':user.code};
+        Task.remove(query, function (err) {
+          console.log(err)
+          if (err){
+            res.json(err)
+          } else{
+            res.json('removed')
+          };
+        });
+      }
+
+    })
   }
 
-  // deleteTask: function (req, res) {
-  //   var query = {username: req.body.username};
-  //   var doc = {$pull:{ 'appointments' : { title :req.body.title}  } };
 
-  //   User.findOneAndUpdate(query,doc,{ 'new': true },function(err,val){
-  //     if (err){
-  //       console.log(err);
-  //       console.log(val);
-
-  //     }else{
-  //       console.log(val);
-
-  //       res.json("deleted")
-  //     }
-
-  //   })
-  // }
 }

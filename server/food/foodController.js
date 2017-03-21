@@ -30,8 +30,7 @@ module.exports.handlefood = {
       dishName : req.body.dishName,
       type : req.body.type,
       foodtime : req.body.foodTime
-
-    }
+    };
 
       User.findOne({_id: req.body.userId})
       .then(function(user) {
@@ -67,18 +66,16 @@ module.exports.handlefood = {
 
     vote : function(req,res){
      var query = {'dishName': req.body.dishName};
-
       Food.findOne(query)
       .exec(function(err,food){
-        if(food){
+        if(err){
+          res.json(err)
+        }
+        else if (food){
           if(food.hasvoted.indexOf(req.body.userId)>-1){
             res.json('u voted befor')
           }else{
-            console.log(food)
-      // food.hasvoted.push(req.body.userId);
-            
       var doc = { $inc: {votes:1},$push:{'hasvoted':req.body.userId}};
-
       Food.findOneAndUpdate(query,doc, { "new": true})
        .exec(function(err,data){
 
@@ -91,11 +88,28 @@ module.exports.handlefood = {
           }
         }
       })
+    },
 
-
-
-
-
+    delete : function (req,res){
+      User.findOne({_id: req.body.userId})
+      .then(function(user) {
+        if (!user) {
+         res.status(500).send("user not found")
+       }else {
+     var query = {'dishName': req.body.dishName,'codeComp':user.code};
+      Food.remove(query, function (err) {
+        if (err){
+          res.json(err)
+        } else{
+          res.json('removed')
+        };
+      });
     }
 
+})
+    }
 }
+
+
+
+

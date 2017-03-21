@@ -9,9 +9,10 @@
     "test": "mocha || ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
-  },
-  "private": true,
-  "dependencies": {
+},
+"private": true,
+"mocha": "^3.2.0",
+"dependencies": {
     "@angular/common": "^2.4.0",
     "@angular/compiler": "^2.4.0",
     "@angular/core": "^2.4.0",
@@ -37,8 +38,8 @@
     "q": "^1.4.1",
     "rxjs": "^5.1.0",
     "zone.js": "^0.7.6"
-  },
-  "devDependencies": {
+},
+"devDependencies": {
     "@angular/cli": "1.0.0-rc.1",
     "@angular/compiler-cli": "^2.4.0",
     "@types/jasmine": "2.5.38",
@@ -55,6 +56,8 @@
     "protractor": "~5.1.0",
     "ts-node": "~2.0.0",
     "tslint": "~4.4.2",
-    "typescript": "~2.0.0"
-  }
+    "typescript": "~2.0.0",
+    "chai": "^3.5.0",
+    "supertest": "^3.0.0"
+}
 }

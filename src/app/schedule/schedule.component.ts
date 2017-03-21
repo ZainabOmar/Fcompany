@@ -18,7 +18,7 @@ export class ScheduleComponent implements OnInit {
     starttime : String;
     endtime : String;
     todos: any;
-   
+     
   constructor(
     private flashMessage:FlashMessagesService,
     private scheduleservice : ScheduleService,

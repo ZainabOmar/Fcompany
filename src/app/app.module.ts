@@ -51,7 +51,7 @@ import {ScheduleService} from './services/schedule.service';
   {path: 'aboutus',   component: AboutusComponent},
   {path: 'company',   component: CompanyComponent,canActivate:[AuthGuard]},
   {path: 'task',   component: TaskComponent,canActivate:[AuthGuard]},
-  {path: 'schedule',   component: ScheduleComponent}
+  {path: 'schedule',   component: ScheduleComponent,canActivate:[AuthGuard]}
   ]),
     FlashMessagesModule
   ],

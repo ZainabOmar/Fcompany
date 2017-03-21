@@ -66,19 +66,36 @@ module.exports.handlefood = {
     },
 
     vote : function(req,res){
+     var query = {'dishName': req.body.dishName};
 
-      var query = {'dishName': req.body.dishName};
-      var doc = { $inc: {votes:1}};
+      Food.findOne(query)
+      .exec(function(err,food){
+        if(food){
+          if(food.hasvoted.indexOf(req.body.userId)>-1){
+            res.json('u voted befor')
+          }else{
+            console.log(food)
+      // food.hasvoted.push(req.body.userId);
+            
+      var doc = { $inc: {votes:1},$push:{'hasvoted':req.body.userId}};
 
       Food.findOneAndUpdate(query,doc, { "new": true})
        .exec(function(err,data){
-        // console.log(err,data)
+
         if(err){
           res.json(err)
         }else {
           res.json(data)
         }
        }) 
+          }
+        }
+      })
+
+
+
+
+
     }
 
 }

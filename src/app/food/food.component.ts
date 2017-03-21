@@ -49,22 +49,33 @@ export class FoodComponent implements OnInit {
     
       this.foodservice.AddFood(FoodObj).subscribe(data =>{
       	if(data){
-      		this.flashMessage.show('task add well', {cssClass: 'alert-success', timeout: 3000});
-      	}})
+          this.flashMessage.show('task add well', {cssClass: 'alert-success', timeout: 3000});
 
+          this.foodservice.getFood(localStorage.getItem("user-id")).subscribe(data => {
+            this.foods = data;
+            console.log(this.foods)
+          })
+        } })
 
     }
 
-Votee(){
+Votee(Name){
   const voteObj = {
-    dishName : this.dishName,
+    dishName : Name,
     userId:localStorage.getItem("user-id")
   }
-
+  console.log(voteObj)
    this.foodservice.addvote(voteObj).subscribe(data =>{
         if(data){
           this.flashMessage.show('you vote m***F***', {cssClass: 'alert-success', timeout: 3000});
+          
+   this.foodservice.getFood(localStorage.getItem("user-id")).subscribe(data => {
+      this.foods = data;
+      console.log(this.foods)
+    })
         }})
+
+
 }
 
 

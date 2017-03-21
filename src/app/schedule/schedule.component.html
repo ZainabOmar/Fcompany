@@ -1,5 +1,5 @@
 
-  <button type="button" class="btn btn-info" (click)="ngOnInit()"> Show Me MY Schedule <span class="glyphicon glyphicon-send"> </span></button><br><br>
+  <button type="button" class="btn btn-info" (click)="showSch = !showSch"> Show Me MY Schedule <span class="glyphicon glyphicon-send"> </span></button><br><br>
   <button type="button" class="btn btn-info" id="add" (click)="div_show()"> ADD <span class="glyphicon glyphicon-send"></span></button><br>
 
 <div id="aya" style="display: none;">
@@ -66,7 +66,7 @@
     </form>
   </div>
   
-    <div *ngIf="info" class="todos" style="padding: 15px">
+    <div *ngIf="showSch" class="todos" style="padding: 15px">
   <table>
   <thead>
     <tr>
@@ -77,11 +77,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let todo of todos">
-      <td><strong >{{ todo.title }}</strong></td>
-      <td>{{ todo.description }}</td>
-      <td>{{ todo.date}}</td>
-      <td>{{ todo.starttime }} - {{ todo.endtime }}</td>
+    <tr *ngFor="let sch of todos">
+      <td><strong >{{ sch.title }}</strong></td>
+      <td>{{ sch.description }}</td>
+      <td>{{ sch.date}}</td>
+      <td>{{ sch.starttime }} - {{ sch.endtime }}</td>
     </tr>
   </tbody>
 </table>

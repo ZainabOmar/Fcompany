@@ -1,7 +1,7 @@
 .switchery{background-color:#fff;border:1px solid #dfdfdf;border-radius:20px;cursor:pointer;display:inline-block;height:30px;position:relative;vertical-align:middle;width:50px;-moz-user-select:none;-khtml-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;box-sizing:content-box;background-clip:content-box}.switchery>small{background:#fff;border-radius:100%;box-shadow:0 1px 3px rgba(0,0,0,0.4);height:30px;position:absolute;top:0;width:30px}.switchery-small{border-radius:20px;height:20px;width:33px}.switchery-small>small{height:20px;width:20px}.switchery-large{border-radius:40px;height:40px;width:66px}.switchery-large>small{height:40px;width:40px}
 @import url(http://fonts.googleapis.com/css?family=Laila:400,700);
 
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+/*html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -15,7 +15,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-}
+}*/
 
 
 br { display: block; line-height: 1.6em; } 
@@ -119,7 +119,7 @@ label > input:focus, label > select:focus {
 
 
 /** button design based on http://codepen.io/guvootes/pen/eyDAb **/
-button {
+.submitbtn {
   width: 100%;
   height: 35px;
   border: none;
@@ -134,25 +134,25 @@ button {
 }
 
 button.submitbtn {
-  background-image: -moz-linear-gradient(#97c16b, #8ab959);
-  background-image: -webkit-linear-gradient(#97c16b, #8ab959);
-  background-image: linear-gradient(#97c16b, #8ab959);
+  background-image: -moz-linear-gradient(#31362b, #706d6b);
+  background-image: -webkit-linear-gradient(#31362b, #706d6b);
+  background-image: linear-gradient(#31362b, #706d6b);
   border-bottom: 1px solid #648c3a;
   cursor: pointer;
   color: #fff;
 }
 button.submitbtn:hover {
-  background-image: -moz-linear-gradient(#8ab959, #7eaf4a);
-  background-image: -webkit-linear-gradient(#8ab959, #7eaf4a);
-  background-image: linear-gradient(#8ab959, #7eaf4a);
+  background-image: -moz-linear-gradient(#706d6b, #31362b);
+  background-image: -webkit-linear-gradient(#706d6b, #31362b);
+  background-image: linear-gradient(#706d6b, #31362b);
 }
 button.submitbtn:active {
   height: 34px;
   border-bottom: 0;
   margin: 1px 0 0 0;
-  background-image: -moz-linear-gradient(#7eaf4a, #8ab959);
-  background-image: -webkit-linear-gradient(#7eaf4a, #8ab959);
-  background-image: linear-gradient(#7eaf4a, #8ab959);
+  background-image: -moz-linear-gradient(#d4b860, #31362b);
+  background-image: -webkit-linear-gradient(#b7b586, #31362b);
+  background-image: linear-gradient(#b7b586, #31362b);
   -moz-box-shadow: inset 0 1px 3px 1px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: inset 0 1px 3px 1px rgba(0, 0, 0, 0.3);
   box-shadow: inset 0 1px 3px 1px rgba(0, 0, 0, 0.3);
@@ -303,12 +303,12 @@ button.submitbtn:active {
   text-decoration: none;
   display: inline-block;       
   background-color: #72ce3f;
-  background-image: -moz-linear-gradient(#72ce3f, #62bc30);
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#72ce3f), to(#62bc30));    
-  background-image: -webkit-linear-gradient(#72ce3f, #62bc30);
-  background-image: -o-linear-gradient(#72ce3f, #62bc30);
-  background-image: -ms-linear-gradient(#72ce3f, #62bc30);
-  background-image: linear-gradient(#72ce3f, #62bc30);
+  background-image: -moz-linear-gradient(#382c01, #382c01);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#382c01), to(#281616));    
+  background-image: -webkit-linear-gradient(#382c01, #281616);
+  background-image: -o-linear-gradient(#382c01, #281616);
+  background-image: -ms-linear-gradient(#382c01, #281616);
+  background-image: linear-gradient(#382c01, #281616);
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;     
@@ -319,17 +319,17 @@ button.submitbtn:active {
 }
 
 #pricing-table .signup:hover {
-  background-color: #62bc30;
-  background-image: -moz-linear-gradient(#62bc30, #72ce3f);
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#62bc30), to(#72ce3f));      
-  background-image: -webkit-linear-gradient(#62bc30, #72ce3f);
-  background-image: -o-linear-gradient(#62bc30, #72ce3f);
-  background-image: -ms-linear-gradient(#62bc30, #72ce3f);
-  background-image: linear-gradient(#62bc30, #72ce3f); 
+  background-color: #ff0000;
+  background-image: -moz-linear-gradient(#ff0000, #820a0a);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#820a0a), to(#820a0a));      
+  background-image: -webkit-linear-gradient(#ff0000, #820a0a);
+  background-image: -o-linear-gradient(#ff0000, #820a0a);
+  background-image: -ms-linear-gradient(#ff0000, #820a0a);
+  background-image: linear-gradient(#ff0000, #820a0a); 
 }
 
 #pricing-table .signup:active, #pricing-table .signup:focus {
-  background: #62bc30;       
+  background: #ff0000;       
   top: 2px;
   -moz-box-shadow: 0 0 3px rgba(0, 0, 0, .7) inset;
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .7) inset;
@@ -349,4 +349,20 @@ button.submitbtn:active {
 
 .clear {
   zoom:1
+}
+
+
+.img{
+    background: #253340 url('/assets/img/food.jpg') no-repeat 50% top;
+    /*filter: opacity(30%);*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /*padding-top: 640px;*/
+    /*-webkit-filter: opacity(30%);*/
+}
+
+.well {
+   background-color: rgba(245, 245, 245, 0.3);
 }

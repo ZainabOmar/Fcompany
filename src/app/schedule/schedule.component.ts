@@ -12,12 +12,13 @@ import { Router } from '@angular/router';
 })
 export class ScheduleComponent implements OnInit {
     info = false;
+    showSch = false;
     title: String;
     description: String;
     date : Date ;
     starttime : String;
     endtime : String;
-    todos: any;
+    todos: Object[] = [];
      
   constructor(
     private flashMessage:FlashMessagesService,
@@ -26,9 +27,10 @@ export class ScheduleComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.todos = [];
+    // this.todos = [];
     this.scheduleservice.getSchedule(localStorage.getItem("user-id")).subscribe(data => {
-      this.todos.push(data);
+      this.todos = data;
+      console.log(this.todos)
     })
   }
   
@@ -41,6 +43,7 @@ export class ScheduleComponent implements OnInit {
  //Function To Display Popup
   div_show() {
     document.getElementById('aya').style.display = "block";
+    this.showSch = false;
   }
 
   add() {

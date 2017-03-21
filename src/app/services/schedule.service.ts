@@ -10,7 +10,7 @@ export class ScheduleService {
  getSchedule(params){
 		let headers = new Headers();
 		headers.append('Content-Type','application/json');
-		return this.http.get('/api/schedule/:id'+ params)
+		return this.http.get('/api/schedule/'+ params)
 		.map(res => res.json());
 	}
   

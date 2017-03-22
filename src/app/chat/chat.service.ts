@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import * as io from 'socket.io-client';
 export class ChatService {
   // Our localhost address that we set in our server code
-  private url = 'http://localhost:5000'; 
+  private url = 'http://localhost:3300'; 
   private socket;
    sendMessage(message){
                   // Make sure the "add-message" is written here because this is referenced in on() in our server

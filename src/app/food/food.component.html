@@ -1,36 +1,47 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    <a class="navbar-brand">Company Manager <i class="fa fa-ravelry" aria-hidden="true"></i></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a routerLink= "/company">Home <span class="glyphicon glyphicon-home"></span></a></li>
+      <li><a (click) ="logout()">Log Out <span class="glyphicon glyphicon-lock"></span></a></li>
+    </ul>
+  </div>
+</nav>
 <div class="img">
   <div class = "well">
-  <div id="wrapper">
-  <h1 style="color: white">Suggestion and  Vote for Food <span style="color: #2fad0c" class="glyphicon glyphicon-apple"></span></h1>
-  <form (submit)="addFood()">
+    <div id="wrapper">
+      <h1 style="color: white">Suggestion and  Vote for Food <span style="color: #2fad0c" class="glyphicon glyphicon-apple"></span></h1>
+      <form (submit)="addFood()">
 
-  <div class="col-2">
-    <label>
-      Add Suggestion
-      <input placeholder="food name" id="phone" [(ngModel)]="dishName" name="phone" tabindex="3">
-    </label>
-  </div>
-  <div class="col-4">
-    <label>
-      type
-      <input placeholder="the faverot type" id="email" [(ngModel)]="type" name="email" tabindex="4">
-    </label>
-  </div>
-  
-  <div class="col-4">
-    <label>
-      foodtime
-       <select  (change)="onChange($event.target.value)">
-            <option *ngFor="let i of foodTimes"> {{i}} </option>
-          </select>
-    </label>
-  </div>
+        <div class="col-2">
+          <label>
+            Add Suggestion
+            <input placeholder="food name" id="phone" [(ngModel)]="dishName" name="phone" tabindex="3">
+          </label>
+        </div>
+        <div class="col-4">
+          <label>
+            type
+            <input placeholder="the faverot type" id="email" [(ngModel)]="type" name="email" tabindex="4">
+          </label>
+        </div>
 
-  <br>
-  <div class="col-xs-12 col-submit">
-    <button class="submitbtn">Submit Form</button>
-  </div>
-  </form>
+        <div class="col-4">
+          <label>
+            foodtime
+            <select  (change)="onChange($event.target.value)">
+              <option *ngFor="let i of foodTimes"> {{i}} </option>
+            </select>
+          </label>
+        </div>
+
+        <br>
+        <div class="col-xs-12 col-submit">
+          <button class="submitbtn">Submit Form</button>
+        </div>
+      </form>
 
 
       <div id="pricing-table" class="clear" >
@@ -44,6 +55,6 @@
           </ul> 
         </div>
       </div>
-      </div>
-</div>
+    </div>
+  </div>
 </div>

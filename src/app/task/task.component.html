@@ -1,37 +1,48 @@
- <div class="panel-heading" style="background-color: #252626"> 
-    <h3 class="panel-title" style="color: white;text-align: center;padding: 15px;font-size: 35px">Tasks
-     <i style="padding: 15px;color:#3a47a3" class="glyphicon glyphicon-tasks"></i>
-     </h3>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">Company Manager <i class="fa fa-ravelry" aria-hidden="true"></i></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a routerLink= "/company">Home <span class="glyphicon glyphicon-home"></span></a></li>
+      <li><a (click) ="logout()">Log Out <span class="glyphicon glyphicon-lock"></span></a></li>
+    </ul>
   </div>
+</nav>
+<div class="panel-heading" style="background-color: #252626"> 
+  <h3 class="panel-title" style="color: white;text-align: center;padding: 15px;font-size: 35px">Tasks
+   <i style="padding: 15px;color:#3a47a3" class="glyphicon glyphicon-tasks"></i>
+ </h3>
+</div>
 
 <div class="todos" style="padding: 15px">
 
   <!-- *** -->
   <table>
-  <thead>
-    <tr>
-      <th>Task name</th>
-      <th>Date</th>
-      <th>Assign to</th>
-      <th>Description</th>
-      <th>Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let todo of todos">
-      <td><strong >{{ todo.taskName }}</strong></td>
-      <td>{{ todo.updated }}</td>
-      <td>{{ todo.assignTo }}</td>
-      <td>{{ todo.description }}</td>
-      <td (click)="deleteTodo(i)" class="delete-icon" style="color: red">[X]</td>
-    </tr>
-  </tbody>
-</table>
+    <thead>
+      <tr>
+        <th>Task name</th>
+        <th>Date</th>
+        <th>Assign to</th>
+        <th>Description</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let todo of todos">
+        <td><strong >{{ todo.taskName }}</strong></td>
+        <td>{{ todo.updated }}</td>
+        <td>{{ todo.assignTo }}</td>
+        <td>{{ todo.description }}</td>
+        <td (click)="deleteTodo(i)" class="delete-icon" style="color: red">[X]</td>
+      </tr>
+    </tbody>
+  </table>
 
-    </div>
-    <!--  ********************************   -->
+</div>
+<!--  ********************************   -->
 
-<input class="btn btn-danger" type="submit" value="add New task" (click)="div_show()" >
+<input class="btn btn-danger" type="submit" value="add New task" style="margin-left: 500px;" (click)="div_show()" >
 
 <div id="abc">
 
@@ -39,52 +50,52 @@
     <fieldset>
 
      <div class="form-group">
-        <label class="col-md-4 control-label">Task</label>  
-        <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-tasks"></i></span>
-            <input type="text" [(ngModel)]="newTodo" name="newTodo">
-          </div>
+      <label class="col-md-4 control-label">Task</label>  
+      <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-tasks"></i></span>
+          <input type="text" [(ngModel)]="newTodo" name="newTodo">
         </div>
       </div>
+    </div>
 
-      <div class="form-group">
-        <label class="col-md-4 control-label">Discription</label>  
-        <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-tasks"></i></span>
-            <textarea rows="3" cols="50" [(ngModel)]="Discription" name="Discription"></textarea>
-          </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label">Discription</label>  
+      <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-tasks"></i></span>
+          <textarea rows="3" cols="50" [(ngModel)]="Discription" name="Discription"></textarea>
         </div>
       </div>
+    </div>
 
-     
+    
 
-       <div class="form-group">
-        <label class="col-md-4 control-label">Date </label>  
-        <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-            <input  type="date" name="" [(ngModel)]="Date" name="Date">
-          </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label">Date </label>  
+      <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+          <input  type="date" name="" [(ngModel)]="Date" name="Date">
         </div>
       </div>
+    </div>
 
-        <div class="form-group">
-        <label class="col-md-4 control-label">Assign to</label>  
-        <div class="col-md-4 inputGroupContainer">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-           <select class="form-control" (change)="onChange($event.target.value)">
+    <div class="form-group">
+      <label class="col-md-4 control-label">Assign to</label>  
+      <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <select class="form-control" (change)="onChange($event.target.value)">
             <option  *ngFor="let i of Assigns">{{i}}</option>
           </select>
-          </div>
         </div>
       </div>
+    </div>
 
-      <div class="form-group">
-        <label class="col-md-4 control-label"></label>
-        <div class="col-md-4">
+    <div class="form-group">
+      <label class="col-md-4 control-label"></label>
+      <div class="col-md-4">
         <button  class="btn btn-lg btn-primary btn-block" (click)="div_hide()"> SUBMIT <span class="glyphicon glyphicon-send"></span></button></div>
       </div>
 
@@ -102,16 +113,16 @@
 </div> <!-- **********************end div popup***************** -->
 
 <style type="text/css">
-#abc {
-width:100%;
-height:100%;
-opacity:.95;
-top:0;
-left:0;
-display:none;
-position:fixed;
-background-color:#313131;
-overflow:auto
-}
+  #abc {
+    width:100%;
+    height:100%;
+    opacity:.95;
+    top:0;
+    left:0;
+    display:none;
+    position:fixed;
+    background-color:#313131;
+    overflow:auto
+  }
 </style>
 

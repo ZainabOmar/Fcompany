@@ -15,7 +15,20 @@ var FoodController = require('./food/foodController.js');
 app.use(express.static(__dirname + '/../dist'));
 app.use(bodyParser.json());
 
-app.use(cors());
+/////cc
+let http = require('http').Server(app);
+let io = require('socket.io')(http);
+io.on('connection', (socket) => {
+  console.log('The user is connected');
+  socket.on('disconnect', function(){
+    console.log('The user is disconnected');
+  });
+   socket.on('add-message', (message) => {
+	console.log(message)
+    io.emit('message', {type:'new-message', text: message});   
+  });
+});
+
 
 
 // Connect to Mongoose
@@ -53,7 +66,12 @@ app.get('/api/gaming')
 
 
 
-app.listen(process.env.PORT || 8000);
-console.log('Running on port 8000...');
+app.listen(process.env.PORT || 3300);
+console.log('Running on port 3300...');
+
+//////cccccc 
+// http.listen(process.env.PORT || 8000, () => {
+//   console.log('started on port 8000');
+// });
 
 module.exports = app;

@@ -1,57 +1,55 @@
  .box1 {
-    border: solid 1px #006699;
-    padding: 20px;
-    background: #f3f3f3;
-    border-radius: 5px;
-  }
+  border: solid 1px #006699;
+  padding: 20px;
+  background: #f3f3f3;
+  border-radius: 5px;
+}
+
+.todos input.textfield {
+  width: 480px;
+  height: 36px;
+  margin-right: 20px;
+  font-size: 1.4em;
+  vertical-align: top;
+}
+
+.todos input.checkbox {
+  width: 20px;
+  height: 20px;
+}
+
+.todos .checked {
+  text-decoration: line-through;
+}
+
+.todos button {
+  height: 36px;
+  font-size: 1.1em;
+  vertical-align: top;
+  border: solid 1px #999;
+  border-radius: 2px;
+}
+
+.todos .delete-icon {
+  diplay: inline-block;
+  cursor: pointer;
+}
 
 
-
-  .todos input.textfield {
-    width: 480px;
-    height: 36px;
-    margin-right: 20px;
-    font-size: 1.4em;
-    vertical-align: top;
-  }
-
-  .todos input.checkbox {
-    width: 20px;
-    height: 20px;
-  }
-
-  .todos .checked {
-    text-decoration: line-through;
-  }
-
-  .todos button {
-    height: 36px;
-    font-size: 1.1em;
-    vertical-align: top;
-    border: solid 1px #999;
-    border-radius: 2px;
-  }
-
-  .todos .delete-icon {
-    diplay: inline-block;
-    cursor: pointer;
-  }
-  
-
-  /*  style for table that show the tasks info*/
+/*  style for table that show the tasks info*/
 .img{
-    background: #253340 url(http://az616578.vo.msecnd.net/files/2016/08/06/6360610785851960672068369534_schedule-image-.jpg) no-repeat 50% top;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    padding-top: 640px;
+  background: #253340 url(http://az616578.vo.msecnd.net/files/2016/08/06/6360610785851960672068369534_schedule-image-.jpg) no-repeat 50% top;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-top: 640px;
 }
 
 .btn {
-    margin-left: 550px;   
-    background-color: #8a6d3b;
-    border-color: #8a6d3b;
+  margin-left: 550px;   
+  background-color: #8a6d3b;
+  border-color: #8a6d3b;
 }
 #add{
   margin-left: 620px;
@@ -137,3 +135,9 @@ tr:last-of-type td:last-child {
 } 
 
 
+
+
+.navbar-inverse {
+  background: linear-gradient(#996A00, #444);
+  font-size: 1.2em;
+}

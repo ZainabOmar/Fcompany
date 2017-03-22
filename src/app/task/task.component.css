@@ -1,17 +1,10 @@
 .box1 {
-    border: solid 1px #006699;
-    padding: 20px;
-    background: #f3f3f3;
-    border-radius: 5px;
+  border: solid 1px #006699;
+  padding: 20px;
+  background: #f3f3f3;
+  border-radius: 5px;
 }
 
-
-body {
-  background: #fafafa url(http://jackrugile.com/images/misc/noise-diagonal.png);
-  color: #444;
-  font: 100%/30px 'Helvetica Neue', helvetica, arial, sans-serif;
-  text-shadow: 0 1px 0 #006699;
-}
 
 strong {
   font-weight: bold; 
@@ -114,4 +107,38 @@ tbody:hover td {
 tbody:hover tr:hover td {
   color: #444;
   text-shadow: 0 1px 0 #fff;
+}
+
+
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+  color: #000;  /*Sets the text hover color on navbar*/
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active >   
+a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+  color: white; /*BACKGROUND color for active*/
+  background-color: #030033;
+}
+
+.navbar-inverse {
+  background-color: #0f006f;
+  border-color: #030033;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  color: #262626;
+  text-decoration: none;
+  background-color: #66CCFF;  /*change color of links in drop down here*/
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+  text-decoration: none;
+  background-color: silver; /*Change rollover cell color here*/
+}
+
+
+.navbar-inverse .navbar-nav > li > a {
+ color: white; /*Change active text color here*/
 }

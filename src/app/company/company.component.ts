@@ -8,6 +8,7 @@ import {Router} from '@angular/router';
 	templateUrl: './company.component.html',
 	styleUrls: ['./company.component.css']
 })
+
 export class CompanyComponent implements OnInit {
 	user: String;
 	obj : any;
@@ -17,7 +18,6 @@ export class CompanyComponent implements OnInit {
 		private router: Router,
 		private companyService: CompanyService
 		) {}
-
 
 	ngOnInit() {
 		const user = localStorage.getItem('user-id')
@@ -33,5 +33,4 @@ export class CompanyComponent implements OnInit {
 		this.authService.logout()
 		this.router.navigate(['/']);
 	}
-
 }

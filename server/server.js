@@ -15,7 +15,7 @@ var FoodController = require('./food/foodController.js');
 app.use(express.static(__dirname + '/../dist'));
 app.use(bodyParser.json());
 
-/////ccccccccccccccc
+/////cc
 let http = require('http').Server(app);
 let io = require('socket.io')(http);
 io.on('connection', (socket) => {
@@ -65,12 +65,12 @@ app.delete('/api/food/delete',FoodController.handlefood.delete);
 
 
 
-// app.listen(process.env.PORT || 8000);
-// console.log('Running on port 8000...');
+app.listen(process.env.PORT || 3300);
+console.log('Running on port 3300...');
 
-//////cccccc
-http.listen(5000, () => {
-  console.log('started on port 5000');
-});
+//////cccccc 
+// http.listen(process.env.PORT || 8000, () => {
+//   console.log('started on port 8000');
+// });
 
 module.exports = app;

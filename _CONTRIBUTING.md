@@ -1,7 +1,7 @@
 # Contributing
 
 ## General Workflow
-
+ 
 1. Fork the repo
 1. Cut a namespaced feature branch from master
   - bug/...

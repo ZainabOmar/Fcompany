@@ -325,13 +325,12 @@ button.submitbtn:active {
 
 .img{
     background: #253340 url('/assets/img/food.jpg') no-repeat 50% top;
-    /*filter: opacity(30%);*/
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    /*padding-top: 640px;*/
-    /*-webkit-filter: opacity(30%);*/
+    position: fixed; 
+  top: 0; 
+  left: 0; 
+  min-width: 100%;
+  min-height: 100%;
+  background-size: cover;
 }
 
 .well {

@@ -10,10 +10,6 @@ var scheduleController = require('./schedule/scheduleController.js');
 var TaskController = require('./Task/taskController.js');
 var FoodController = require('./food/foodController.js');
 
-///////////////////////////////////////////
-var httpp = require('http');
-var ioo = require('socket.io').listen(httpp);
-
 
 //middleware
 app.use(express.static(__dirname + '/../dist'));
@@ -33,13 +29,7 @@ io.on('connection', (socket) => {
   });
 });
 
-// Heroku config //////////////////////////////////////
-if(process.env.PORT) {
-  ioo.configure(function () { 
-    ioo.set("transports", ["xhr-polling"]); 
-    ioo.set("polling duration", 10); 
-  });  
-}
+
 
 // Connect to Mongoose
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/company');
@@ -75,12 +65,12 @@ app.delete('/api/food/delete',FoodController.handlefood.delete);
 
 
 
-// app.listen(process.env.PORT || 8000);
-// console.log('Running on port 8000...');
+app.listen(process.env.PORT || 8000);
+console.log('Running on port 8000...');
 
 //////cccccc 
-http.listen(process.env.PORT || 8000, () => {
-  console.log('started on port 8000');
-});
+// http.listen(process.env.PORT || 8000, () => {
+//   console.log('started on port 8000');
+// });
 
 module.exports = app;

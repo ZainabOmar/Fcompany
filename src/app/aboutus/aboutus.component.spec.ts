@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {} from 'jasmine';
 import { AboutusComponent } from './aboutus.component';
 
 describe('AboutusComponent', () => {
@@ -19,7 +19,9 @@ describe('AboutusComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  it('should create Aboutus-component', async(() => {
+    const fixture = TestBed.createComponent(AboutusComponent);
+    const Aboutus = fixture.debugElement.componentInstance;
+    expect(Aboutus).toBeTruthy();
+  }));
 });

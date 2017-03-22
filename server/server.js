@@ -29,7 +29,13 @@ io.on('connection', (socket) => {
   });
 });
 
-
+// Heroku config
+if(process.env.PORT) {
+  io.configure(function () { 
+    io.set("transports", ["xhr-polling"]); 
+    io.set("polling duration", 10); 
+  });  
+}
 
 // Connect to Mongoose
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/company');

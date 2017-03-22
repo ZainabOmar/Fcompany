@@ -24,7 +24,8 @@ import {ValidateService} from './services/validate.service';
 import {AuthService} from './services/auth.service';
 import {TaskService} from './services/task.service';
 import {FoodService} from './services/food.service';
-
+import { GamingComponent } from './gaming/gaming.component';
+import {GamingService} from './services/gaming.service';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import {FoodService} from './services/food.service';
     CompanyComponent,
     CreatcompanyComponent,
     TaskComponent,
-    FoodComponent
+    FoodComponent,
+    GamingComponent
     
   ],
   imports: [
@@ -52,15 +54,16 @@ import {FoodService} from './services/food.service';
   {path: 'creatcompany',   component: CreatcompanyComponent,canActivate:[AuthGuard]},
   {path: 'signin',component: SigninComponent},
   {path: 'aboutus',   component: AboutusComponent},
-  {path: 'company',   component: CompanyComponent,canActivate:[AuthGuard]},
+  {path: 'company',   component: CompanyComponent},
   {path: 'task',   component: TaskComponent,canActivate:[AuthGuard]},
-  {path: 'schedule',   component: ScheduleComponent},
-  {path: 'food',   component: FoodComponent}
+  {path: 'schedule',   component: ScheduleComponent,canActivate:[AuthGuard]},
+  {path: 'food',   component: FoodComponent},
+  {path: 'gaming',   component: GamingComponent}
   ]),
     FlashMessagesModule
   ],
   providers: [{provide:LocationStrategy,useClass:HashLocationStrategy},
-  ValidateService,AuthService,AuthGuard,TaskService,CompanyService,ScheduleService,FoodService],
+  ValidateService,AuthService,AuthGuard,TaskService,CompanyService,ScheduleService,FoodService,GamingService],
   bootstrap: [AppComponent]
   })
 

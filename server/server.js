@@ -49,6 +49,7 @@ app.post('/api/food/vote', FoodController.handlefood.vote);
 app.get('/api/food/:userId', FoodController.handlefood.getfood);
 app.delete('/api/food/delete',FoodController.handlefood.delete);
 
+app.get('/api/gaming')
 
 
 

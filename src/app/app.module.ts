@@ -28,7 +28,6 @@ import {FoodService} from './services/food.service';
 import {ChatService} from './chat/chat.service';
 
 
-
 @NgModule({
   declarations: [
   ScheduleComponent,

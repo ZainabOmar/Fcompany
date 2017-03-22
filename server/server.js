@@ -10,6 +10,8 @@ var scheduleController = require('./schedule/scheduleController.js');
 var TaskController = require('./Task/taskController.js');
 var FoodController = require('./food/foodController.js');
 
+var ioo = require('socket.io').listen(http);
+
 
 //middleware
 app.use(express.static(__dirname + '/../dist'));
@@ -31,9 +33,9 @@ io.on('connection', (socket) => {
 
 // Heroku config
 if(process.env.PORT) {
-  io.configure(function () { 
-    io.set("transports", ["xhr-polling"]); 
-    io.set("polling duration", 10); 
+  ioo.configure(function () { 
+    ioo.set("transports", ["xhr-polling"]); 
+    ioo.set("polling duration", 10); 
   });  
 }
 

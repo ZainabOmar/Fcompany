@@ -82,5 +82,5 @@ and vote for it:
 -Finally, you can have some fun with games, and waste some of your free time here:
 <br><br>
 <center>
-<img src="src/assets/img/game.png">
+<img src="src/assets/img/gaming.png">
 <br><br></center>

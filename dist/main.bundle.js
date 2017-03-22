@@ -93,7 +93,7 @@ var ChatService = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(97);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyService; });
@@ -149,7 +149,7 @@ var CompanyService = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(97);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FoodService; });
@@ -199,12 +199,104 @@ var FoodService = (function () {
 
 /***/ }),
 
+/***/ 32:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AuthService = (function () {
+    function AuthService(http) {
+        this.http = http;
+    }
+    AuthService.prototype.registerUser = function (user) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('api/user/signup', user, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    AuthService.prototype.registerCompany = function (company) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('api/company', company, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    AuthService.prototype.signin = function (user) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('api/user/signin', user, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    // authenticateUser(user){
+    //   let headers = new Headers();
+    //   headers.append('Content-Type','application/json');
+    //   return this.http.post('http://localhost:3000/users/authenticate', user,{headers: headers})
+    //     .map(res => res.json());
+    // }
+    AuthService.prototype.storeUserData = function (token, id, name) {
+        localStorage.setItem('id_token', token);
+        localStorage.setItem('user-id', id);
+        localStorage.setItem('user-name', name);
+        this.authToken = token;
+    };
+    AuthService.prototype.loadToken = function () {
+        var token = localStorage.getItem('id_token');
+        this.authToken = token;
+    };
+    AuthService.prototype.loadAdmindata = function () {
+        var x = localStorage.getItem('user-id');
+        var y = localStorage.getItem('user-name');
+        this.AdminId = x;
+        this.Adminname = y;
+        return { AdminId: this.AdminId, Adminname: this.Adminname };
+    };
+    AuthService.prototype.loggedIn = function () {
+        // return tokenNotExpired();
+        if (localStorage.getItem('id_token').length) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+    AuthService.prototype.logout = function () {
+        console.log("signing out");
+        this.authToken = null;
+        this.user = null;
+        localStorage.clear();
+    };
+    AuthService = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */]) === 'function' && _a) || Object])
+    ], AuthService);
+    return AuthService;
+    var _a;
+}());
+//# sourceMappingURL=auth.service.js.map
+
+/***/ }),
+
 /***/ 320:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(97);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ScheduleService; });
@@ -252,7 +344,7 @@ var ScheduleService = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(97);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TaskService; });
@@ -407,10 +499,10 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(135);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(442);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_flash_messages__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_flash_messages__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_angular2_flash_messages__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(482);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__main_page_main_page_component__ = __webpack_require__(489);
@@ -427,7 +519,7 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_company_service__ = __webpack_require__(318);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_schedule_service__ = __webpack_require__(320);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_validate_service__ = __webpack_require__(138);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_auth_service__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_auth_service__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__services_task_service__ = __webpack_require__(321);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__services_food_service__ = __webpack_require__(319);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__chat_chat_service__ = __webpack_require__(317);
@@ -574,7 +666,7 @@ var ChatComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_company_service__ = __webpack_require__(318);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__(30);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CompanyComponent; });
@@ -632,8 +724,8 @@ var CompanyComponent = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_validate_service__ = __webpack_require__(138);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(30);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreatcompanyComponent; });
@@ -718,9 +810,10 @@ var CreatcompanyComponent = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_food_service__ = __webpack_require__(319);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_auth_service__ = __webpack_require__(32);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FoodComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -735,8 +828,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var FoodComponent = (function () {
-    function FoodComponent(flashMessage, foodservice, router) {
+    function FoodComponent(authService, flashMessage, foodservice, router) {
+        this.authService = authService;
         this.flashMessage = flashMessage;
         this.foodservice = foodservice;
         this.router = router;
@@ -750,6 +845,10 @@ var FoodComponent = (function () {
             _this.foods = data;
             console.log(_this.foods);
         });
+    };
+    FoodComponent.prototype.logout = function () {
+        this.authService.logout();
+        this.router.navigate(['/']);
     };
     FoodComponent.prototype.onChange = function (newValue) {
         this.foodTime = newValue;
@@ -796,10 +895,10 @@ var FoodComponent = (function () {
             template: __webpack_require__(585),
             styles: [__webpack_require__(570)]
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_food_service__["a" /* FoodService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_food_service__["a" /* FoodService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === 'function' && _c) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_food_service__["a" /* FoodService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_food_service__["a" /* FoodService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === 'function' && _d) || Object])
     ], FoodComponent);
     return FoodComponent;
-    var _a, _b, _c;
+    var _a, _b, _c, _d;
 }());
 //# sourceMappingURL=food.component.js.map
 
@@ -811,7 +910,7 @@ var FoodComponent = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(32);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthGuard; });
 // import { Injectable } from '@angular/core';
 // import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
@@ -895,9 +994,10 @@ var MainPageComponent = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_schedule_service__ = __webpack_require__(320);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_auth_service__ = __webpack_require__(32);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ScheduleComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -912,8 +1012,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ScheduleComponent = (function () {
-    function ScheduleComponent(flashMessage, scheduleservice, router) {
+    function ScheduleComponent(authService, flashMessage, scheduleservice, router) {
+        this.authService = authService;
         this.flashMessage = flashMessage;
         this.scheduleservice = scheduleservice;
         this.router = router;
@@ -923,11 +1025,14 @@ var ScheduleComponent = (function () {
     }
     ScheduleComponent.prototype.ngOnInit = function () {
         var _this = this;
-        // this.todos = [];
         this.scheduleservice.getSchedule(localStorage.getItem("user-id")).subscribe(function (data) {
             _this.todos = data;
             console.log(_this.todos);
         });
+    };
+    ScheduleComponent.prototype.logout = function () {
+        this.authService.logout();
+        this.router.navigate(['/']);
     };
     ScheduleComponent.prototype.div_hide = function () {
         document.getElementById('aya').style.display = "none";
@@ -963,10 +1068,10 @@ var ScheduleComponent = (function () {
             template: __webpack_require__(587),
             styles: [__webpack_require__(572)]
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_schedule_service__["a" /* ScheduleService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_schedule_service__["a" /* ScheduleService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === 'function' && _c) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_schedule_service__["a" /* ScheduleService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_schedule_service__["a" /* ScheduleService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === 'function' && _d) || Object])
     ], ScheduleComponent);
     return ScheduleComponent;
-    var _a, _b, _c;
+    var _a, _b, _c, _d;
 }());
 //# sourceMappingURL=schedule.component.js.map
 
@@ -978,8 +1083,8 @@ var ScheduleComponent = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_validate_service__ = __webpack_require__(138);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(30);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SigninComponent; });
@@ -1054,8 +1159,8 @@ var SigninComponent = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_validate_service__ = __webpack_require__(138);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(30);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupComponent; });
@@ -1197,9 +1302,10 @@ var SignupComponent = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_task_service__ = __webpack_require__(321);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_auth_service__ = __webpack_require__(32);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TaskComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1214,8 +1320,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var TaskComponent = (function () {
-    function TaskComponent(flashMessage, taskservice, router) {
+    function TaskComponent(authService, flashMessage, taskservice, router) {
+        this.authService = authService;
         this.flashMessage = flashMessage;
         this.taskservice = taskservice;
         this.router = router;
@@ -1230,6 +1338,10 @@ var TaskComponent = (function () {
             _this.todos = data;
             console.log(_this.todos);
         });
+    };
+    TaskComponent.prototype.logout = function () {
+        this.authService.logout();
+        this.router.navigate(['/']);
     };
     TaskComponent.prototype.onChange = function (newValue) {
         this.Assign = newValue;
@@ -1258,9 +1370,6 @@ var TaskComponent = (function () {
         this.todos.push(todoObj);
         this.taskservice.AddTask(todoObj).subscribe(function (data) {
             if (data) {
-                _this.taskservice.getTask(localStorage.getItem("user-id")).subscribe(function (data) {
-                    _this.todos = data;
-                });
                 _this.flashMessage.show('task add well', { cssClass: 'alert-success', timeout: 3000 });
             }
         });
@@ -1271,10 +1380,10 @@ var TaskComponent = (function () {
             template: __webpack_require__(590),
             styles: [__webpack_require__(575)]
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_task_service__["a" /* TaskService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_task_service__["a" /* TaskService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === 'function' && _c) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__services_task_service__["a" /* TaskService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_task_service__["a" /* TaskService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === 'function' && _d) || Object])
     ], TaskComponent);
     return TaskComponent;
-    var _a, _b, _c;
+    var _a, _b, _c, _d;
 }());
 //# sourceMappingURL=task.component.js.map
 
@@ -1430,7 +1539,7 @@ exports = module.exports = __webpack_require__(15)();
 
 
 // module
-exports.push([module.i, " .box1 {\r\n    border: solid 1px #006699;\r\n    padding: 20px;\r\n    background: #f3f3f3;\r\n    border-radius: 5px;\r\n  }\r\n\r\n\r\n\r\n  .todos input.textfield {\r\n    width: 480px;\r\n    height: 36px;\r\n    margin-right: 20px;\r\n    font-size: 1.4em;\r\n    vertical-align: top;\r\n  }\r\n\r\n  .todos input.checkbox {\r\n    width: 20px;\r\n    height: 20px;\r\n  }\r\n\r\n  .todos .checked {\r\n    text-decoration: line-through;\r\n  }\r\n\r\n  .todos button {\r\n    height: 36px;\r\n    font-size: 1.1em;\r\n    vertical-align: top;\r\n    border: solid 1px #999;\r\n    border-radius: 2px;\r\n  }\r\n\r\n  .todos .delete-icon {\r\n    diplay: inline-block;\r\n    cursor: pointer;\r\n  }\r\n  \r\n\r\n  /*  style for table that show the tasks info*/\r\n.img{\r\n    background: #253340 url(http://az616578.vo.msecnd.net/files/2016/08/06/6360610785851960672068369534_schedule-image-.jpg) no-repeat 50% top;\r\n    background-size: cover;\r\n    padding-top: 640px;\r\n}\r\n\r\n.btn {\r\n    margin-left: 550px;   \r\n    background-color: #8a6d3b;\r\n    border-color: #8a6d3b;\r\n}\r\n#add{\r\n  margin-left: 590px;\r\n  background-color: #8a6d3b;\r\n  border-color: #8a6d3b;\r\n  \r\n}\r\ntable {\r\n  background: #f5f5f5;\r\n  border-collapse: separate;\r\n  box-shadow: inset 0 1px 0 #fff;\r\n  font-size: 12px;\r\n  line-height: 24px;\r\n  margin: 30px auto;\r\n  text-align: left;\r\n  width: 800px;\r\n} \r\n\r\nth {\r\n  background: -webkit-linear-gradient(#996A00, #444);\r\n  background: linear-gradient(#996A00, #444);\r\n  border-left: 1px solid #555;\r\n  border-right: 1px solid #777;\r\n  border-top: 1px solid #555;\r\n  border-bottom: 1px solid #333;\r\n  box-shadow: inset 0 1px 0 #999;\r\n  color: #fff;\r\n  font-weight: bold;\r\n  padding: 10px 15px;\r\n  position: relative;\r\n  text-shadow: 0 1px 0 #000;  \r\n}\r\n\r\nth:after {\r\n  background: -webkit-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));\r\n  background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));\r\n  content: '';\r\n  display: block;\r\n  height: 25%;\r\n  left: 0;\r\n  margin: 1px 0 0 0;\r\n  position: absolute;\r\n  top: 25%;\r\n  width: 100%;\r\n}\r\n\r\nth:first-child {\r\n  border-left: 1px solid #777;  \r\n  box-shadow: inset 1px 1px 0 #999;\r\n}\r\n\r\nth:last-child {\r\n  box-shadow: inset -1px 1px 0 #999;\r\n}\r\n\r\ntd {\r\n  border-right: 1px solid #fff;\r\n  border-left: 1px solid #e8e8e8;\r\n  border-top: 1px solid #fff;\r\n  border-bottom: 1px solid #e8e8e8;\r\n  padding: 10px 15px;\r\n  position: relative;\r\n  -webkit-transition: all 300ms;\r\n  transition: all 300ms;\r\n}\r\n\r\ntd:first-child {\r\n  box-shadow: inset 1px 0 0 #fff;\r\n} \r\n\r\ntd:last-child {\r\n  border-right: 1px solid #e8e8e8;\r\n  box-shadow: inset -1px 0 0 #fff;\r\n} \r\n\r\ntr:last-of-type td {\r\n  box-shadow: inset 0 -1px 0 #fff; \r\n}\r\n\r\ntr:last-of-type td:first-child {\r\n  box-shadow: inset 1px -1px 0 #fff;\r\n} \r\n\r\ntr:last-of-type td:last-child {\r\n  box-shadow: inset -1px -1px 0 #fff;\r\n} \r\n\r\n\r\n", ""]);
+exports.push([module.i, " .box1 {\r\n  border: solid 1px #006699;\r\n  padding: 20px;\r\n  background: #f3f3f3;\r\n  border-radius: 5px;\r\n}\r\n\r\n.todos input.textfield {\r\n  width: 480px;\r\n  height: 36px;\r\n  margin-right: 20px;\r\n  font-size: 1.4em;\r\n  vertical-align: top;\r\n}\r\n\r\n.todos input.checkbox {\r\n  width: 20px;\r\n  height: 20px;\r\n}\r\n\r\n.todos .checked {\r\n  text-decoration: line-through;\r\n}\r\n\r\n.todos button {\r\n  height: 36px;\r\n  font-size: 1.1em;\r\n  vertical-align: top;\r\n  border: solid 1px #999;\r\n  border-radius: 2px;\r\n}\r\n\r\n.todos .delete-icon {\r\n  diplay: inline-block;\r\n  cursor: pointer;\r\n}\r\n\r\n\r\n/*  style for table that show the tasks info*/\r\n.img{\r\n  background: #253340 url(http://az616578.vo.msecnd.net/files/2016/08/06/6360610785851960672068369534_schedule-image-.jpg) no-repeat 50% top;\r\n  background-size: cover;\r\n  padding-top: 640px;\r\n}\r\n\r\n.btn {\r\n  margin-left: 550px;   \r\n  background-color: #8a6d3b;\r\n  border-color: #8a6d3b;\r\n}\r\n#add{\r\n  margin-left: 590px;\r\n  background-color: #8a6d3b;\r\n  border-color: #8a6d3b;\r\n  \r\n}\r\ntable {\r\n  background: #f5f5f5;\r\n  border-collapse: separate;\r\n  box-shadow: inset 0 1px 0 #fff;\r\n  font-size: 12px;\r\n  line-height: 24px;\r\n  margin: 30px auto;\r\n  text-align: left;\r\n  width: 800px;\r\n} \r\n\r\nth {\r\n  background: -webkit-linear-gradient(#996A00, #444);\r\n  background: linear-gradient(#996A00, #444);\r\n  border-left: 1px solid #555;\r\n  border-right: 1px solid #777;\r\n  border-top: 1px solid #555;\r\n  border-bottom: 1px solid #333;\r\n  box-shadow: inset 0 1px 0 #999;\r\n  color: #fff;\r\n  font-weight: bold;\r\n  padding: 10px 15px;\r\n  position: relative;\r\n  text-shadow: 0 1px 0 #000;  \r\n}\r\n\r\nth:after {\r\n  background: -webkit-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));\r\n  background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));\r\n  content: '';\r\n  display: block;\r\n  height: 25%;\r\n  left: 0;\r\n  margin: 1px 0 0 0;\r\n  position: absolute;\r\n  top: 25%;\r\n  width: 100%;\r\n}\r\n\r\nth:first-child {\r\n  border-left: 1px solid #777;  \r\n  box-shadow: inset 1px 1px 0 #999;\r\n}\r\n\r\nth:last-child {\r\n  box-shadow: inset -1px 1px 0 #999;\r\n}\r\n\r\ntd {\r\n  border-right: 1px solid #fff;\r\n  border-left: 1px solid #e8e8e8;\r\n  border-top: 1px solid #fff;\r\n  border-bottom: 1px solid #e8e8e8;\r\n  padding: 10px 15px;\r\n  position: relative;\r\n  -webkit-transition: all 300ms;\r\n  transition: all 300ms;\r\n}\r\n\r\ntd:first-child {\r\n  box-shadow: inset 1px 0 0 #fff;\r\n} \r\n\r\ntd:last-child {\r\n  border-right: 1px solid #e8e8e8;\r\n  box-shadow: inset -1px 0 0 #fff;\r\n} \r\n\r\ntr:last-of-type td {\r\n  box-shadow: inset 0 -1px 0 #fff; \r\n}\r\n\r\ntr:last-of-type td:first-child {\r\n  box-shadow: inset 1px -1px 0 #fff;\r\n} \r\n\r\ntr:last-of-type td:last-child {\r\n  box-shadow: inset -1px -1px 0 #fff;\r\n} \r\n\r\n\r\n\r\n\r\n.navbar-inverse {\r\n  background: -webkit-linear-gradient(#996A00, #444);\r\n  background: linear-gradient(#996A00, #444);\r\n  font-size: 1.2em;\r\n}\r\n", ""]);
 
 // exports
 
@@ -1484,7 +1593,7 @@ exports = module.exports = __webpack_require__(15)();
 
 
 // module
-exports.push([module.i, ".box1 {\r\n    border: solid 1px #006699;\r\n    padding: 20px;\r\n    background: #f3f3f3;\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\nstrong {\r\n  font-weight: bold; \r\n}\r\n\r\nem {\r\n  font-style: italic; \r\n}\r\n\r\ntable {\r\n  background: #f5f5f5;\r\n  border-collapse: separate;\r\n  box-shadow: inset 0 1px 0 #006699;\r\n  font-size: 12px;\r\n  line-height: 24px;\r\n  margin: 30px auto;\r\n  text-align: left;\r\n  width: 800px;\r\n} \r\n\r\nth {\r\n  background: url(http://jackrugile.com/images/misc/noise-diagonal.png), -webkit-linear-gradient(#777, #444);\r\n  background: url(http://jackrugile.com/images/misc/noise-diagonal.png), linear-gradient(#777, #444);\r\n  border-left: 1px solid #006699;\r\n  border-right: 1px solid #006699;\r\n  border-top: 1px solid #006699;\r\n  border-bottom: 1px solid #006699;\r\n  box-shadow: inset 0 1px 0 #006699;\r\n  color: #fff;\r\n  font-weight: bold;\r\n  padding: 10px 15px;\r\n  position: relative;\r\n  text-shadow: 0 1px 0 #006699;  \r\n}\r\n\r\nth:after {\r\n  background: -webkit-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));\r\n  background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));\r\n  content: '';\r\n  display: block;\r\n  height: 25%;\r\n  left: 0;\r\n  margin: 1px 0 0 0;\r\n  position: absolute;\r\n  top: 25%;\r\n  width: 100%;\r\n}\r\n\r\nth:first-child {\r\n  border-left: 1px solid #777;  \r\n  box-shadow: inset 1px 1px 0 #999;\r\n}\r\n\r\nth:last-child {\r\n  box-shadow: inset -1px 1px 0 #999;\r\n}\r\n\r\ntd {\r\n  border-right: 1px solid #fff;\r\n  border-left: 1px solid #e8e8e8;\r\n  border-top: 1px solid #fff;\r\n  border-bottom: 1px solid #e8e8e8;\r\n  padding: 10px 15px;\r\n  position: relative;\r\n  -webkit-transition: all 300ms;\r\n  transition: all 300ms;\r\n}\r\n\r\ntd:first-child {\r\n  box-shadow: inset 1px 0 0 #fff;\r\n} \r\n\r\ntd:last-child {\r\n  border-right: 1px solid #e8e8e8;\r\n  box-shadow: inset -1px 0 0 #fff;\r\n} \r\n\r\ntr {\r\n  background: url(http://jackrugile.com/images/misc/noise-diagonal.png);  \r\n}\r\n\r\ntr:nth-child(odd) td {\r\n  background: #f1f1f1 url(http://jackrugile.com/images/misc/noise-diagonal.png);  \r\n}\r\n\r\ntr:last-of-type td {\r\n  box-shadow: inset 0 -1px 0 #fff; \r\n}\r\n\r\ntr:last-of-type td:first-child {\r\n  box-shadow: inset 1px -1px 0 #fff;\r\n} \r\n\r\ntr:last-of-type td:last-child {\r\n  box-shadow: inset -1px -1px 0 #fff;\r\n} \r\n\r\ntbody:hover td {\r\n  color: transparent;\r\n  text-shadow: 0 0 3px #aaa;\r\n}\r\n\r\ntbody:hover tr:hover td {\r\n  color: #444;\r\n  text-shadow: 0 1px 0 #fff;\r\n}", ""]);
+exports.push([module.i, ".box1 {\r\n  border: solid 1px #006699;\r\n  padding: 20px;\r\n  background: #f3f3f3;\r\n  border-radius: 5px;\r\n}\r\n\r\n\r\nstrong {\r\n  font-weight: bold; \r\n}\r\n\r\nem {\r\n  font-style: italic; \r\n}\r\n\r\ntable {\r\n  background: #f5f5f5;\r\n  border-collapse: separate;\r\n  box-shadow: inset 0 1px 0 #006699;\r\n  font-size: 12px;\r\n  line-height: 24px;\r\n  margin: 30px auto;\r\n  text-align: left;\r\n  width: 800px;\r\n} \r\n\r\nth {\r\n  background: url(http://jackrugile.com/images/misc/noise-diagonal.png), -webkit-linear-gradient(#777, #444);\r\n  background: url(http://jackrugile.com/images/misc/noise-diagonal.png), linear-gradient(#777, #444);\r\n  border-left: 1px solid #006699;\r\n  border-right: 1px solid #006699;\r\n  border-top: 1px solid #006699;\r\n  border-bottom: 1px solid #006699;\r\n  box-shadow: inset 0 1px 0 #006699;\r\n  color: #fff;\r\n  font-weight: bold;\r\n  padding: 10px 15px;\r\n  position: relative;\r\n  text-shadow: 0 1px 0 #006699;  \r\n}\r\n\r\nth:after {\r\n  background: -webkit-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));\r\n  background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));\r\n  content: '';\r\n  display: block;\r\n  height: 25%;\r\n  left: 0;\r\n  margin: 1px 0 0 0;\r\n  position: absolute;\r\n  top: 25%;\r\n  width: 100%;\r\n}\r\n\r\nth:first-child {\r\n  border-left: 1px solid #777;  \r\n  box-shadow: inset 1px 1px 0 #999;\r\n}\r\n\r\nth:last-child {\r\n  box-shadow: inset -1px 1px 0 #999;\r\n}\r\n\r\ntd {\r\n  border-right: 1px solid #fff;\r\n  border-left: 1px solid #e8e8e8;\r\n  border-top: 1px solid #fff;\r\n  border-bottom: 1px solid #e8e8e8;\r\n  padding: 10px 15px;\r\n  position: relative;\r\n  -webkit-transition: all 300ms;\r\n  transition: all 300ms;\r\n}\r\n\r\ntd:first-child {\r\n  box-shadow: inset 1px 0 0 #fff;\r\n} \r\n\r\ntd:last-child {\r\n  border-right: 1px solid #e8e8e8;\r\n  box-shadow: inset -1px 0 0 #fff;\r\n} \r\n\r\ntr {\r\n  background: url(http://jackrugile.com/images/misc/noise-diagonal.png);  \r\n}\r\n\r\ntr:nth-child(odd) td {\r\n  background: #f1f1f1 url(http://jackrugile.com/images/misc/noise-diagonal.png);  \r\n}\r\n\r\ntr:last-of-type td {\r\n  box-shadow: inset 0 -1px 0 #fff; \r\n}\r\n\r\ntr:last-of-type td:first-child {\r\n  box-shadow: inset 1px -1px 0 #fff;\r\n} \r\n\r\ntr:last-of-type td:last-child {\r\n  box-shadow: inset -1px -1px 0 #fff;\r\n} \r\n\r\ntbody:hover td {\r\n  color: transparent;\r\n  text-shadow: 0 0 3px #aaa;\r\n}\r\n\r\ntbody:hover tr:hover td {\r\n  color: #444;\r\n  text-shadow: 0 1px 0 #fff;\r\n}\r\n\r\n\r\n.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {\r\n  color: #000;  /*Sets the text hover color on navbar*/\r\n}\r\n\r\n.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active >   \r\na:hover, .navbar-inverse .navbar-nav > .active > a:focus {\r\n  color: white; /*BACKGROUND color for active*/\r\n  background-color: #030033;\r\n}\r\n\r\n.navbar-inverse {\r\n  background-color: #0f006f;\r\n  border-color: #030033;\r\n}\r\n\r\n.dropdown-menu > li > a:hover,\r\n.dropdown-menu > li > a:focus {\r\n  color: #262626;\r\n  text-decoration: none;\r\n  background-color: #66CCFF;  /*change color of links in drop down here*/\r\n}\r\n\r\n.nav > li > a:hover,\r\n.nav > li > a:focus {\r\n  text-decoration: none;\r\n  background-color: silver; /*Change rollover cell color here*/\r\n}\r\n\r\n\r\n.navbar-inverse .navbar-nav > li > a {\r\n color: white; /*Change active text color here*/\r\n}", ""]);
 
 // exports
 
@@ -1518,7 +1627,7 @@ module.exports = "<form action=\"\"> \n  <input [(ngModel)]=\"message\" [ngModel
 /***/ 583:
 /***/ (function(module, exports) {
 
-module.exports = "<div class = \"body\">\r\n  <div class=\"jumbotron\">\r\n    <div class=\"container text-center\">\r\n      <h1>{{obj.CompanyName}}</h1>      \r\n      <p><strong>Mission, Vission and Values</strong></p>\r\n    </div>\r\n  </div>\r\n  <nav class=\"navbar navbar-inverse\">\r\n    <div class=\"container-fluid\">\r\n      <div class=\"navbar-header\">\r\n        <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\r\n          <span class=\"icon-bar\"></span>\r\n          <span class=\"icon-bar\"></span>\r\n          <span class=\"icon-bar\"></span>                        \r\n        </button>\r\n        <a class=\"navbar-brand\">Fcompany <span class=\"glyphicon glyphicon-heart\"></span></a>\r\n      </div>\r\n      <div class=\"collapse navbar-collapse\" id=\"myNavbar\">\r\n        <ul class=\"nav navbar-nav\">\r\n          <li class=\"active\"><a href=\"#\">Home <span class=\"glyphicon glyphicon-home\"></span></a></li>\r\n          <li><a href=\"/company\">Users <span class=\"glyphicon glyphicon-user\"></span></a></li>\r\n        </ul>\r\n        <ul class=\"nav navbar-nav navbar-right\">\r\n          <li><a (click)=\"logout()\">Log Out <span class=\"glyphicon glyphicon-lock\"></span></a></li>\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n\r\n  <div class=\"container\">    \r\n    <div class=\"row\">\r\n      <div class=\"col-sm-4\">\r\n        <div class=\"panel panel-info\">\r\n          <div class=\"panel-heading\">Start A Task</div>\r\n          <div class=\"panel-body\"><a routerLink = \"/task\"><img src=\"../../assets/img/tasks-icon-26.png\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\"></a></div>\r\n          <div class=\"panel-footer\">Post A Task And Show It To Your Colleagues</div>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-sm-4\"> \r\n        <div class=\"panel panel-info\">\r\n          <div class=\"panel-heading\">Discussion Board</div>\r\n          <div class=\"panel-body\"><a routerLink = \"/\"><img src=\"../../assets/img/Discussion.png\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\"></a></div>\r\n          <div class=\"panel-footer\">Discuss Your Problems Comfortably</div>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-sm-4\"> \r\n        <div class=\"panel panel-info\">\r\n          <div class=\"panel-heading\">Your Schedule</div>\r\n          <div class=\"panel-body\"><a routerLink = \"/schedule\"><img src=\"../../assets/img/schedule.png\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\"></a></div>\r\n          <div class=\"panel-footer\">Schedule Your Meetings With Other Colleagues</div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div><br>\r\n\r\n  <div class=\"container\">    \r\n    <div class=\"row\">\r\n      <div class=\"col-sm-4\"> \r\n        <div class=\"panel panel-info\">\r\n          <div class=\"panel-heading\">Chat with Collegues</div>\r\n          <div class=\"panel-body\"><a routerLink = \"/chat\"><img src=\"../../assets/img/Chat.png\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\"></a></div>\r\n          <div class=\"panel-footer\">Start Chatting Your Collegues</div>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-sm-4\"> \r\n        <div class=\"panel panel-info\">\r\n          <div class=\"panel-heading\">Vote for Food</div>\r\n          <div class=\"panel-body\"><a routerLink = \"/food\"><img src=\"../../assets/img/food.png\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\"></a></div>\r\n          <div class=\"panel-footer\">Hungry?! You Can Get Food Here</div>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-sm-4\"> \r\n        <div class=\"panel panel-info\">\r\n          <div class=\"panel-heading\">Playing Board</div>\r\n          <div class=\"panel-body\"><a routerLink = \"/\"><img src=\"../../assets/img/game.png\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\"></a></div>\r\n          <div class=\"panel-footer\">Time To play Around</div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div><br><br>\r\n\r\n  <footer class=\"container-fluid text-center\">\r\n    <p>{{obj.CompanyName}} Loves You <span class=\"glyphicon glyphicon-heart\"></span></p>\r\n    <p>{{obj.address}}<span class=\"glyphicon glyphicon-globe\"></span></p>\r\n    <p>{{obj.phoneNumber}}<span class=\"glyphicon glyphicon-phone\"></span></p>\r\n  </footer>\r\n</div>"
+module.exports = "<div class = \"body\">\r\n  <div class=\"jumbotron\">\r\n    <div class=\"container text-center\">\r\n      <h1>{{obj.CompanyName}}</h1>      \r\n      <p><strong>Mission, Vission and Values</strong></p>\r\n    </div>\r\n  </div>\r\n  <nav class=\"navbar navbar-inverse\">\r\n    <div class=\"container-fluid\">\r\n      <div class=\"navbar-header\">\r\n        <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\r\n          <span class=\"icon-bar\"></span>\r\n          <span class=\"icon-bar\"></span>\r\n          <span class=\"icon-bar\"></span>                        \r\n        </button>\r\n        <a class=\"navbar-brand\">Company Manager <i class=\"fa fa-ravelry\" aria-hidden=\"true\"></i></a>\r\n      </div>\r\n      <div class=\"collapse navbar-collapse\" id=\"myNavbar\">\r\n        <ul class=\"nav navbar-nav\">\r\n          <li class=\"active\"><a routerLink = \"/\">Home <span class=\"glyphicon glyphicon-home\"></span></a></li>\r\n          <li><a routerLink=\"/company\">Users <span class=\"glyphicon glyphicon-user\"></span></a></li>\r\n        </ul>\r\n        <ul class=\"nav navbar-nav navbar-right\">\r\n          <li><a (click)=\"logout()\">Log Out <span class=\"glyphicon glyphicon-lock\"></span></a></li>\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n\r\n  <div class=\"container\">    \r\n    <div class=\"row\">\r\n      <div class=\"col-sm-4\">\r\n        <div class=\"panel panel-info\">\r\n          <div class=\"panel-heading\">Start A Task</div>\r\n          <div class=\"panel-body\"><a routerLink = \"/task\"><img src=\"../../assets/img/tasks-icon-26.png\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\"></a></div>\r\n          <!-- <div class=\"panel-footer\">Post A Task And Show It To Your Colleagues</div> -->\r\n        </div>\r\n      </div>\r\n      <div class=\"col-sm-4\"> \r\n        <div class=\"panel panel-info\">\r\n          <div class=\"panel-heading\">Discussion Board</div>\r\n          <div class=\"panel-body\"><a routerLink = \"/\"><img src=\"../../assets/img/Discussion.png\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\"></a></div>\r\n          <!-- <div class=\"panel-footer\">Discuss Your Problems Comfortably</div> -->\r\n        </div>\r\n      </div>\r\n      <div class=\"col-sm-4\"> \r\n        <div class=\"panel panel-info\">\r\n          <div class=\"panel-heading\">Your Schedule</div>\r\n          <div class=\"panel-body\"><a routerLink = \"/schedule\"><img src=\"../../assets/img/schedule.png\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\"></a></div>\r\n          <!-- <div class=\"panel-footer\">Schedule Your Meetings With Other Colleagues</div> -->\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div><br>\r\n\r\n  <div class=\"container\">    \r\n    <div class=\"row\">\r\n      <div class=\"col-sm-4\"> \r\n        <div class=\"panel panel-info\">\r\n          <div class=\"panel-heading\">Chat with Collegues</div>\r\n          <div class=\"panel-body\"><a routerLink = \"/\"><img src=\"../../assets/img/Chat.png\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\"></a></div>\r\n          <!-- <div class=\"panel-footer\">Start Chatting Your Collegues</div> -->\r\n        </div>\r\n      </div>\r\n      <div class=\"col-sm-4\"> \r\n        <div class=\"panel panel-info\">\r\n          <div class=\"panel-heading\">Vote for Food</div>\r\n          <div class=\"panel-body\"><a routerLink = \"/food\"><img src=\"../../assets/img/food.png\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\"></a></div>\r\n          <!-- <div class=\"panel-footer\">Hungry?! You Can Get Food Here</div> -->\r\n        </div>\r\n      </div>\r\n      <div class=\"col-sm-4\"> \r\n        <div class=\"panel panel-info\">\r\n          <div class=\"panel-heading\">Playing Board</div>\r\n          <div class=\"panel-body\"><a routerLink = \"/\"><img src=\"../../assets/img/game.png\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\"></a></div>\r\n          <!-- <div class=\"panel-footer\">Time To play Around</div> -->\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div><br><br>\r\n\r\n  <footer class=\"container-fluid text-center\">\r\n    <p>{{obj.CompanyName}} Loves You <span class=\"glyphicon glyphicon-heart\"></span></p>\r\n    <p>{{obj.address}} <span class=\"glyphicon glyphicon-globe\"></span></p>\r\n    <p>{{obj.phoneNumber}} <span class=\"glyphicon glyphicon-phone\"></span></p>\r\n  </footer>\r\n</div>"
 
 /***/ }),
 
@@ -1532,21 +1641,21 @@ module.exports = "<p>\r\n  creatcompany works!\r\n</p>\r\n  <form (submit)=\"Cre
 /***/ 585:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"img\">\r\n  <div class = \"well\">\r\n  <div id=\"wrapper\">\r\n  <h1 style=\"color: white\">Suggestion and  Vote for Food <span style=\"color: #2fad0c\" class=\"glyphicon glyphicon-apple\"></span></h1>\r\n  <form (submit)=\"addFood()\">\r\n\r\n  <div class=\"col-2\">\r\n    <label>\r\n      Add Suggestion\r\n      <input placeholder=\"food name\" id=\"phone\" [(ngModel)]=\"dishName\" name=\"phone\" tabindex=\"3\" required>\r\n    </label>\r\n  </div>\r\n  <div class=\"col-4\">\r\n    <label>\r\n      type\r\n      <input placeholder=\"the faverot type\" id=\"email\" [(ngModel)]=\"type\" name=\"email\" tabindex=\"4\">\r\n    </label>\r\n  </div>\r\n  \r\n  <div class=\"col-4\">\r\n    <label>\r\n      foodtime\r\n       <select  (change)=\"onChange($event.target.value)\">\r\n            <option *ngFor=\"let i of foodTimes\"> {{i}} </option>\r\n          </select>\r\n    </label>\r\n  </div>\r\n\r\n  <br>\r\n  <div class=\"col-xs-12 col-submit\">\r\n    <button class=\"submitbtn\">Submit Form</button>\r\n  </div>\r\n  </form>\r\n\r\n\r\n      <div id=\"pricing-table\" class=\"clear\" >\r\n        <div class=\"plan\" style=\"margin: 10px\"   *ngFor=\"let food of foods\">\r\n          <h3>Vote<span>{{ food.votes }}</span></h3>\r\n          <a class=\"signup\" (click)=\"Votee(food.dishName)\" ><span  class=\"glyphicon glyphicon-heart\"></span></a>         \r\n          <ul>\r\n            <li><b><strong >{{ food.dishName }}</strong></b></li>\r\n            <li>{{ food.foodtime }}</li>\r\n            <li>{{ food.type }}</li>\r\n          </ul> \r\n        </div>\r\n      </div>\r\n      </div>\r\n</div>\r\n</div>"
+module.exports = "<nav class=\"navbar navbar-inverse\">\r\n  <div class=\"container-fluid\">\r\n    <div class=\"navbar-header\">\r\n      <a class=\"navbar-brand\">Company Manager <i class=\"fa fa-ravelry\" aria-hidden=\"true\"></i></a>\r\n    </div>\r\n    <ul class=\"nav navbar-nav\">\r\n      <li class=\"active\"><a routerLink= \"/company\">Home <span class=\"glyphicon glyphicon-home\"></span></a></li>\r\n      <li><a (click) =\"logout()\">Log Out <span class=\"glyphicon glyphicon-lock\"></span></a></li>\r\n    </ul>\r\n  </div>\r\n</nav>\r\n<div class=\"img\">\r\n  <div class = \"well\">\r\n    <div id=\"wrapper\">\r\n      <h1 style=\"color: white\">Suggestion and  Vote for Food <span style=\"color: #2fad0c\" class=\"glyphicon glyphicon-apple\"></span></h1>\r\n      <form (submit)=\"addFood()\">\r\n\r\n        <div class=\"col-2\">\r\n          <label>\r\n            Add Suggestion\r\n            <input placeholder=\"food name\" id=\"phone\" [(ngModel)]=\"dishName\" name=\"phone\" tabindex=\"3\">\r\n          </label>\r\n        </div>\r\n        <div class=\"col-4\">\r\n          <label>\r\n            type\r\n            <input placeholder=\"the faverot type\" id=\"email\" [(ngModel)]=\"type\" name=\"email\" tabindex=\"4\">\r\n          </label>\r\n        </div>\r\n        <div class=\"col-2\">\r\n          <label>\r\n            Add Suggestion\r\n            <input placeholder=\"food name\" id=\"phone\" [(ngModel)]=\"dishName\" name=\"phone\" tabindex=\"3\" required>\r\n          </label>\r\n        </div>\r\n        <div class=\"col-4\">\r\n          <label>\r\n            type\r\n            <input placeholder=\"the faverot type\" id=\"email\" [(ngModel)]=\"type\" name=\"email\" tabindex=\"4\">\r\n          </label>\r\n        </div>\r\n        \r\n        <div class=\"col-4\">\r\n          <label>\r\n            foodtime\r\n            <select  (change)=\"onChange($event.target.value)\">\r\n              <option *ngFor=\"let i of foodTimes\"> {{i}} </option>\r\n            </select>\r\n          </label>\r\n        </div>\r\n\r\n        <div class=\"col-4\">\r\n          <label>\r\n            foodtime\r\n            <select  (change)=\"onChange($event.target.value)\">\r\n              <option *ngFor=\"let i of foodTimes\"> {{i}} </option>\r\n            </select>\r\n          </label>\r\n        </div>\r\n\r\n        <br>\r\n        <div class=\"col-xs-12 col-submit\">\r\n          <button class=\"submitbtn\">Submit Form</button>\r\n        </div>\r\n      </form>\r\n\r\n\r\n      <div id=\"pricing-table\" class=\"clear\" >\r\n        <div class=\"plan\" style=\"margin: 10px\"   *ngFor=\"let food of foods\">\r\n          <h3>Vote<span>{{ food.votes }}</span></h3>\r\n          <a class=\"signup\" (click)=\"Votee(food.dishName)\" ><span  class=\"glyphicon glyphicon-heart\"></span></a>         \r\n          <ul>\r\n            <li><b><strong >{{ food.dishName }}</strong></b></li>\r\n            <li>{{ food.foodtime }}</li>\r\n            <li>{{ food.type }}</li>\r\n          </ul> \r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
 /***/ 586:
 /***/ (function(module, exports) {
 
-module.exports = "<div class =\"bbdd\">\r\n<nav class=\"navbar navbar-default navbar-fixed-top topnav\" role=\"navigation\">\r\n  <div class=\"container topnav\">\r\n    <div class=\"navbar-header\">\r\n      <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\r\n        <span class=\"sr-only\">Toggle navigation</span>\r\n        <span class=\"icon-bar\"></span>\r\n        <span class=\"icon-bar\"></span>\r\n        <span class=\"icon-bar\"></span>\r\n      </button>\r\n      <a class=\"navbar-brand topnav\" href=\"/\">Company <span class=\"glyphicon glyphicon-home\"></span></a>\r\n    </div>\r\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\r\n      <ul class=\"nav navbar-nav navbar-right\">\r\n        <li>\r\n          <a routerLink=\"/aboutus\">About Us <span class=\"glyphicon glyphicon-hand-left\"></span></a>\r\n        </li>\r\n        <li>\r\n          <a routerLink=\"/signin\">Sign in <span class=\"glyphicon glyphicon-send\"></span></a>\r\n        </li>\r\n        <li>\r\n          <a routerLink=\"/signup\">Sign up <span class=\"glyphicon glyphicon-send\"></span></a>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</nav>\r\n<a name=\"about\"></a>\r\n<div class=\"intro-header\">\r\n  <div class=\"container\">\r\n\r\n    <div class=\"row\">\r\n      <div class=\"col-lg-12\">\r\n        <div class=\"intro-message\">\r\n          <h1>Company Website</h1>\r\n          <h2>Best Choice <span class=\" glyphicon glyphicon-check\"></span></h2>\r\n          <h3>Manage your company easily and simpily</h3>\r\n          <hr class=\"intro-divider\">\r\n          <ul class=\"list-inline intro-social-buttons\">\r\n            <li>\r\n              <a href=\"https://github.com/Berzzerk/Fcompany\" class=\"btn btn-default btn-lg\"><i class=\"fa fa-github fa-fw\"></i> <span class=\"network-name\">Github</span></a>\r\n            </li>\r\n            <li>\r\n              <a href=\"https://www.linkedin.com/uas/login\" class=\"btn btn-default btn-lg\"><i class=\"fa fa-linkedin fa-fw\"></i> <span class=\"network-name\">Linkedin</span></a>\r\n            </li>\r\n          </ul>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<br><br><br>\r\n<section class=\"success\" id=\"about\">\r\n  <div class=\"container\">\r\n    <div class=\"row\">\r\n      <div class=\"col-lg-12 text-center\">\r\n        <h2>Company</h2>\r\n        <hr class=\"star-light\">\r\n      </div>\r\n    </div>\r\n    <div class=\"row\">\r\n      <div class=\"col-lg-4 col-lg-offset-2\">\r\n      <p>The most important benefit of our website is that the referrals that you get through networking are normally high quality and most of the time are even pre-qualified for you.</p>\r\n      </div>\r\n      <div class=\"col-lg-4\">\r\n        <p>You can then follow up on these referrals/leads and turn them into clients. So you are getting much higher quality leads from networking than other forms of marketing, The increase in business from networking is the major advantage, but there are many others as well.</p>\r\n      </div>\r\n      <div class=\"col-lg-8 col-lg-offset-2 text-center\">\r\n        <a href=\"http://amazingbusiness.com/top-9-benefits-of-business-networking/\" class=\"btn btn-lg btn-outline\">\r\n          <i class=\"fa fa-book fa-fw\"></i> Read more about business networking\r\n        </a>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</section>\r\n\r\n<a  name=\"services\"></a>\r\n<div class=\"content-section-a\">\r\n\r\n  <div class=\"container\">\r\n    <div class=\"row\">\r\n      <div class=\"col-lg-5 col-sm-6\">\r\n        <hr class=\"section-heading-spacer\">\r\n        <div class=\"clearfix\"></div>\r\n        <h2 class=\"section-heading\">Company Task Organizing<br><h2>Better Task Management</h2></h2>\r\n        <p class=\"lead\">More complicated tasks typically require a variety of different steps. This can make it increasingly difficult for employees to remember all of the steps they must carry out in order to complete a process. </p>\r\n      </div>\r\n      <div class=\"col-lg-5 col-lg-offset-2 col-sm-6\">\r\n        <img class=\"img-responsive\" src=\"../assets/img/task-management.png\" alt=\"\">\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"content-section-b\">\r\n  <div class=\"container\">\r\n    <div class=\"row\">\r\n      <div class=\"col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6\">\r\n        <hr class=\"section-heading-spacer\">\r\n        <div class=\"clearfix\"></div>\r\n        <h2 class=\"section-heading\">Join And Set Meetings<br>Using Schedule Mangaer</h2>\r\n        <p class=\"lead\">Board meetings are a bit different than an everyday meeting as they are attended by volunteers who may not be familiar with the day to day operational details of your organization; generally board members need to keep their discussion centered on high level strategy, policy, and financial overviews.</p>\r\n      </div>\r\n      <div class=\"col-lg-5 col-sm-pull-6  col-sm-6\">\r\n        <img class=\"img-responsive\" src=\"../assets/img/meeting.jpg\" alt=\"\">\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"content-section-a\">\r\n  <div class=\"container\">\r\n    <div class=\"row\">\r\n      <div class=\"col-lg-5 col-sm-6\">\r\n        <hr class=\"section-heading-spacer\">\r\n        <div class=\"clearfix\"></div>\r\n        <h2 class=\"section-heading\">Effective Scheduling<br></h2>\r\n        <p class=\"lead\">It's all too easy for this to happen. Faced with endless meetings, frequent interruptions, and urgent last-minute tasks, you can easily be busy all day without making any progress on high-priority projects and goals.</p>\r\n      </div>\r\n      <div class=\"col-lg-5 col-lg-offset-2 col-sm-6\">\r\n        <img class=\"img-responsive\" src=\"../../assets/img/schedule.jpg\" alt=\"\">\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"content-section-b\">\r\n  <div class=\"container\">\r\n    <div class=\"row\">\r\n      <div class=\"col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6\">\r\n        <hr class=\"section-heading-spacer\">\r\n        <div class=\"clearfix\"></div>\r\n        <h2 class=\"section-heading\">Meals Suggestions<br></h2>\r\n        <p class=\"lead\">One of the biggest issues with phone conversations is that misunderstandings can happen quite easily. Usually due to the noise, either in the restaurant or on the other end of the line, all it takes is one mistake to compromise an order and frustrate a customer. With our website, all preferences are specified directly by the customer.</p>\r\n      </div>\r\n      <div class=\"col-lg-5 col-sm-pull-6  col-sm-6\">\r\n        <img class=\"img-responsive\" src=\"../../assets/img/company-meals.jpg\" alt=\"\">\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<a  name=\"contact\"></a>\r\n<div class=\"banner\">\r\n\r\n  <div class=\"container\">\r\n\r\n    <div class=\"row\">\r\n      <div class=\"col-lg-6\">\r\n        <h2>Register Now</h2>\r\n      </div>\r\n      <div class=\"col-lg-6\">\r\n        <ul class=\"list-inline banner-social-buttons\">\r\n          <li>\r\n            <a routerLink=\"/signin\" class=\"btn btn-default btn-lg\"><span class=\"network-name\">Sign in</span></a>\r\n          </li>\r\n          <li>\r\n            <a routerLink=\"/signup\" class=\"btn btn-default btn-lg\"><span class=\"network-name\">register</span></a>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"container\">\r\n  <footer class=\"container-fluid text-center\">\r\n    <i>Company <span class=\"glyphicon glyphicon-heart\"></span></i><br>\r\n    <i>Our Address: Amman, Jordan, Business Park <span class=\"glyphicon glyphicon-globe\"></span></i><br>\r\n    <i>Contact Us On <span class=\"glyphicon glyphicon-hand-right\"> </span> 07345364534 <span class=\"glyphicon glyphicon-phone\"></span></i><br>\r\n    <i class=\"copyright text-muted small\">Copyright &copy; Berzzerk.com, 2017-RBK <span class=\"glyphicon glyphicon-heart\"></span></i><br>\r\n  </footer>\r\n</div>\r\n</div>"
+module.exports = "<div class =\"bbdd\">\r\n  <nav class=\"navbar navbar-inverse\">\r\n    <div class=\"container-fluid\">\r\n      <div class=\"navbar-header\">\r\n        <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\r\n          <span class=\"icon-bar\"></span>\r\n          <span class=\"icon-bar\"></span>\r\n          <span class=\"icon-bar\"></span>                        \r\n        </button>\r\n        <a class=\"navbar-brand\">Company Manager <i class=\"fa fa-ravelry\" aria-hidden=\"true\"></i></a>\r\n      </div>\r\n      <div class=\"collapse navbar-collapse\" id=\"myNavbar\">\r\n        <ul class=\"nav navbar-nav navbar-right\">\r\n          <li>\r\n            <a routerLink=\"/aboutus\">About US <span class=\"glyphicon glyphicon-hand-left\"> </span></a>\r\n          </li>\r\n          <li>\r\n            <a routerLink=\"/signin\">Log In <span class=\"glyphicon glyphicon-log-in\">  </span></a>\r\n          </li>\r\n          <li>\r\n            <a routerLink=\"/signup\"> Sign up <span class=\"glyphicon glyphicon-user\"> </span></a>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n  <a name=\"about\"></a>\r\n  <div class=\"intro-header\">\r\n    <div class=\"container\">\r\n\r\n      <div class=\"row\">\r\n        <div class=\"col-lg-12\">\r\n          <div class=\"intro-message\">\r\n            <h1>Company Manager Website</h1>\r\n            <h2>Best Choice <span class=\" glyphicon glyphicon-check\"></span></h2>\r\n            <h3>Manage your company easily and simpily</h3>\r\n            <hr class=\"intro-divider\">\r\n            <ul class=\"list-inline intro-social-buttons\">\r\n              <li>\r\n                <a href=\"https://github.com/Berzzerk/Fcompany\" class=\"btn btn-default btn-lg\"><i class=\"fa fa-github fa-fw\"></i> <span class=\"network-name\">Github</span></a>\r\n              </li>\r\n              <li>\r\n                <a href=\"https://www.linkedin.com/uas/login\" class=\"btn btn-default btn-lg\"><i class=\"fa fa-linkedin fa-fw\"></i> <span class=\"network-name\">Linkedin</span></a>\r\n              </li>\r\n            </ul>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <br><br><br>\r\n  <section class=\"success\" id=\"about\">\r\n    <div class=\"container\">\r\n      <div class=\"row\">\r\n        <div class=\"col-lg-12 text-center\">\r\n          <h2>Company Manager</h2><br>\r\n          <hr class=\"star-light\">\r\n        </div>\r\n      </div>\r\n      <div class=\"row\">\r\n        <div class=\"col-lg-4 col-lg-offset-2\">\r\n          <p>The most important benefit of our website is that the referrals that you get through networking are normally high quality and most of the time are even pre-qualified for you.</p>\r\n        </div>\r\n        <div class=\"col-lg-4\">\r\n          <p>You can then follow up on these referrals/leads and turn them into clients. So you are getting much higher quality leads from business networking than other forms of marketing.</p>\r\n        </div>\r\n        <div class=\"col-lg-8 col-lg-offset-2 text-center\"> \r\n          <a href=\"http://amazingbusiness.com/top-9-benefits-of-business-networking/\" class=\"btn btn-lg btn-outline\">\r\n            <i class=\"fa fa-book fa-fw\"></i> Read more\r\n          </a>\r\n        </div>\r\n\r\n      </div>\r\n    </div> \r\n  </section>\r\n\r\n  <a  name=\"services\"></a>\r\n  <div class=\"content-section-a\">\r\n\r\n    <div class=\"container\">\r\n      <div class=\"row\">\r\n        <div class=\"col-lg-5 col-sm-6\">\r\n          <hr class=\"section-heading-spacer\">\r\n          <div class=\"clearfix\"></div>\r\n          <h2 class=\"section-heading\">Company Manager Task Organizing<br><h2>Better Task Management</h2></h2>\r\n          <p class=\"lead\">More complicated tasks typically require a variety of different steps. This can make it increasingly difficult for employees to remember all of the steps they must carry out in order to complete a process. </p>\r\n        </div>\r\n        <div class=\"col-lg-5 col-lg-offset-2 col-sm-6\">\r\n          <img class=\"img-responsive\" src=\"../assets/img/task-management.png\" alt=\"\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"content-section-b\">\r\n    <div class=\"container\">\r\n      <div class=\"row\">\r\n        <div class=\"col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6\">\r\n          <hr class=\"section-heading-spacer\">\r\n          <div class=\"clearfix\"></div>\r\n          <h2 class=\"section-heading\">Join And Set Meetings<br>Using Schedule Mangaer</h2>\r\n          <p class=\"lead\">Board meetings are a bit different than an everyday meeting as they are attended by volunteers who may not be familiar with the day to day operational details of your organization; generally board members need to keep their discussion centered on high level strategy, policy, and financial overviews.</p>\r\n        </div>\r\n        <div class=\"col-lg-5 col-sm-pull-6  col-sm-6\">\r\n          <img class=\"img-responsive\" src=\"../assets/img/meeting.jpg\" alt=\"\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"content-section-a\">\r\n    <div class=\"container\">\r\n      <div class=\"row\">\r\n        <div class=\"col-lg-5 col-sm-6\">\r\n          <hr class=\"section-heading-spacer\">\r\n          <div class=\"clearfix\"></div>\r\n          <h2 class=\"section-heading\">Effective Scheduling<br></h2>\r\n          <p class=\"lead\">It's all too easy for this to happen. Faced with endless meetings, frequent interruptions, and urgent last-minute tasks, you can easily be busy all day without making any progress on high-priority projects and goals.</p>\r\n        </div>\r\n        <div class=\"col-lg-5 col-lg-offset-2 col-sm-6\">\r\n          <img class=\"img-responsive\" src=\"../../assets/img/schedule.jpg\" alt=\"\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"content-section-b\">\r\n    <div class=\"container\">\r\n      <div class=\"row\">\r\n        <div class=\"col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6\">\r\n          <hr class=\"section-heading-spacer\">\r\n          <div class=\"clearfix\"></div>\r\n          <h2 class=\"section-heading\">Meals Suggestions<br></h2>\r\n          <p class=\"lead\">One of the biggest issues with phone conversations is that misunderstandings can happen quite easily. Usually due to the noise, either in the restaurant or on the other end of the line, all it takes is one mistake to compromise an order and frustrate a customer. With our website, all preferences are specified directly by the customer.</p>\r\n        </div>\r\n        <div class=\"col-lg-5 col-sm-pull-6  col-sm-6\">\r\n          <img class=\"img-responsive\" src=\"../../assets/img/company-meals.jpg\" alt=\"\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <a  name=\"contact\"></a>\r\n  <div class=\"banner\">\r\n\r\n    <div class=\"container\">\r\n\r\n      <div class=\"row\">\r\n        <div class=\"col-lg-6\">\r\n          <h2>Register Now</h2>\r\n        </div>\r\n        <div class=\"col-lg-6\">\r\n          <ul class=\"list-inline banner-social-buttons\">\r\n            <li>\r\n              <a routerLink=\"/signin\" class=\"btn btn-default btn-lg\"><span class=\"network-name\">Login <span class=\"glyphicon glyphicon-log-in\">  </span></span></a>\r\n            </li>\r\n            <li>\r\n              <a routerLink=\"/signup\" class=\"btn btn-default btn-lg\"><span class=\"network-name\">Register <span class=\"glyphicon glyphicon-user\"> </span></span></a>\r\n            </li>\r\n          </ul>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"container\">\r\n    <footer class=\"container-fluid text-center\">\r\n      <i>Company Manager <i class=\"fa fa-ravelry\" aria-hidden=\"true\"></i></i><br>\r\n      <i>Our Address: Amman, Jordan, Business Park <span class=\"glyphicon glyphicon-globe\"></span></i><br>\r\n      <i>Contact Us On <span class=\"glyphicon glyphicon-hand-right\"> </span> 07345364534 <span class=\"glyphicon glyphicon-phone\"></span></i><br>\r\n      <i class=\"copyright text-muted small\">Copyright &copy; Berzzerk.com, 2017-RBK <span class=\"glyphicon glyphicon-heart\"></span></i><br>\r\n    </footer>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
 /***/ 587:
 /***/ (function(module, exports) {
 
-module.exports = "\r\n  <button type=\"button\" class=\"btn btn-info\" (click)=\"showSch = !showSch\"> Show Me MY Schedule <span class=\"glyphicon glyphicon-send\"> </span></button><br><br>\r\n  <button type=\"button\" class=\"btn btn-info\" id=\"add\" (click)=\"div_show()\"> ADD <span class=\"glyphicon glyphicon-send\"></span></button><br>\r\n\r\n<div id=\"aya\" style=\"display: none;\">\r\n  <form class=\"well form-horizontal\" (submit)=\"add()\">\r\n    <fieldset>\r\n      <div class=\"form-group\">\r\n        <label class=\"col-md-4 control-label\">Title</label>  \r\n        <div class=\"col-md-4 inputGroupContainer\">\r\n          <div class=\"input-group\">\r\n            <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-tasks\"></i></span>\r\n            <input type=\"text\" [(ngModel)]=\"title\" name=\"title\">\r\n          </div>\r\n        </div>\r\n      </div><br>\r\n\r\n       <div class=\"form-group\">\r\n        <label class=\"col-md-4 control-label\">Discription</label>  \r\n        <div class=\"col-md-4 inputGroupContainer\">\r\n          <div class=\"input-group\">\r\n            <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-tasks\"></i></span>\r\n            <textarea rows=\"3\" cols=\"20\" [(ngModel)]=\"description\" name=\"description\"></textarea>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n        <div class=\"form-group\">\r\n        <label class=\"col-md-4 control-label\">Date</label>  \r\n        <div class=\"col-md-4 inputGroupContainer\">\r\n          <div class=\"input-group\">\r\n            <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-time\"></i></span>\r\n            <input  type=\"date\" [(ngModel)]=\"date\" name=\"Date\">\r\n          </div>\r\n        </div>\r\n      </div>\r\n       \r\n       <div class=\"form-group\">\r\n        <label class=\"col-md-4 control-label\">Start Time</label>  \r\n        <div class=\"col-md-4 inputGroupContainer\">\r\n          <div class=\"input-group\">\r\n            <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-time\"></i></span>\r\n            <input  type=\"time\" [(ngModel)]=\"starttime\" name=\"starttime\">\r\n          </div>\r\n        </div>\r\n      </div>\r\n      \r\n      <div class=\"form-group\">\r\n        <label class=\"col-md-4 control-label\">End Time</label>  \r\n        <div class=\"col-md-4 inputGroupContainer\">\r\n          <div class=\"input-group\">\r\n            <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-time\"></i></span>\r\n            <input  type=\"time\" [(ngModel)]=\"endtime\" name=\"endtime\">\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n    \r\n    \r\n     <div class=\"form-group\">\r\n        <label class=\"col-md-4 control-label\"></label>\r\n        <div class=\"col-md-4\">\r\n        <button type=\"submit\" class=\"btn btn-info \" (click)=\"div_hide()\"> SUBMIT</button></div>\r\n      </div>  \r\n      </fieldset>\r\n    </form>\r\n  </div>\r\n  \r\n    <div *ngIf=\"showSch\" class=\"todos\" style=\"padding: 15px\">\r\n  <table>\r\n  <thead>\r\n    <tr>\r\n      <th>Title</th>\r\n      <th>Description</th>\r\n      <th>Date</th>\r\n      <th>Start Time - End Time</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr *ngFor=\"let sch of todos\">\r\n      <td><strong >{{ sch.title }}</strong></td>\r\n      <td>{{ sch.description }}</td>\r\n      <td>{{ sch.date}}</td>\r\n      <td>{{ sch.starttime }} - {{ sch.endtime }}</td>\r\n    </tr>\r\n  </tbody>\r\n</table>\r\n</div>\r\n<div class=\"img\">\r\n</div>"
+module.exports = "<nav class=\"navbar navbar-inverse\">\r\n  <div class=\"container-fluid\">\r\n    <div class=\"navbar-header\">\r\n      <a class=\"navbar-brand\">Company Manager <i class=\"fa fa-ravelry\" aria-hidden=\"true\"></i></a>\r\n    </div>\r\n    <ul class=\"nav navbar-nav\">\r\n      <li class=\"active\"><a routerLink= \"/company\">Home <span class=\"glyphicon glyphicon-home\"></span></a></li>\r\n      <li><a (click) =\"logout()\">Log Out <span class=\"glyphicon glyphicon-lock\"></span></a></li>\r\n    </ul>\r\n  </div>\r\n</nav>\r\n<button type=\"button\" class=\"btn btn-info\" (click)=\"showSch = !showSch\"> Show Me MY Schedule <span class=\"glyphicon glyphicon-send\"> </span></button><br><br>\r\n<button type=\"button\" class=\"btn btn-info\" id=\"add\" (click)=\"div_show()\"> ADD <span class=\"glyphicon glyphicon-send\"></span></button><br>\r\n\r\n<div id=\"aya\" style=\"display: none;\">\r\n  <form class=\"well form-horizontal\" (submit)=\"add()\">\r\n    <fieldset>\r\n      <div class=\"form-group\">\r\n        <label class=\"col-md-4 control-label\">Title</label>  \r\n        <div class=\"col-md-4 inputGroupContainer\">\r\n          <div class=\"input-group\">\r\n            <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-tasks\"></i></span>\r\n            <input type=\"text\" [(ngModel)]=\"title\" name=\"title\">\r\n          </div>\r\n        </div>\r\n      </div><br>\r\n\r\n      <div class=\"form-group\">\r\n        <label class=\"col-md-4 control-label\">Discription</label>  \r\n        <div class=\"col-md-4 inputGroupContainer\">\r\n          <div class=\"input-group\">\r\n            <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-tasks\"></i></span>\r\n            <textarea rows=\"3\" cols=\"20\" [(ngModel)]=\"description\" name=\"description\"></textarea>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"form-group\">\r\n        <label class=\"col-md-4 control-label\">Date</label>  \r\n        <div class=\"col-md-4 inputGroupContainer\">\r\n          <div class=\"input-group\">\r\n            <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-time\"></i></span>\r\n            <input  type=\"date\" [(ngModel)]=\"date\" name=\"Date\">\r\n          </div>\r\n        </div>\r\n      </div>\r\n      \r\n      <div class=\"form-group\">\r\n        <label class=\"col-md-4 control-label\">Start Time</label>  \r\n        <div class=\"col-md-4 inputGroupContainer\">\r\n          <div class=\"input-group\">\r\n            <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-time\"></i></span>\r\n            <input  type=\"time\" [(ngModel)]=\"starttime\" name=\"starttime\">\r\n          </div>\r\n        </div>\r\n      </div>\r\n      \r\n      <div class=\"form-group\">\r\n        <label class=\"col-md-4 control-label\">End Time</label>  \r\n        <div class=\"col-md-4 inputGroupContainer\">\r\n          <div class=\"input-group\">\r\n            <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-time\"></i></span>\r\n            <input  type=\"time\" [(ngModel)]=\"endtime\" name=\"endtime\">\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n      \r\n      \r\n      <div class=\"form-group\">\r\n        <label class=\"col-md-4 control-label\"></label>\r\n        <div class=\"col-md-4\">\r\n          <button type=\"submit\" class=\"btn btn-info \" (click)=\"div_hide()\"> SUBMIT</button></div>\r\n        </div>  \r\n      </fieldset>\r\n    </form>\r\n  </div>\r\n  \r\n  <div *ngIf=\"showSch\" class=\"todos\" style=\"padding: 15px\">\r\n    <table>\r\n      <thead>\r\n        <tr>\r\n          <th>Title</th>\r\n          <th>Description</th>\r\n          <th>Date</th>\r\n          <th>Start Time - End Time</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let sch of todos\">\r\n          <td><strong >{{ sch.title }}</strong></td>\r\n          <td>{{ sch.description }}</td>\r\n          <td>{{ sch.date}}</td>\r\n          <td>{{ sch.starttime }} - {{ sch.endtime }}</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n  <div class=\"img\">\r\n  </div>"
 
 /***/ }),
 
@@ -1567,7 +1676,7 @@ module.exports = "<br>\r\n<br>\r\n<br>\r\n\r\n<h1>Sign Up</h1>\r\n<button *ngIf=
 /***/ 590:
 /***/ (function(module, exports) {
 
-module.exports = " <div class=\"panel-heading\" style=\"background-color: #252626\"> \r\n    <h3 class=\"panel-title\" style=\"color: white;text-align: center;padding: 15px;font-size: 35px\">Tasks\r\n     <i style=\"padding: 15px;color:#3a47a3\" class=\"glyphicon glyphicon-tasks\"></i>\r\n     </h3>\r\n  </div>\r\n\r\n<div class=\"todos\" style=\"padding: 15px\">\r\n\r\n  <!-- *** -->\r\n  <table>\r\n  <thead>\r\n    <tr>\r\n      <th>Task name</th>\r\n      <th>Date</th>\r\n      <th>Assign to</th>\r\n      <th>Description</th>\r\n      <th>Delete</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr *ngFor=\"let todo of todos\">\r\n      <td><strong >{{ todo.taskName }}</strong></td>\r\n      <td>{{ todo.updated }}</td>\r\n      <td>{{ todo.assignTo }}</td>\r\n      <td>{{ todo.description }}</td>\r\n      <td (click)=\"deleteTodo(i)\" class=\"delete-icon\" style=\"color: red\">[X]</td>\r\n    </tr>\r\n  </tbody>\r\n</table>\r\n\r\n    </div>\r\n    <!--  ********************************   -->\r\n\r\n<input class=\"btn btn-danger\" type=\"submit\" value=\"add New task\" style=\"margin-left: 500px;\" (click)=\"div_show()\" >\r\n\r\n<div id=\"abc\">\r\n\r\n  <form class=\"well form-horizontal\" (submit)=\"addTodo()\">\r\n    <fieldset>\r\n\r\n     <div class=\"form-group\">\r\n        <label class=\"col-md-4 control-label\">Task</label>  \r\n        <div class=\"col-md-4 inputGroupContainer\">\r\n          <div class=\"input-group\">\r\n            <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-tasks\"></i></span>\r\n            <input type=\"text\" [(ngModel)]=\"newTodo\" name=\"newTodo\">\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"form-group\">\r\n        <label class=\"col-md-4 control-label\">Discription</label>  \r\n        <div class=\"col-md-4 inputGroupContainer\">\r\n          <div class=\"input-group\">\r\n            <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-tasks\"></i></span>\r\n            <textarea rows=\"3\" cols=\"50\" [(ngModel)]=\"Discription\" name=\"Discription\"></textarea>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n     \r\n\r\n       <div class=\"form-group\">\r\n        <label class=\"col-md-4 control-label\">Date </label>  \r\n        <div class=\"col-md-4 inputGroupContainer\">\r\n          <div class=\"input-group\">\r\n            <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-time\"></i></span>\r\n            <input  type=\"date\" name=\"\" [(ngModel)]=\"Date\" name=\"Date\">\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n        <div class=\"form-group\">\r\n        <label class=\"col-md-4 control-label\">Assign to</label>  \r\n        <div class=\"col-md-4 inputGroupContainer\">\r\n          <div class=\"input-group\">\r\n            <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-user\"></i></span>\r\n           <select class=\"form-control\" (change)=\"onChange($event.target.value)\">\r\n            <option  *ngFor=\"let i of Assigns\">{{i}}</option>\r\n          </select>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"form-group\">\r\n        <label class=\"col-md-4 control-label\"></label>\r\n        <div class=\"col-md-4\">\r\n        <button  class=\"btn btn-lg btn-primary btn-block\" (click)=\"div_hide()\"> SUBMIT <span class=\"glyphicon glyphicon-send\"></span></button></div>\r\n      </div>\r\n\r\n      <div class=\"form-group\">\r\n        <label class=\"col-md-4 control-label\"></label>\r\n        <div class=\"col-md-4\">\r\n          <button class=\"btn btn-lg btn-danger btn-block\" (click)=\"div_hide()\">close</button>\r\n        </div>\r\n      </div>\r\n      \r\n    </fieldset>\r\n\r\n  </form>\r\n  \r\n</div> <!-- **********************end div popup***************** -->\r\n\r\n<style type=\"text/css\">\r\n#abc {\r\nwidth:100%;\r\nheight:100%;\r\nopacity:.95;\r\ntop:0;\r\nleft:0;\r\ndisplay:none;\r\nposition:fixed;\r\nbackground-color:#313131;\r\noverflow:auto\r\n}\r\n</style>\r\n\r\n"
+module.exports = "<nav class=\"navbar navbar-inverse\">\r\n  <div class=\"container-fluid\">\r\n    <div class=\"navbar-header\">\r\n      <a class=\"navbar-brand\">Company Manager <i class=\"fa fa-ravelry\" aria-hidden=\"true\"></i></a>\r\n    </div>\r\n    <ul class=\"nav navbar-nav\">\r\n      <li class=\"active\"><a routerLink= \"/company\">Home <span class=\"glyphicon glyphicon-home\"></span></a></li>\r\n      <li><a (click) =\"logout()\">Log Out <span class=\"glyphicon glyphicon-lock\"></span></a></li>\r\n    </ul>\r\n  </div>\r\n</nav>\r\n<div class=\"panel-heading\" style=\"background-color: #252626\"> \r\n  <h3 class=\"panel-title\" style=\"color: white;text-align: center;padding: 15px;font-size: 35px\">Tasks\r\n   <i style=\"padding: 15px;color:#3a47a3\" class=\"glyphicon glyphicon-tasks\"></i>\r\n </h3>\r\n</div>\r\n\r\n<div class=\"todos\" style=\"padding: 15px\">\r\n\r\n  <!-- *** -->\r\n  <table>\r\n    <thead>\r\n      <tr>\r\n        <th>Task name</th>\r\n        <th>Date</th>\r\n        <th>Assign to</th>\r\n        <th>Description</th>\r\n        <th>Delete</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr *ngFor=\"let todo of todos\">\r\n        <td><strong >{{ todo.taskName }}</strong></td>\r\n        <td>{{ todo.updated }}</td>\r\n        <td>{{ todo.assignTo }}</td>\r\n        <td>{{ todo.description }}</td>\r\n        <td (click)=\"deleteTodo(i)\" class=\"delete-icon\" style=\"color: red\">[X]</td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n\r\n</div>\r\n<!--  ********************************   -->\r\n\r\n<input class=\"btn btn-danger\" type=\"submit\" value=\"add New task\" style=\"margin-left: 500px;\" (click)=\"div_show()\" >\r\n\r\n<div id=\"abc\">\r\n\r\n  <form class=\"well form-horizontal\" (submit)=\"addTodo()\">\r\n    <fieldset>\r\n\r\n     <div class=\"form-group\">\r\n      <label class=\"col-md-4 control-label\">Task</label>  \r\n      <div class=\"col-md-4 inputGroupContainer\">\r\n        <div class=\"input-group\">\r\n          <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-tasks\"></i></span>\r\n          <input type=\"text\" [(ngModel)]=\"newTodo\" name=\"newTodo\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label class=\"col-md-4 control-label\">Discription</label>  \r\n      <div class=\"col-md-4 inputGroupContainer\">\r\n        <div class=\"input-group\">\r\n          <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-tasks\"></i></span>\r\n          <textarea rows=\"3\" cols=\"50\" [(ngModel)]=\"Discription\" name=\"Discription\"></textarea>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    \r\n\r\n    <div class=\"form-group\">\r\n      <label class=\"col-md-4 control-label\">Date </label>  \r\n      <div class=\"col-md-4 inputGroupContainer\">\r\n        <div class=\"input-group\">\r\n          <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-time\"></i></span>\r\n          <input  type=\"date\" name=\"\" [(ngModel)]=\"Date\" name=\"Date\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label class=\"col-md-4 control-label\">Assign to</label>  \r\n      <div class=\"col-md-4 inputGroupContainer\">\r\n        <div class=\"input-group\">\r\n          <span class=\"input-group-addon\"><i class=\"glyphicon glyphicon-user\"></i></span>\r\n          <select class=\"form-control\" (change)=\"onChange($event.target.value)\">\r\n            <option  *ngFor=\"let i of Assigns\">{{i}}</option>\r\n          </select>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label class=\"col-md-4 control-label\"></label>\r\n      <div class=\"col-md-4\">\r\n        <button  class=\"btn btn-lg btn-primary btn-block\" (click)=\"div_hide()\"> SUBMIT <span class=\"glyphicon glyphicon-send\"></span></button></div>\r\n      </div>\r\n\r\n      <div class=\"form-group\">\r\n        <label class=\"col-md-4 control-label\"></label>\r\n        <div class=\"col-md-4\">\r\n          <button class=\"btn btn-lg btn-danger btn-block\" (click)=\"div_hide()\">close</button>\r\n        </div>\r\n      </div>\r\n      \r\n    </fieldset>\r\n\r\n  </form>\r\n  \r\n</div> <!-- **********************end div popup***************** -->\r\n\r\n<style type=\"text/css\">\r\n  #abc {\r\n    width:100%;\r\n    height:100%;\r\n    opacity:.95;\r\n    top:0;\r\n    left:0;\r\n    display:none;\r\n    position:fixed;\r\n    background-color:#313131;\r\n    overflow:auto\r\n  }\r\n</style>\r\n\r\n"
 
 /***/ }),
 
@@ -1590,98 +1699,6 @@ module.exports = __webpack_require__.p + "background.e1115afea56dcaf0c273.png";
 
 module.exports = __webpack_require__(364);
 
-
-/***/ }),
-
-/***/ 66:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(97);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var AuthService = (function () {
-    function AuthService(http) {
-        this.http = http;
-    }
-    AuthService.prototype.registerUser = function (user) {
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]();
-        headers.append('Content-Type', 'application/json');
-        return this.http.post('api/user/signup', user, { headers: headers })
-            .map(function (res) { return res.json(); });
-    };
-    AuthService.prototype.registerCompany = function (company) {
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]();
-        headers.append('Content-Type', 'application/json');
-        return this.http.post('api/company', company, { headers: headers })
-            .map(function (res) { return res.json(); });
-    };
-    AuthService.prototype.signin = function (user) {
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]();
-        headers.append('Content-Type', 'application/json');
-        return this.http.post('api/user/signin', user, { headers: headers })
-            .map(function (res) { return res.json(); });
-    };
-    // authenticateUser(user){
-    //   let headers = new Headers();
-    //   headers.append('Content-Type','application/json');
-    //   return this.http.post('http://localhost:3000/users/authenticate', user,{headers: headers})
-    //     .map(res => res.json());
-    // }
-    AuthService.prototype.storeUserData = function (token, id, name) {
-        localStorage.setItem('id_token', token);
-        localStorage.setItem('user-id', id);
-        localStorage.setItem('user-name', name);
-        this.authToken = token;
-    };
-    AuthService.prototype.loadToken = function () {
-        var token = localStorage.getItem('id_token');
-        this.authToken = token;
-    };
-    AuthService.prototype.loadAdmindata = function () {
-        var x = localStorage.getItem('user-id');
-        var y = localStorage.getItem('user-name');
-        this.AdminId = x;
-        this.Adminname = y;
-        return { AdminId: this.AdminId, Adminname: this.Adminname };
-    };
-    AuthService.prototype.loggedIn = function () {
-        // return tokenNotExpired();
-        if (localStorage.getItem('id_token').length) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    };
-    AuthService.prototype.logout = function () {
-        console.log("signing out");
-        this.authToken = null;
-        this.user = null;
-        localStorage.clear();
-    };
-    AuthService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */]) === 'function' && _a) || Object])
-    ], AuthService);
-    return AuthService;
-    var _a;
-}());
-//# sourceMappingURL=auth.service.js.map
 
 /***/ })
 

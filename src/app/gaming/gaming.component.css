@@ -1,0 +1,20 @@
+button {
+	margin-left : 160px; 
+	background-color: black; 
+}
+
+
+.img{ 
+  background: url(https://www.walldevil.com/wallpapers/a71/mouse-mickey-desktop-cartoon-wallpaper-wallpapers-disney-minnie-danald-daisy-goofy-blue-dark-backgound-image.jpg) no-repeat center center; 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  min-width: 100%;
+  min-height: 100%;
+
+}
+
+img{
+	width : 250px;
+	height: 250px;
+}

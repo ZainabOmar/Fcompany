@@ -1,0 +1,31 @@
+<div class='img'>
+<br>
+<div id="aya">
+ <div class="row">
+  <div class="col-sm-4 col-md-3">
+    <div class="thumbnail">
+      <img src="http://www.drawingcoach.com/image-files/xhow_to_draw_blood_st5.gif.pagespeed.ic.zZaR0_FpPO.png">
+      <div class="caption">
+        <h3>ColliderD3</h3>
+       <button type="button" class="btn btn-info" (click)="div_hide()" (click)="show = !show"> Play <span class="glyphicon glyphicon-play-circle"></span></button>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4 col-md-3">
+    <div class="thumbnail">
+      <img src="https://lh4.ggpht.com/bfp-gUDal6YKuVIkmA7iNR_-Tf4yaTXOyKaK8r1C2whC9APYiRcvmlM3ub9TxLBMw3KT=w300">
+      <div class="caption">
+        <h3>8-Ball-Pool</h3>
+       <button type="button" class="btn btn-info" (click)="div_hide()" (click)="show = !show"> Play <span class="glyphicon glyphicon-play-circle"></span></button>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
+
+<embed width="100%" height="600px" src="http://latentflip.com/LearningD3/collider/" *ngIf="show">
+
+ <embed width="100%" height="600px" src="https://www.miniclip.com/games/8-ball-pool-multiplayer/en/" *ngIf="game">
+
+<button type="button" id="back" class="btn btn-info" (click)="div_show()" (click)="show = !show"><span class="glyphicon glyphicon-arrow-left"></span> Back To Menu </button>
+</div>

@@ -11,8 +11,8 @@ var TaskController = require('./Task/taskController.js');
 var FoodController = require('./food/foodController.js');
 
 ///////////////////////////////////////////
-let http = require('http').Server(app);
-var ioo = require('socket.io').listen(http);
+var httpp = require('http');
+var ioo = require('socket.io').listen(httpp);
 
 
 //middleware
@@ -20,6 +20,7 @@ app.use(express.static(__dirname + '/../dist'));
 app.use(bodyParser.json());
 
 /////ccccccccccccccc
+let http = require('http').Server(app);
 let io = require('socket.io')(http);
 io.on('connection', (socket) => {
   console.log('The user is connected');

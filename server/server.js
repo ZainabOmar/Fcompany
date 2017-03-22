@@ -69,8 +69,8 @@ app.delete('/api/food/delete',FoodController.handlefood.delete);
 // console.log('Running on port 8000...');
 
 //////cccccc 
-http.listen(process.env.PORT || 5000, () => {
-  console.log('started on port 5000');
+http.listen(process.env.PORT || 8000, () => {
+  console.log('started on port 8000');
 });
 
 module.exports = app;

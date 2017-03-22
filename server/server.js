@@ -32,7 +32,7 @@ io.on('connection', (socket) => {
 
 
 // Connect to Mongoose
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/company');
+mongoose.connect('mongodb://heroku_6jhxhw20:dm48bak2nni1b3p0unpum44rvv@ds137370.mlab.com:37370/heroku_6jhxhw20');
 var db = mongoose.connection;
 
 

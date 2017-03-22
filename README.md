@@ -3,27 +3,35 @@
 > Our website saves time and effort for companies, it helps company members to interact effectively with each other.
 With our website, companies will be able to add schedule, set meetings, add tasks and many other helpers in our website will aid in companies functionality.
 
+## Table of Contents
+
+1. Team.
+2. Installation.
+3. Usage.
+4.Dependencies.
+
 ## Team
 
 - __Product Owner__: Maher Ghanom
 - __Scrum Master__: Ahmad Almaradni
 - __Development Team Members__: Zainab Hammami, Ayaa Hassan.
 
- 
+
 ## Installation:  
+
 1- First, Go to our organization "Om-Ta7seen" and fork the repo.
 
 2- Now from your account, clone the repo into your local PC.
 
 3-When ever you have made any modification, don't forget to:
 -git add .
--git commit -m ""
--git push origin master
-and finally make pull request.
+-git push origi
+-git commit -m "" be well organized about commiting your code, and avoiding conflicts by assigning tasks between group members.
+
 
 4-You have to be well organized about commiting your code, and avoiding conflicts by assigning tasks between group members.
 
-Usage:
+## Usage:
 
 -When you visit the website you should be able to see something like this:
 <br><br>
@@ -31,7 +39,7 @@ Usage:
 <img src="src/assets/img/main-page.png">
 <br><br></center>
 
--You will notic the 'About Us' icon, it take to the page where it will show a small introduction about us 'as developers'.
+-You will notice the 'About Us' icon, it take to the page where it will show a small introduction about us 'as developers'.
 <br><br>
 <center>
 <img src="src/assets/img/about-us.png">
@@ -43,7 +51,7 @@ Usage:
 <img src="src/assets/img/sign.png">
 <br><br></center>
 
--Now you have the account, you should be able to see the your company main page and start interact with collegues.
+-Now you have the account, you should be able to see your company main page and start interact with collegues.
 <br><br>
 <center>
 <img src="src/assets/img/company-page.png">
@@ -84,3 +92,9 @@ and vote for it:
 <center>
 <img src="src/assets/img/gaming.png">
 <br><br></center>
+
+
+## Dependencies:
+1. Node.Js and express for the back-end
+2. MongoDB for data-base.
+3. Angular2, Bootstrap for front-end.

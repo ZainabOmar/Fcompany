@@ -102,7 +102,7 @@ and vote for it:
 -Also, in our website you can storm your brain ,bring new ideas and for sure sharing it with your company.
 <br><br>
 <center>
-<img src="src/assets/img/prainstorm.png">
+<img src="src/assets/img/brainstorm.png">
 <br><br></center>
 
 

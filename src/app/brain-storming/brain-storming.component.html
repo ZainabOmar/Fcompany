@@ -1,0 +1,77 @@
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand">Company Manager <i class="fa fa-ravelry" aria-hidden="true"></i></a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li class="active"><a routerLink= "/company">Home <span class="glyphicon glyphicon-home"></span></a></li>
+			<li><a (click) ="logout()">Log Out <span class="glyphicon glyphicon-lock"></span></a></li>
+		</ul>
+	</div>
+</nav>
+<div class="container">
+	<form (click)="sendIdea()">
+		<h1>Got New Idea?!</h1>
+		<fieldset>
+			<label for="title"><h4>Idea:</h4></label>
+			<input type="text" [(ngModel)]="title"  id="title" name="title" >
+			<label for="idea"><h4>Description:</h4></label>
+			<input type="text" [(ngModel)]="idea" id="idea" name="idea" >
+		</fieldset>
+		<button type="submit" value="Submit" >Send Your Magic</button>
+	</form>
+	<div class="row">
+		<div class="col-lg-12">
+			<ul class="timeline">
+				<li>
+					<div class="timeline-image">
+						<img class="img-circle img-responsive" src="../../assets/img/idea1.jpg">
+					</div>
+					<div class="timeline-panel">
+						<div class="timeline-heading">
+							<h4 class="subheading">Development Tools</h4>
+						</div>
+						<div class="timeline-body">
+							<p class="text-muted">
+								we need more technology in our company it is important that the world work in fast ways so we need more computers and applications to help us in this.
+							</p>
+						</div>
+					</div>
+					<div class="line"></div>
+				</li>
+				<li>
+					<div class="timeline-image">
+						<img class="img-circle img-responsive" src="../../assets/img/idea2.jpg">
+					</div>
+					<div class="timeline-panel">
+						<div class="timeline-heading">
+							<h4 class="subheading">Creative solution</h4>
+						</div>
+						<div class="timeline-body">
+							<p class="text-muted">
+								We can have a manager that plan the tasks and explain it to us, it will save time and effort for us , and for sure he should be proffesional.
+							</p>
+						</div>
+					</div>
+					<div class="line"></div>
+				</li>
+				<li>
+					<div class="timeline-image">
+						<img class="img-circle img-responsive" src="../../assets/img/idea3.png">
+					</div>
+					<div class="timeline-panel">
+						<div class="timeline-heading">
+							<h4 class="subheading">Comany park</h4>
+						</div>
+						<div class="timeline-body">
+							<p class="text-muted">
+								This park even has a personality of its own, such as "cautious" or "aggressive," to fit driving conditions.
+							</p>
+						</div>
+					</div>
+					<div class="line"></div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

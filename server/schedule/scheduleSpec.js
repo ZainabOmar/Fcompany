@@ -3,7 +3,7 @@ const request = require('supertest')
 const expect = require('chai').expect
 
 describe('schedule', function () {
-  it('Add schedule', function (done) {
+  it('it should Add schedule', function (done) {
     request(app)
     .post('/api/schedule/add/')
     .send([{
@@ -25,7 +25,7 @@ describe('schedule', function () {
     done()
   })
 
-  it('Get schedule', function (done) {
+  it('it shoud Get schedule', function (done) {
     request(app)
     .get('/api/schedule/')
     .set('Accept', 'application/json')

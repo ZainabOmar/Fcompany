@@ -3,7 +3,7 @@ const request = require('supertest')
 const expect = require('chai').expect
 
 describe('signin', function () {
-  it('Should sign in', function (done) {
+  it('it should sign in', function (done) {
     request(app)
     .post('/api/user/signin/')
     .send({
@@ -24,7 +24,7 @@ describe('signin', function () {
 });
 
 describe('signup', function() {
-  it('Should sign up as admin', function (done) {
+  it('it should sign up as admin', function (done) {
     request(app)
     .post('/api/user/signup/')
     .send({

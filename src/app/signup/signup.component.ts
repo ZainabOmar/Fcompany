@@ -42,19 +42,15 @@ export class SignupComponent implements OnInit {
     this.jobrole = this.jobroles[0]
   }
   onChange(newValue) {
-    console.log(newValue);
     this.jobrole =  newValue;
 
-    // ... do other stuff here ...
   }
 
 
   compflag() {
-    console.log("in comp flag")
     this.comflag = !this.comflag;
     this.but2flag = !this.but2flag;
 
-    console.log(this.comflag)
   }
   empflag() {
     this.emflag = !this.emflag;
@@ -63,7 +59,6 @@ export class SignupComponent implements OnInit {
   }
 
   onRegisterUser(){
-    console.log(this.jobrole)
     const user = {
       username: this.username,
       email: this.email,
@@ -74,7 +69,6 @@ export class SignupComponent implements OnInit {
 
     }
     
-    console.log("echoooooooooooo",user)
     // Required Fields
     // if(!this.validateService.validateRegister(user)){
     //   this.flashMessage.show('Please fill in all fields', {cssClass: 'alert-danger', timeout: 9000});
@@ -90,13 +84,11 @@ export class SignupComponent implements OnInit {
     //Register user
     this.authService.registerUser(user).subscribe(data => {
 
-      console.log(data.success, data,"btatatatatata")
       if(data.token){
         this.flashMessage.show('You are now registered ', {cssClass: 'alert-success', timeout: 3000});
         this.authService.storeUserData(data.token,data._id,data.username)
         this.router.navigate(['/company']);
         } else {
-          console.log(data, "not working")
           this.flashMessage.show("User already exist!", {cssClass: 'alert-danger', timeout: 3000});
           this.router.navigate(['/signup']);
         }
@@ -105,7 +97,6 @@ export class SignupComponent implements OnInit {
   }
   
   onRegisterAdmin(){
-    console.log(this.jobrole)
     const user = {
       username: this.username,
       email: this.email,
@@ -114,7 +105,6 @@ export class SignupComponent implements OnInit {
       UserType:"Admin"
     }
     
-    console.log("echoooooooooooo",user)
     // Required Fields
     // if(!this.validateService.validateRegister(user)){
     //   this.flashMessage.show('Please fill in all fields', {cssClass: 'alert-danger', timeout: 9000});
@@ -130,13 +120,11 @@ export class SignupComponent implements OnInit {
     //Register user
     this.authService.registerUser(user).subscribe(data => {
 
-      console.log(data,"btatatatatata")
       if(data.token){
         this.flashMessage.show('You are now registered ', {cssClass: 'alert-success', timeout: 3000});
         this.authService.storeUserData(data.token,data.AdminId,data.username)
         this.router.navigate(['/creatcompany']);
         } else {
-          console.log(data, "not working")
           this.flashMessage.show("User already exist!", {cssClass: 'alert-danger', timeout: 3000});
           this.router.navigate(['/signup']);
         }

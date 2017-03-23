@@ -33,8 +33,7 @@ With our website, companies will be able to add schedule, set meetings, add task
 
 ## Usage:
 
--If you want to run the website on your local host you should build the application,
-since we are using angular2 and typescript the browser won't be able to read the files unless you translate it to him, that's why we use 'ng build':
+-Since we are using angular2 and typescript, we need to use 'ng build' and start running the website on the localhost:
 <br><br>
 <center>
 <img src="src/assets/img/ng.png">

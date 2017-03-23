@@ -33,6 +33,12 @@ With our website, companies will be able to add schedule, set meetings, add task
 
 ## Usage:
 
+-Since we are using angular2 and typescript, we need to use 'ng build' and start running the website on the localhost:
+<br><br>
+<center>
+<img src="src/assets/img/ng.png">
+<br><br></center>
+
 -When you visit the website you should be able to see something like this:
 <br><br>
 <center>

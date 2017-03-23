@@ -31,7 +31,7 @@ With our website, companies will be able to add schedule, set meetings, add task
 
 4-You have to be well organized about commiting your code, and avoiding conflicts by assigning tasks between group members.
 
-## Usage:
+## Usage: 
 
 -Since we are using angular2 and typescript, we need to use 'ng build' and start running the website on the localhost:
 <br><br>
@@ -39,7 +39,13 @@ With our website, companies will be able to add schedule, set meetings, add task
 <img src="src/assets/img/ng.png">
 <br><br></center>
 
--When you visit the website you should be able to see something like this:
+-Now run the command 'mongod':
+<br><br>
+<center>
+<img src="src/assets/img/mongod.png">
+<br><br></center>
+
+-Now you should run the server and you will be able to visit the website. You should be able to see something like this:
 <br><br>
 <center>
 <img src="src/assets/img/main-page.png">
@@ -93,12 +99,30 @@ and vote for it:
 <img src="src/assets/img/chatting.png">
 <br><br></center>
 
+-Also, in our website you can storm your brain ,bring new ideas and for sure sharing it with your company.
+<br><br>
+<center>
+<img src="src/assets/img/prainstorm.png">
+<br><br></center>
+
+
 -Finally, you can have some fun with games, and waste some of your free time here:
 <br><br>
 <center>
 <img src="src/assets/img/gaming.png">
 <br><br></center>
 
+-Let's not forget about testing our website code, for the back-end:
+<br><br>
+<center>
+<img src="src/assets/img/test-backend.png">
+<br><br></center>
+
+-And for front-end using karma:
+<br><br>
+<center>
+<img src="src/assets/img/fronend-test.png">
+<br><br></center>
 
 ## Dependencies:
 1. Node.Js and express for the back-end

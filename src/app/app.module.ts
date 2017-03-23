@@ -28,6 +28,7 @@ import {FoodService} from './services/food.service';
 import { GamingComponent } from './gaming/gaming.component';
 import {GamingService} from './services/gaming.service';
 import {ChatService} from './chat/chat.service';
+import { BrainStormingComponent } from './brain-storming/brain-storming.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import {ChatService} from './chat/chat.service';
     TaskComponent,
     FoodComponent,
     GamingComponent,
-    ChatComponent
+    ChatComponent,
+    BrainStormingComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +63,8 @@ import {ChatService} from './chat/chat.service';
   {path: 'gaming',   component: GamingComponent},
   {path: 'schedule',   component: ScheduleComponent},
   {path: 'food',   component: FoodComponent},
-  {path: 'chat',   component: ChatComponent}
+  {path: 'chat',   component: ChatComponent},
+  {path: 'brainStorming', component: BrainStormingComponent,canActivate:[AuthGuard]}
   ]),
     FlashMessagesModule
   ],

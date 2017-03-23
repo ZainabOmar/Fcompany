@@ -24,7 +24,6 @@ module.exports.handleTask = {
 
   // add task to data base
   addTask: function(req, res)  {
-    console.log(req.body)
      task = {
         taskName: req.body.newTodo,
         completed: false,
@@ -47,7 +46,6 @@ module.exports.handleTask = {
           res.status(500).send("company not found");
         }else{
           Task.create(task, function(err, newTask){
-            console.log(newTask)
             if(err){
              res.status(500).send("something went wrong1");
            }else{
@@ -74,7 +72,6 @@ module.exports.handleTask = {
          }else {
        var query = {'taskName': req.body.newTodo,'codeComp':user.code};
         Task.remove(query, function (err) {
-          console.log(err)
           if (err){
             res.json(err)
           } else{

@@ -56,12 +56,12 @@ import {ChatService} from './chat/chat.service';
   {path: 'creatcompany',   component: CreatcompanyComponent,canActivate:[AuthGuard]},
   {path: 'signin',component: SigninComponent},
   {path: 'aboutus',   component: AboutusComponent},
-  {path: 'company',   component: CompanyComponent},
+  {path: 'company',   component: CompanyComponent,canActivate:[AuthGuard]},
   {path: 'task',   component: TaskComponent,canActivate:[AuthGuard]},
-  {path: 'gaming',   component: GamingComponent},
-  {path: 'schedule',   component: ScheduleComponent},
-  {path: 'food',   component: FoodComponent},
-  {path: 'chat',   component: ChatComponent}
+  {path: 'gaming',   component: GamingComponent,canActivate:[AuthGuard]},
+  {path: 'schedule',   component: ScheduleComponent,canActivate:[AuthGuard]},
+  {path: 'food',   component: FoodComponent,canActivate:[AuthGuard]},
+  {path: 'chat',   component: ChatComponent,canActivate:[AuthGuard]}
   ]),
     FlashMessagesModule
   ],

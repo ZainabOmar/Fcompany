@@ -6,7 +6,7 @@ const cors = require('cors');
 
 var UsersController = require('./Users/userController.js');
 var CompanyController = require('./Company/companyController.js');
-var scheduleController = require('./schedule/scheduleController.js');
+var ScheduleController = require('./schedule/scheduleController.js');
 var TaskController = require('./Task/taskController.js');
 var FoodController = require('./food/foodController.js');
 
@@ -45,11 +45,11 @@ app.post('/api/company', CompanyController.handleCompany.addCompany);
 app.get('/api/companys', CompanyController.handleCompany.showAllCompanies);
 app.get('/api/company/:userId', CompanyController.handleCompany.getCompany);
 
-app.post('/api/schedule/add',scheduleController.handlesched.add);
-app.post('/api/schedule/meeting/add',scheduleController.handlesched.setmeeting);
-app.get('/api/schedule/:id',scheduleController.handlesched.get);
-app.get('/api/schedule/meeting/:id',scheduleController.handlesched.getusers);
-app.delete('/api/schedule/appoitment',scheduleController.handlesched.delete);
+app.post('/api/schedule/add',ScheduleController.handlesched.add);
+app.post('/api/schedule/meeting/add',ScheduleController.handlesched.setmeeting);
+app.get('/api/schedule/:id',ScheduleController.handlesched.get);
+app.get('/api/schedule/meeting/:id',ScheduleController.handlesched.getusers);
+app.delete('/api/schedule/appoitment',ScheduleController.handlesched.delete);
 
 app.post('/api/addTask', TaskController.handleTask.addTask);
 app.get('/api/getTask/:userId', TaskController.handleTask.getTaskSameCompany);
@@ -69,9 +69,6 @@ app.get('/api/gaming')
 app.listen(process.env.PORT || 3300);
 console.log('Running on port 3300...');
 
-//////cccccc 
-// http.listen(process.env.PORT || 8000, () => {
-//   console.log('started on port 8000');
-// });
+
 
 module.exports = app;

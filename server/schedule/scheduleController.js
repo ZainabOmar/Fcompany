@@ -3,7 +3,6 @@ var User = require('../Users/userModule.js');
 module.exports.handlesched = {
 
   get : function (req,res) {
-    console.log(req.params)
   var query = {'_id': req.params.id};
     User.findOne(query).exec(function(err,data){
       if(err){
@@ -15,7 +14,6 @@ module.exports.handlesched = {
   },
 
   add:function(req,res){
-    console.log("in add" , req.body)
     var appoitment= {
       date : req.body.date,
       starttime : req.body.starttime,
@@ -25,12 +23,7 @@ module.exports.handlesched = {
     };
   var query = {'_id': req.body.id};
   var doc = {$push: {appointments: appoitment}};
-  
- // User.findOneAndUpdate(query,doc, { "new": true})
- //       .exec()
- //       .then(data=>{
- //        res.json(data.appointments)
- //        })
+
        User.findOneAndUpdate(query,doc, { "new": true})
        .exec(function(err,data){
         if(err){
@@ -87,7 +80,7 @@ module.exports.handlesched = {
         if(err){
           res.json(err)
         }else {
-          res.json('done adding meeting')
+          //res.json('done adding meeting')
         }
        })
 
@@ -106,12 +99,9 @@ module.exports.handlesched = {
 
      User.findOneAndUpdate(query,doc,{ 'new': true },function(err,val){
       if (err){
-        console.log(err);
-            console.log(val);
+        res.json(err);
 
           }else{
-            console.log(val);
-
             res.json("deleted")
           }
                 

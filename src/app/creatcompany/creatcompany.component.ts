@@ -27,7 +27,6 @@ export class CreatcompanyComponent implements OnInit {
   ) { }
 
  ngOnInit() {
-   console.log(localStorage.getItem('user-id'))
  }
 
 
@@ -43,7 +42,6 @@ export class CreatcompanyComponent implements OnInit {
 
   }
 
-  console.log("echoooooooooooo",company)
     // Required Fields
     // if(!this.validateService.validateRegister(company)){
     //   this.flashMessage.show('Please fill in all fields', {cssClass: 'alert-danger', timeout: 9000});

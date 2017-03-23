@@ -21,11 +21,9 @@ export class CompanyComponent implements OnInit {
 
 	ngOnInit() {
 		const user = localStorage.getItem('user-id')
-		console.log(user)
 		this.obj = {};
 		this.companyService.getCompany(user).subscribe(data => {
 			this.obj = data;
-			console.log(this.obj)
 		})
 	}
 

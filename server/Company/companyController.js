@@ -3,15 +3,12 @@ var User = require('../Users/userModule.js')
 
 module.exports.handleCompany = {
 	getCompany: function(req, res)  {
-		console.log(req.params.userId,"btata")
 		User.findOne({_id:req.params.userId})
 		.exec(function(err, user) {
 			if(!user){
-				console.log(err)
 				res.status(500).send("user not found");
 			}else{
         var temp = user.code
-        console.log(temp)
         Company.findOne({code:temp})
         .exec(function(err, comp) {
           if(!comp){
@@ -37,7 +34,6 @@ module.exports.handleCompany = {
   // add company to data base
   addCompany : function(req, res)  {
   	var company = req.body;
-  	console.log(req.body)
   	User.findOne({_id: req.body.AdminId}).exec(function(err, user){
   		if(err){
   			res.status(500).send(err);

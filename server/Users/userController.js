@@ -2,7 +2,6 @@ var jwt = require('jwt-simple');
 var User = require('./userModule.js');
 var Q = require('q');
 var nodemailer = require('nodemailer')
-
 var Company = require('../Company/companyModule.js')
 
 GenerateCode = function () {
@@ -20,7 +19,6 @@ module.exports.handleUsers = {
   signin : function(req, res) {
     var username = req.body.username;
     var password = req.body.password;
-
     User.findOne({username: username})
     .then(function (user) {
       if (!user) {
@@ -41,9 +39,6 @@ module.exports.handleUsers = {
 
   // add user to data base
   signup: function(req, res) {
-    console.log("in sign up",req.body.code)
-    // console.log(this)
-    // if(req.body)
     if(req.body.UserType === "Admin"){
 
       var username = req.body.username;
@@ -103,8 +98,6 @@ module.exports.handleUsers = {
 
 
   } else if( req.body.UserType === "employee"){
-    console.log("in sign up",req.body.code)
-    
     var username = req.body.username;
     var password = req.body.password;
     var email = req.body.email;
@@ -136,8 +129,6 @@ module.exports.handleUsers = {
                 res.json(err);
               } else {
                 var token = jwt.encode(user, 'secret');
-                console.log(c)
-                // res.json({token : token ,UserId : newUser._id , username : username}); 
                 c.users.push(newUser._id)
                 c.save(function(err,c){
                   if(err) {throw err};
@@ -145,9 +136,8 @@ module.exports.handleUsers = {
                 })
               }   
             });
-              console.log("aaaaa")
             } else {
-              res.status(404).json("egleb wjhak");
+              res.status(404).json("wrong input");
             }
           }) 
         }

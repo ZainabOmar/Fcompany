@@ -30,7 +30,6 @@ export class FoodComponent implements OnInit {
     this.foodTime = this.foodTimes[0];
     this.foodservice.getFood(localStorage.getItem("user-id")).subscribe(data => {
       this.foods = data;
-      console.log(this.foods)
     })
   }
 
@@ -57,7 +56,6 @@ export class FoodComponent implements OnInit {
         this.flashMessage.show('task add well', {cssClass: 'alert-success', timeout: 3000});
         this.foodservice.getFood(localStorage.getItem("user-id")).subscribe(data => {
           this.foods = data;
-          console.log(this.foods)
         })
       } })
   }
@@ -68,13 +66,11 @@ export class FoodComponent implements OnInit {
       userId:localStorage.getItem("user-id")
     }
 
-    console.log(voteObj)
     this.foodservice.addvote(voteObj).subscribe(data =>{
       if(data){
         this.flashMessage.show('you vote m***F***', {cssClass: 'alert-success', timeout: 3000});
         this.foodservice.getFood(localStorage.getItem("user-id")).subscribe(data => {
           this.foods = data;
-          console.log(this.foods)
         })
       }})
   }

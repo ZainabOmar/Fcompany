@@ -6,8 +6,6 @@ module.exports.handlefood = {
   getfood: function(req, res)  {
     var query ={_id: req.params.userId}
     User.findOne(query).exec(function(err,user){
-      // console.log(err)
-      // console.log(user)
       if (!user) {
        res.status(500).send("user not found")
      }else {
@@ -24,8 +22,6 @@ module.exports.handlefood = {
    
 
   add:function(req,res){
-    // console.log("in add" , req.body)
-
     var food= {
       dishName : req.body.dishName,
       type : req.body.type,
@@ -44,7 +40,6 @@ module.exports.handlefood = {
             res.status(500).send("company not found");
           }else{
             Food.create(food, function(err, newfood){
-              // console.log(newfood)
               if(err){
                res.status(500).send("something went wrong1");
              }else{

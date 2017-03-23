@@ -15,7 +15,6 @@ export class TaskService {
   }
 
 	getTask(params){
-    console.log(params)
 		let headers = new Headers();
 		headers.append('Content-Type','application/json');
 		return this.http.get('/api/getTask/'+ params)

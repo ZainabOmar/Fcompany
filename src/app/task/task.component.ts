@@ -27,12 +27,10 @@ export class TaskComponent implements OnInit {
     ) {}
 
   ngOnInit() {
-    // this.todos = [];
     this.Assign = this.Assigns[0];
 
     this.taskservice.getTask(localStorage.getItem("user-id")).subscribe(data => {
       this.todos=data;
-      console.log(this.todos)
     })
   }
 

@@ -30,7 +30,6 @@ export class ScheduleComponent implements OnInit {
   ngOnInit() {
     this.scheduleservice.getSchedule(localStorage.getItem("user-id")).subscribe(data => {
       this.todos = data;
-      console.log(this.todos)
     })
   }
 
@@ -60,7 +59,6 @@ export class ScheduleComponent implements OnInit {
       endtime : this.endtime,
       id:localStorage.getItem("user-id")
     }
-    console.log(todoObj)
     this.todos.push(todoObj);
     this.scheduleservice.AddSchedule(todoObj).subscribe(data =>{
       if(data){

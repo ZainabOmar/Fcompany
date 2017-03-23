@@ -26,6 +26,8 @@
    new commit.
 1. Once the pull request has been reviewed, it will be merged by another member of the team. Do not merge your own commits.
 
+
+
 ## Detailed Workflow
 
 ### Fork the repo

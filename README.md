@@ -14,7 +14,7 @@ With our website, companies will be able to add schedule, set meetings, add task
 
 - __Product Owner__: Maher Ghanom
 - __Scrum Master__: Ahmad Almaradni
-- __Development Team Members__: Zainab Hammami, Ayaa Hassan.
+- __Development Team Members__: Zainab Hammami, Ayaa Hassan, Maher Ghanom, Ahmad Almaradni.
 
 
 ## Installation:  

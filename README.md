@@ -19,7 +19,7 @@ With our website, companies will be able to add schedule, set meetings, add task
 
 ## Installation:  
 
-1- First, Go to our organization "Om-Ta7seen" and fork the repo.
+1- First, Go to our organization "Brezzerk" and fork the repo.
 
 2- Now from your account, clone the repo into your local PC.
 

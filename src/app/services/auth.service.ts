@@ -15,7 +15,8 @@ export class AuthService {
   registerUser(user){
     let headers = new Headers();
     headers.append('Content-Type','application/json');
-    return this.http.post('api/user/signup', user,{headers: headers})
+    console.log(headers)
+    return this.http.post('api/user/signup', user, {headers: headers})
     .map(res => res.json());
   }
 
@@ -33,41 +34,41 @@ export class AuthService {
     .map(res => res.json());
   }
 
- 
 
 
-    storeUserData(token,id,name){
-      localStorage.setItem('id_token', token);
-      localStorage.setItem('user-id', id);
-      localStorage.setItem('user-name', name);
-      this.authToken = token;
+
+  storeUserData(token,id,name){
+    localStorage.setItem('id_token', token);
+    localStorage.setItem('user-id', id);
+    localStorage.setItem('user-name', name);
+    this.authToken = token;
+  }
+
+  loadToken(){
+    const token = localStorage.getItem('id_token');
+    this.authToken = token;
+  }
+
+  loadAdmindata(){
+    const x=localStorage.getItem('user-id');
+    const y=localStorage.getItem('user-name');
+    this.AdminId=x;
+    this.Adminname=y;
+    return {AdminId:this.AdminId,Adminname:this.Adminname}
+  }
+
+  loggedIn(){
+    if(localStorage.getItem('id_token').length){
+      return true
     }
-
-    loadToken(){
-      const token = localStorage.getItem('id_token');
-      this.authToken = token;
-    }
-
-    loadAdmindata(){
-      const x=localStorage.getItem('user-id');
-      const y=localStorage.getItem('user-name');
-      this.AdminId=x;
-      this.Adminname=y;
-      return {AdminId:this.AdminId,Adminname:this.Adminname}
-    }
-
-    loggedIn(){
-      if(localStorage.getItem('id_token').length){
-        return true
-      }
-      else{
-        return false
-      }
-    }
-
-    logout(){
-      this.authToken = null;
-      this.user = null;
-      localStorage.clear();
+    else{
+      return false
     }
   }
+
+  logout(){
+    this.authToken = null;
+    this.user = null;
+    localStorage.clear();
+  }
+}

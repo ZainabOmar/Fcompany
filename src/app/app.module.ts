@@ -34,44 +34,44 @@ import { BrainStormingComponent } from './brain-storming/brain-storming.componen
 @NgModule({
   declarations: [
   ScheduleComponent,
-    AppComponent,
-    MainPageComponent,
-    SigninComponent,
-    SignupComponent,
-    AboutusComponent,
-    CompanyComponent,
-    CreatcompanyComponent,
-    TaskComponent,
-    FoodComponent,
-    GamingComponent,
-    ChatComponent,
-    BrainStormingComponent
+  AppComponent,
+  MainPageComponent,
+  SigninComponent,
+  SignupComponent,
+  AboutusComponent,
+  CompanyComponent,
+  CreatcompanyComponent,
+  TaskComponent,
+  FoodComponent,
+  GamingComponent,
+  ChatComponent,
+  BrainStormingComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    RouterModule.forRoot([
-  {path: 'mainPage',   component: MainPageComponent},
-  {path: '',   component: MainPageComponent},
-  {path: 'signup',component: SignupComponent},
-  {path: 'creatcompany',   component: CreatcompanyComponent,canActivate:[AuthGuard]},
-  {path: 'signin',component: SigninComponent},
-  {path: 'aboutus',   component: AboutusComponent},
-  {path: 'company',   component: CompanyComponent,canActivate:[AuthGuard]},
-  {path: 'task',   component: TaskComponent,canActivate:[AuthGuard]},
-  {path: 'brainStorming', component: BrainStormingComponent,canActivate:[AuthGuard]},
-  {path: 'gaming',   component: GamingComponent,canActivate:[AuthGuard]},
-  {path: 'schedule',   component: ScheduleComponent,canActivate:[AuthGuard]},
-  {path: 'food',   component: FoodComponent,canActivate:[AuthGuard]},
-  {path: 'chat',   component: ChatComponent,canActivate:[AuthGuard]}
-  ]),
-    FlashMessagesModule
+  BrowserModule,
+  FormsModule,
+  HttpModule,
+  RouterModule.forRoot([
+    {path: 'mainPage',   component: MainPageComponent},
+    {path: '',   component: MainPageComponent},
+    {path: 'signup',component: SignupComponent},
+    {path: 'creatcompany',   component: CreatcompanyComponent,canActivate:[AuthGuard]},
+    {path: 'signin',component: SigninComponent},
+    {path: 'aboutus',   component: AboutusComponent},
+    {path: 'company',   component: CompanyComponent,canActivate:[AuthGuard]},
+    {path: 'task',   component: TaskComponent,canActivate:[AuthGuard]},
+    {path: 'brainStorming', component: BrainStormingComponent,canActivate:[AuthGuard]},
+    {path: 'gaming',   component: GamingComponent,canActivate:[AuthGuard]},
+    {path: 'schedule',   component: ScheduleComponent,canActivate:[AuthGuard]},
+    {path: 'food',   component: FoodComponent,canActivate:[AuthGuard]},
+    {path: 'chat',   component: ChatComponent,canActivate:[AuthGuard]}
+    ]),
+  FlashMessagesModule
   ],
   providers: [{provide:LocationStrategy,useClass:HashLocationStrategy},
   ValidateService,AuthService,AuthGuard,TaskService,CompanyService,ScheduleService,FoodService,ChatService,GamingService],
   bootstrap: [AppComponent]
-  })
+})
 
 
 

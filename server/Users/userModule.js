@@ -5,33 +5,33 @@ var SALT_WORK_FACTOR = 10;
 
 var userSchema = new mongoose.Schema({
 	username:{
-	 type:String,
-	 required:true	
-	},
-	password:{
-	  type:String,
-	  required:true
-	},
-	email:{
-	  type:String,
-	  required:true 
-	},
-	code:{
-	  type:String,
-	  required:true
-	},
-	job:{
-	  type:String
-	},
-  UserType:{
-    type:Boolean
+    type:String,
+    required:true	
+  },
+  password:{
+   type:String,
+   required:true
+ },
+ email:{
+   type:String,
+   required:true 
+ },
+ code:{
+   type:String,
+   required:true
+ },
+ job:{
+   type:String
+ },
+ UserType:{
+  type:Boolean
     //required:true
   },
   appointments :  [{
-     date:String,starttime:String,
-  endtime:String,title:String,
-  description:String
-  }] 
+   date:String,starttime:String,
+   endtime:String,title:String,
+   description:String
+ }] 
 });
 
 userSchema.methods.comparePasswords = function (candidatePassword) {

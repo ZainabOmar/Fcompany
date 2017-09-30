@@ -89,23 +89,17 @@ module.exports.handleUsers = {
                     console.log('Message sent: ' + info.response);
                   };
                 });
-
                 res.json({token : token ,AdminId : newUser._id , username : username}); 
               }     
             });
         }
       });
 
-
   } else if( req.body.UserType === "employee"){
     var username = req.body.username;
     var password = req.body.password;
     var email = req.body.email;
     var code = req.body.code;
-
-
- 
-
 
     // check to see if user already exists
     User.findOne({username: username})
@@ -142,11 +136,7 @@ module.exports.handleUsers = {
           }) 
         }
       });
-
   }
-
-
-
 },
 
   // get user in data base

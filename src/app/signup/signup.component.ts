@@ -85,6 +85,7 @@ export class SignupComponent implements OnInit {
     this.authService.registerUser(user).subscribe(data => {
 
       if(data.token){
+        console.log(data)
         this.flashMessage.show('You are now registered ', {cssClass: 'alert-success', timeout: 3000});
         this.authService.storeUserData(data.token,data._id,data.username)
         this.router.navigate(['/company']);
@@ -97,6 +98,7 @@ export class SignupComponent implements OnInit {
   }
   
   onRegisterAdmin(){
+    console.log('echo')
     const user = {
       username: this.username,
       email: this.email,
@@ -121,11 +123,11 @@ export class SignupComponent implements OnInit {
     this.authService.registerUser(user).subscribe(data => {
 
       if(data.token){
-        this.flashMessage.show('You are now registered ', {cssClass: 'alert-success', timeout: 3000});
+        this.flashMessage.show('You are now registered ', {cssClass: 'alert-success', timeout: 7000});
         this.authService.storeUserData(data.token,data.AdminId,data.username)
         this.router.navigate(['/creatcompany']);
         } else {
-          this.flashMessage.show("User already exist!", {cssClass: 'alert-danger', timeout: 3000});
+          this.flashMessage.show("User already exist!", {cssClass: 'alert-danger', timeout: 7000});
           this.router.navigate(['/signup']);
         }
         });

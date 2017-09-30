@@ -17,7 +17,7 @@ export class FoodComponent implements OnInit {
   foodTime : String;
   type: String;
 
-  foodTimes: string [] = ["diner", "lunche", "brachfast",];
+  foodTimes: string [] = ["Diner", "Lunch", "Breakfast",];
 
   constructor(
     private authService:AuthService,

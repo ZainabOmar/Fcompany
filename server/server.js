@@ -33,6 +33,7 @@ io.on('connection', (socket) => {
 
 // Connect to Mongoose
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/company');
+mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 
 
